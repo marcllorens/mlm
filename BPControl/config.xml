@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "BPControl"
+        version   = "1.0.0">
+
+    <name>BPControl</name>
+
+    <description>
+        Arterial presion control app
+    </description>
+
+    <author href="" email="">
+       mlm
+    </author>
+	
+	
+	<!--icones-->	
+	
+	<icon src="img/icons/bpc.png" gap:platform="android" width="97" height="97" />
+    <icon src="img/icons/bpc.png" gap:platform="ios" width="80" height="80" />
+	
+   
+    <!-- splash screen. -->
+	
+	 <gap:splash gap:density="ldpi" gap:platform="android" src="img/splash/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="img/splash/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="img/splash/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="img/splash/android/screen-xhdpi-portrait.png" />
+    
+    <gap:splash gap:platform="ios" height="480" src="img/splash/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="img/splash/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="img/splash/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="img/splash/ios/screen-ipad-landscape.png" width="1024" />
+
+    
+
+	<!--permisos-->
+	     
+    <preference name="permissions"                value="all"/>
+    <preference name="phonegap-version"           value="3.3.0" />         
+    <preference name="orientation"                value="default" />        
+    <preference name="target-device"              value="universal" />      
+    <preference name="fullscreen"                 value="true" />           
+    <preference name="prerendered-icon"           value="true" />          
+    <preference name="ios-statusbarstyle"         value="black-opaque" />   
+    <preference name="detect-data-types"          value="true" />           
+    <preference name="exit-on-suspend"            value="false" />          
+    <preference name="auto-hide-splash-screen"    value="true" />           
+    <preference name="disable-cursor"             value="false" />          
+    <preference name="android-minSdkVersion"      value="7" />             
+    <preference name="android-installLocation"    value="auto" />          
+	
+	
+    <!-- Core plugins -->
+	
+	<gap:plugin name="org.apache.cordova.battery-status" version="0.2.7" />
+    <gap:plugin name="org.apache.cordova.camera" version="0.2.9"  />
+    <gap:plugin name="org.apache.cordova.media-capture" version="0.2.8"/>
+    <gap:plugin name="org.apache.cordova.console" version="0.2.7" />
+    <gap:plugin name="org.apache.cordova.contacts" version="0.2.9" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
+    <gap:plugin name="org.apache.cordova.device-motion" version="0.2.6" />
+    <gap:plugin name="org.apache.cordova.device-orientation" version="0.3.5" />
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
+    <gap:plugin name="org.apache.cordova.file" version="1.0.1" />
+    <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.2" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
+    <gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+    <gap:plugin name="org.apache.cordova.media" version="0.2.8" />
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
+    <gap:plugin name="org.apache.cordova.vibration" version="0.3.7"/>
+	 <!--local notification plugins -->
+	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" />
+	<gap:plugin name="de.appplant.cordova.plugin.badge" version="0.5.3" />
+	
+
+    <access origin="*"/>
+
+</widget>

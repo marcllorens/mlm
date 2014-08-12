@@ -1,0 +1,540 @@
+//INICIALITZACIO
+
+document.addEventListener("deviceready", inici, false);
+
+function inici() { 
+	
+	
+	//SLIDESHOW
+	
+	$("#slideshow > div:gt(0)").hide();
+	setInterval(function() { 
+  		$('#slideshow > div:first')
+    	.fadeOut(1000)
+    	.next()
+    	.fadeIn(1000)
+    	.end()
+    	.appendTo('#slideshow');
+	},  3000);
+	
+
+	//eliminar 300ms wait
+	$(function() {
+	 	//new FastClick(document.body);
+ 	 	FastClick.attach(document.body);
+	});
+	
+	//obrim pantalla inical
+	setTimeout(function(){$.mobile.changePage("#start");}, 1000);
+	
+ 	//splash screen
+	setTimeout(function(){navigator.splashscreen.hide();}, 3500);
+
+}; //  /inici
+
+
+// ENTRADA AREA PRIVADA
+
+function private(){
+	
+	var ltoken = localStorage.getItem('token') || '<empty>'; 
+	
+   	if(ltoken=='<empty>' || null){
+		inicilang(); // establim idioma telèfon
+		alert(document.getElementById("desc_txt").innerHTML); //text descàrrec
+		setTimeout(function(){$.mobile.changePage("#telefon");}, 1000);
+	}else{
+		selMain();  // carreguem idioma
+		server_pacient(ltoken);  // carreguem dades pacient
+		server_imatge(ltoken);
+		server_graph(ltoken);  //carreguem dades gràfica	
+		server_graph2(ltoken);
+    	setTimeout(function(){$.mobile.changePage("#perfil");}, 2000);
+		}
+	}
+
+// COMPROVACIO TELEFON
+
+function tel(){
+	
+	var prefix = $(document.getElementById("prefix")).val();
+	var telefon = $(document.getElementById("tel")).val();
+	
+	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateMobile/"+ prefix ;//+ telefon;  
+	
+	$.getJSON(arxiuValidacio);
+	$.mobile.changePage("#sms1");
+
+}; //  /comprovacio telèfon
+
+
+
+// COMPROVACIÓ SMS
+
+function sms(){
+	
+	var prefix = $(document.getElementById("prefix")).val();
+	var telefon = $(document.getElementById("tel")).val();
+	var code= $(document.getElementById("smsin")).val();
+	
+	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateCode/" + prefix + telefon + "?code=" + code;
+	
+	$.getJSON(arxiuValidacio, function(server){
+		
+			var token = server.uuid;		//guardem identificació pacient
+			localStorage.setItem("token", token);
+			inici_server_pacient(token); 	// carreguem dades pacient
+			server_imatge(token);
+			server_graph(token);		//carreguem dades gràfica
+			server_graph2(token);
+			setTimeout(function(){$.mobile.changePage("#perfil");}, 3000);
+				
+	});
+	
+}; //  /comprovacio sms
+
+
+
+// FORMULARI 
+
+
+
+
+function sendV(){ //obrir pàgina de validació
+	
+	if(document.getElementById('notificacions').value ==0){alert(document.getElementById('popup1').innerHTML);}
+	else if((document.getElementById('pd1m').value == null || document.getElementById('pd1m').value == '') ||(document.getElementById('pd2m').value == null || document.getElementById('pd2m').value == '')||(document.getElementById('pd3m').value == null || document.getElementById('pd3m').value == '')||(document.getElementById('pd1t').value == null || document.getElementById('pd1t').value == '')||(document.getElementById('pd2t').value == null || document.getElementById('pd2t').value == '')||(document.getElementById('pd3t').value == null || document.getElementById('pd3t').value == '')){ alert(document.getElementById('popup').innerHTML); }
+	else{ 
+	
+	document.getElementById('pst1m').value=document.getElementById('ps1m').value;
+	document.getElementById('pdt1m').value=document.getElementById('pd1m').value;
+	document.getElementById('pt1m').value=document.getElementById('p1m').value;
+	document.getElementById('pst2m').value=document.getElementById('ps2m').value;
+	document.getElementById('pdt2m').value=document.getElementById('pd2m').value;
+	document.getElementById('pt2m').value=document.getElementById('p2m').value;
+	document.getElementById('pst3m').value=document.getElementById('ps3m').value;
+	document.getElementById('pdt3m').value=document.getElementById('pd3m').value;
+	document.getElementById('pt3m').value=document.getElementById('p3m').value;
+	
+	document.getElementById('pst1t').value=document.getElementById('ps1t').value;
+	document.getElementById('pdt1t').value=document.getElementById('pd1t').value;
+	document.getElementById('pt1t').value=document.getElementById('p1t').value;
+	document.getElementById('pst2t').value=document.getElementById('ps2t').value;
+	document.getElementById('pdt2t').value=document.getElementById('pd2t').value;
+	document.getElementById('pt2t').value=document.getElementById('p2t').value;
+	document.getElementById('pst3t').value=document.getElementById('ps3t').value;
+	document.getElementById('pdt3t').value=document.getElementById('pd3t').value;
+	document.getElementById('pt3t').value=document.getElementById('p3t').value;
+	$.mobile.changePage('#formVal');
+	
+	}
+	
+};  //  /obrir pag validació
+
+function my_alert(){
+if (confirm("segur que voleu esborrar tots els valors?")){
+cancelV();}
+};
+
+function cancelV(){ //esborrar valors del formulari
+	
+	$(document.getElementById('ps1m').value= null);
+	$(document.getElementById('pd1m').value= null);
+	$(document.getElementById('p1m').value= null);
+	$(document.getElementById('ps2m').value= null);
+	$(document.getElementById('pd2m').value= null);
+	$(document.getElementById('p2m').value= null);
+	$(document.getElementById('ps3m').value= null);
+	$(document.getElementById('pd3m').value= null);
+	$(document.getElementById('p3m').value= null);
+	
+	$(document.getElementById('ps1t').value= null);
+	$(document.getElementById('pd1t').value= null);
+	$(document.getElementById('p1t').value= null);
+	$(document.getElementById('ps2t').value= null);
+	$(document.getElementById('pd2t').value= null);
+	$(document.getElementById('p2t').value= null);
+	$(document.getElementById('ps3t').value= null);
+	$(document.getElementById('pd3t').value= null);
+	$(document.getElementById('p3t').value= null);
+	
+	
+};
+
+function save_form(){ //guardar valors del formulari
+
+	localStorage.setItem("ps1m",document.getElementById('ps1m').value);
+	localStorage.setItem("pd1m",document.getElementById('pd1m').value);
+	localStorage.setItem("p1m",document.getElementById('p1m').value);
+	localStorage.setItem("ps2m",document.getElementById('ps2m').value);
+	localStorage.setItem("pd2m",document.getElementById('pd2m').value);
+	localStorage.setItem("p2m",document.getElementById('p2m').value);
+	localStorage.setItem("ps3m",document.getElementById('ps3m').value);
+	localStorage.setItem("pd3m",document.getElementById('pd3m').value);
+	localStorage.setItem("p3m",document.getElementById('p3m').value);
+
+	localStorage.setItem("ps1t",document.getElementById('ps1t').value);
+	localStorage.setItem("pd1t",document.getElementById('pd1t').value);
+	localStorage.setItem("p1t",document.getElementById('p1t').value);
+	localStorage.setItem("ps2t",document.getElementById('ps2t').value);
+	localStorage.setItem("pd2t",document.getElementById('pd2t').value);
+	localStorage.setItem("p2t",document.getElementById('p2t').value);
+	localStorage.setItem("ps3t",document.getElementById('ps3t').value);
+	localStorage.setItem("pd3t",document.getElementById('pd3t').value);
+	localStorage.setItem("p3t",document.getElementById('p3t').value);
+	alert("les seves dades s'han guardat correctament");
+	
+};
+
+
+
+function load_form(){ //carergar valors del formulari
+
+	(document.getElementById('ps1m').value) = localStorage.getItem('ps1m') || '<empty>';
+	(document.getElementById('pd1m').value) = localStorage.getItem('pd1m') || '<empty>';
+	(document.getElementById('p1m').value) = localStorage.getItem('p1m') || '<empty>';
+	(document.getElementById('ps2m').value) = localStorage.getItem('ps2m') || '<empty>';
+	(document.getElementById('pd2m').value) = localStorage.getItem( 'pd2m') || '<empty>';
+	(document.getElementById('p2m').value) = localStorage.getItem( 'p2m') || '<empty>';
+	(document.getElementById('ps3m').value) = localStorage.getItem('ps3m') || '<empty>';
+	(document.getElementById('pd3m').value) = localStorage.getItem('pd3m') || '<empty>';
+	(document.getElementById('p3m').value) = localStorage.getItem( 'p3m') || '<empty>';
+
+	(document.getElementById('ps1t').value) = localStorage.getItem( 'ps1t') || '<empty>';
+	(document.getElementById('pd1t').value) = localStorage.getItem( 'pd1t') || '<empty>';
+	(document.getElementById('p1t').value) = localStorage.getItem( 'p1t') || '<empty>';
+	(document.getElementById('ps2t').value) = localStorage.getItem( 'ps2t') || '<empty>';
+	(document.getElementById('pd2t').value) = localStorage.getItem( 'pd2t') || '<empty>';
+	(document.getElementById('p2t').value) = localStorage.getItem( 'p2t') || '<empty>';
+	(document.getElementById('ps3t').value) = localStorage.getItem('ps3t') || '<empty>';
+	(document.getElementById('pd3t').value) = localStorage.getItem( 'pd3t') || '<empty>';
+	(document.getElementById('p3t').value) = localStorage.getItem( 'p3t') || '<empty>';
+	
+};
+
+
+// VALIDACIO 
+
+function ok(){
+	
+	var element = document.getElementById('valoracio');
+	if(document.getElementById('patientStatus').value=1){
+	$(document.getElementById('sem_rd')).show();
+	$(document.getElementById('sem_gr')).hide();
+	$(document.getElementById('sem_yw')).hide();
+	element.style.background='#F66';
+	element.innerHTML = document.getElementById('result_ko').innerHTML;
+	}else if(document.getElementById('patientStatus').value=0){
+	$(document.getElementById('sem_gr')).show();
+	$(document.getElementById('sem_rd')).hide();
+	$(document.getElementById('sem_yw')).hide();
+	element.style.background='#AFA';
+	element.innerHTML = document.getElementById('result_ok').innerHTML;
+	}else{$(document.getElementById('sem_yw')).show();
+	$(document.getElementById('sem_rd')).hide();
+	$(document.getElementById('sem_gr')).hide();
+	element.style.background='#FF9';
+	element.innerHTML = document.getElementById('result_idem').innerHTML;	
+	}
+	cancelV(); //esborra formulari
+	$.mobile.changePage('#resultat');
+	setTimeout(function(){alert(document.getElementById("resultats").innerHTML); }, 200);
+	//alert(document.getElementById("resultats").innerHTML); //pressions rebudes
+	window.plugin.notification.badge.clear(); //elimina badge notification en enviar
+};
+function no(){
+	$.mobile.changePage('#formulari');
+};
+
+function sel_sw(p){
+	document.getElementById('popup').value=p;
+	};
+
+
+// SPINNING WHEEL
+
+function openPresio() {
+	
+	off(); //deshabilitar textbox
+	
+	setTimeout(function(){
+		var sistolica = { };
+		var diastolica = { };
+		var pols = { };
+	
+		for( var i = 50; i < 250; i += 1 ) {
+			sistolica[i] = i;
+		}
+	
+		for( var i = 30; i < 130; i += 1 ) {
+			diastolica[i] = i;
+		}
+		
+		for( var i = 10; i < 200; i += 1 ) {
+			pols[i] = i;
+		}
+		SpinningWheel.addSlot(sistolica, 'center', 130); //pas
+		SpinningWheel.addSlot(diastolica, 'center', 80); //pad
+		SpinningWheel.addSlot(pols, 'center', 75); //pols
+	
+		SpinningWheel.setCancelAction(cancel);
+		SpinningWheel.setDoneAction(done);
+		
+		SpinningWheel.open();
+		
+	}, 1200);
+	
+}
+
+function done() {
+	var results = SpinningWheel.getSelectedValues();
+	var posu=document.getElementById('popup').value;
+	
+	switch (posu)
+		  {
+		 
+		  case 1: 
+		  	document.getElementById('ps1m').value = results.sist;
+			document.getElementById('pd1m').value = results.dist ;
+			document.getElementById('p1m').value = results.pols ;
+			break;
+		  case 2: 
+			document.getElementById('ps2m').value = results.sist.join(' ') ;
+			document.getElementById('pd2m').value = results.dist.join(' ') ;
+			document.getElementById('p2m').value = results.pols.join(' ') ;
+			break;
+		  case 3: 
+			document.getElementById('ps3m').value = results.sist.join(' ') ;
+			document.getElementById('pd3m').value = results.dist.join(' ') ;
+			document.getElementById('p3m').value = results.pols.join(' ') ;
+			break;
+		  case 4: 
+		  	document.getElementById('ps1t').value = results.sist.join(' ') ;
+			document.getElementById('pd1t').value = results.dist.join(' ') ;
+			document.getElementById('p1t').value = results.pols.join(' ') ;
+			break;
+		  case 5:
+		  	document.getElementById('ps2t').value = results.sist.join(' ') ;
+			document.getElementById('pd2t').value = results.dist.join(' ') ; 
+			document.getElementById('p2t').value = results.pols.join(' ') ; 
+			break;
+		  case 6: 
+		  	document.getElementById('ps3t').value = results.sist.join(' ') ;
+			document.getElementById('pd3t').value = results.dist.join(' ') ;
+			document.getElementById('p3t').value = results.pols.join(' ') ;
+			break;
+	}
+   on(); //habilitar textbox
+}
+
+function cancel() {
+	on(); //habilitar textbox
+	return false;
+}
+
+//habilitar textbox
+
+function on(){
+	document.getElementById('ps1m').disabled=false;
+	document.getElementById('pd1m').disabled=false;
+	document.getElementById('p1m').disabled=false;
+	document.getElementById('ps2m').disabled=false;
+	document.getElementById('pd2m').disabled=false;
+	document.getElementById('p2m').disabled=false;
+	document.getElementById('ps3m').disabled=false;
+	document.getElementById('pd3m').disabled=false;
+	document.getElementById('p3m').disabled=false;
+	document.getElementById('ps1t').disabled=false;
+	document.getElementById('pd1t').disabled=false;
+	document.getElementById('p1t').disabled=false;
+	document.getElementById('ps2t').disabled=false;
+	document.getElementById('pd2t').disabled=false;
+	document.getElementById('p2t').disabled=false;
+	document.getElementById('ps3t').disabled=false;
+	document.getElementById('pd3t').disabled=false;
+	document.getElementById('p3t').disabled=false;
+	//document.getElementById('lat_btn').disabled=false;
+	document.getElementById('btM').disabled=false;
+	document.getElementById('btT').disabled=false;
+	document.getElementById('btS').disabled=false;
+	
+	
+	};
+	
+//deshabilitar textbox
+
+function off(){
+	document.getElementById('ps1m').disabled=true;
+	document.getElementById('pd1m').disabled=true;
+	document.getElementById('p1m').disabled=true;
+	document.getElementById('ps2m').disabled=true;
+	document.getElementById('pd2m').disabled=true;
+	document.getElementById('p2m').disabled=true;
+	document.getElementById('ps3m').disabled=true;
+	document.getElementById('pd3m').disabled=true;
+	document.getElementById('p3m').disabled=true;
+	document.getElementById('ps1t').disabled=true;
+	document.getElementById('pd1t').disabled=true;
+	document.getElementById('p1t').disabled=true;
+	document.getElementById('ps2t').disabled=true;
+	document.getElementById('pd2t').disabled=true;
+	document.getElementById('p2t').disabled=true;
+	document.getElementById('ps3t').disabled=true;
+	document.getElementById('pd3t').disabled=true;
+	document.getElementById('p3t').disabled=true;
+	//document.getElementById('lat_btn').disabled=true;
+	document.getElementById('btM').disabled=true;
+	document.getElementById('btT').disabled=true;
+	document.getElementById('btS').disabled=true;
+	};
+
+//   /spining wheel
+
+window.addEventListener('load', function(){ setTimeout(function(){ window.scrollTo(0,0); }, 100); }, true);
+
+//tancar app
+
+function tanca(){
+	navigator.app.exitApp();
+	}
+	
+//esborrar locals
+
+function locals(){localStorage.clear();}
+
+//endarrera
+
+function goBack() {
+    window.history.back()
+}
+
+//ajuda navegacio
+
+function x1(){
+	document.getElementById('ajn_perfil_h').hidden=false;
+	document.getElementById('ajn_perfil').hidden=false;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x2(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=false;
+	document.getElementById('ajn_mesures').hidden=false;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x3(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=false;
+	document.getElementById('ajn_graf').hidden=false;
+	document.getElementById('ajn_help_h').hidden=true;
+	document.getElementById('ajn_help').hidden=true;
+	}
+	
+function x4(){
+	document.getElementById('ajn_perfil_h').hidden=true;
+	document.getElementById('ajn_perfil').hidden=true;
+	document.getElementById('ajn_mesures_h').hidden=true;
+	document.getElementById('ajn_mesures').hidden=true;
+	document.getElementById('ajn_graf_h').hidden=true;
+	document.getElementById('ajn_graf').hidden=true;
+	document.getElementById('ajn_help_h').hidden=false;
+	document.getElementById('ajn_help').hidden=false;
+	}
+	
+	
+// MENU LATERAL PERFIL
+	
+function panel_perfil(){
+	
+	if ( document.getElementById('panel_perfil').hidden==false){
+   		$("#panel_perfil").animate({right:"-200px"});
+		$("#perfil").animate({left:"0"});	
+		setTimeout(function(){document.getElementById('panel_perfil').hidden=true;}, 200);
+  	}else{  
+		document.getElementById('panel_perfil').hidden=false;
+  		$("#panel_perfil").animate({right:"0"});
+		$("#perfil").animate({left:"-200px"});	
+ 	}
+}
+
+// MENU LATERAL FORMULARI
+	
+function panel_form(){
+	
+	if ( document.getElementById('panel_form').hidden==false){
+   		$("#panel_form").animate({right:"-200px"});
+		$("#formulari").animate({left:"0"});	
+		setTimeout(function(){document.getElementById('panel_form').hidden=true;}, 200);
+  	}else{  
+		document.getElementById('panel_form').hidden=false;
+  		$("#panel_form").animate({right:"0"});
+		$("#formulari").animate({left:"-200px"});	
+ 	}
+}
+ 	
+	
+	
+// MENU LATERAL ESQUERRA
+	
+function panel(){
+	
+	if ( document.getElementById('panel').hidden==false){
+   		$("#panel").animate({left:"-200px"});
+		$.mobile.activePage.animate({left:"0"});	
+		setTimeout(function(){document.getElementById('panel').hidden=true;}, 200);
+  	}else{  
+		document.getElementById('panel').hidden=false;
+  		$("#panel").animate({left:"0"});
+		$.mobile.activePage.animate({left:"+200px"});	
+ 	}
+}
+ 	
+	
+function p1(){
+	panel();
+	$.mobile.changePage('#perfil');
+	}
+	
+function p2(){
+	panel();
+	$.mobile.changePage('#formulari');
+	}
+
+function p3(){
+	panel();
+	$.mobile.changePage('#ajuda');
+	}
+	
+function p4(){
+	panel();
+	$.mobile.changePage('#comentaris');
+	}
+	
+function p5(){
+	panel();
+	$.mobile.changePage('#grafiques');
+	}
+	
+	
+function p15(){
+	panel_perfil();
+	$.mobile.changePage('#start');
+	}
+	
+function p21(){
+	panel_form();
+	$.mobile.changePage('#ampa');
+	}
