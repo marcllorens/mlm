@@ -18,8 +18,9 @@ function server_send(){
 			document.getElementById('patientStatus').value =data.patientStatus;
 			document.getElementById('infoLink').value =data.infoLink;
 			document.getElementById("vid_resultats").src= 'http://www.youtube.com/embed/'+ data.infoLink;	
-			server_graph_res();
-			
+			var ltoken = localStorage.getItem('token');
+			server_graph_res(ltoken);
+			alert("abans natification");
 			navigator.notification.alert(
 				 'Hem rebut les seves pressions correctament',
 				 ok(),

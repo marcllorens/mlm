@@ -1,5 +1,16 @@
 /* CSS Document */
 
+
+.titol{
+	float:left; 
+	color:#A00; 
+	font-weight:bold; 
+	margin-left:10%;
+	text-align:center;
+	}
+
+
+
 /* INICI*/
 #fI{
     position:absolute;            
@@ -28,6 +39,30 @@
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .7) 
+				url('../img/loading/loading40.gif')
+                /*url('http://i.stack.imgur.com/FhHRx.gif') */
+                50% 50% 
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .modal {
+    display: block;
 }
 
 #zprive{
@@ -168,7 +203,7 @@
 /* GRAFIQUES */
 
 
-#datei, #ldatei{
+#datei, #datei_m, #datei_t{
 	font-size:15px;
 	color:#A00;
 	width:35%;
@@ -183,7 +218,7 @@
 	
 	
 	
-#datef, #ldatef{
+#datef, #datef_m, #datef_t{
 	font-size:15px;
 	color:#A00;
 	width:35%;
@@ -197,6 +232,8 @@
 	}	
 
 
+
+
 #grtxt{
 	
 	color:#A00;
@@ -208,19 +245,24 @@
 	}
 	
 
-#container, #container1{
+.container{
 	width:90%;
 	margin:0 5px;
 	}
-/*#grf_table, #grf_table1{
-	font-size:18px;
+	
+#container_res{
+	margin-top:15px;
+	}
+	
+.graf_table{
 	width:90%;
-	margin-left:5%;
-	margin-top:30px}*/
+	margin:0 5px;
+	margin-top:30px;
+	}
 	
 /*FORMULARI*/
 
-#txt_form{
+#txt_form, #txt_form1{
 	color:#A00;
 	margin-top:20px;
 	margin-bottom:10px;
@@ -234,6 +276,7 @@
 	}
 	
 #btM, #btT {
+	font-weight:bold;
 	margin-left:5%;
 	font-size:18px;
 	}
@@ -322,6 +365,39 @@
 	text-align:center;
 	}
 	
+	
+/*missatges*/
+
+#xat_usuari{
+	border: 2px #ddd solid;
+    border-radius: 10px;
+    padding: 10px;
+	background:#F66;
+	margin-top: 6px;
+	margin-left:20%;
+	margin-right:2px;
+	text-shadow:none;
+	}
+
+#xat_metge{
+	border: 2px #ddd solid;
+    border-radius: 10px;
+    padding: 10px;
+	background:#AFA;
+	margin-top: 6px;
+	margin-right:20%;
+	margin-left:2px;
+	text-shadow:none;
+	}
+
+#mis_text{
+	width:60%;
+	line-height:20px;
+	height: 32px;
+	min-with:55px;
+	margin:12px;
+	float:left;
+	}
 
 /*resultats*/
 
@@ -373,7 +449,7 @@
 table {
       border-collapse: collapse;
 	  width:90%;
-	  padding-right:15px;
+	 /*padding-right:15px;*/
     }
 th, td {
       padding: 5px 10px;
@@ -442,7 +518,7 @@ th {
 
 	
 	
-#panel, #panel_perfil, #panel_form	{
+#panel, #panel_perfil, #panel_form, #panel_graph	{
 	top:-1px;
 	margin:0px;
 	height: 100%;
@@ -550,7 +626,7 @@ th {
 	background-position:5% 50%;
 	}
 	
-#cmenu{
+#cmenu, #cmenu_nom{
 	padding-left: 10px;
 	text-align:left;
 	width:200px;

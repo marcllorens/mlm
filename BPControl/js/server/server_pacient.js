@@ -2,7 +2,11 @@ function inici_server_pacient(token){
 	
 $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, function(perfil){
     
-	document.getElementById('nom').innerHTML =  perfil.patient.name;
+	
+	server_centres(perfil.patient.organization.id);
+
+	document.getElementById('nom').innerHTML = perfil.patient.name;
+	document.getElementById('cmenu_nom').innerHTML = 'Benvingut ' +  perfil.patient.name;
 	document.getElementById('cognom').innerHTML = perfil.patient.firstSurname ;
 	var birth= (perfil.patient.birthDate).split('T');
     var data = birth[0].split('-');
@@ -25,7 +29,10 @@ function server_pacient(token){
 
 $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, function(perfil){
     
+	server_centres(perfil.patient.organization.id);
+
 	document.getElementById('nom').innerHTML =  perfil.patient.name;
+	document.getElementById('cmenu_nom').innerHTML = 'Benvingut ' +  perfil.patient.name;
 	document.getElementById('cognom').innerHTML = perfil.patient.firstSurname ;
 	var birth= (perfil.patient.birthDate).split('T');
     var data = birth[0].split('-');
@@ -38,6 +45,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, fun
 	document.getElementById('notificacions').innerHTML =perfil.patient.statusQuestionSendType;
 	document.getElementById('pas').innerHTML =perfil.sbp;
 	document.getElementById('pad').innerHTML =perfil.dbp;
+	
 });
 
 }

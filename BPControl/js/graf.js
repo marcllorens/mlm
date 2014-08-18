@@ -1,6 +1,6 @@
 function grph(){
    
-	
+		
        /* $('#container1').highcharts({
             chart: {
                 type: 'spline',
@@ -95,23 +95,31 @@ function grph(){
    
 		*/
 
-	
+}
 	// GRAFICA MATI
 	
-	 $('#container').highcharts({
+function grph_mati(){
+
+	 $('#container_m').highcharts({
 		
         chart: {
-			zoomType: 'x'
+			type: 'spline'
         },
 		
 		data: {
-            table: document.getElementById('grf_table2')
+            table: document.getElementById('grf_table_m')
         },
 		
 		exporting: {enabled: false},
        title: {
             text: ''
         },
+		  xAxis: {
+                        labels:
+                        {
+                            enabled: false
+                        }
+                    },
         yAxis: {
 			 
 			plotLines: [{ 
@@ -146,8 +154,8 @@ function grph(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 64,
-            y: -10,
+            x: 74,
+            y: -20,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -162,23 +170,32 @@ function grph(){
     });
 	
 	
+}
 	
 	//GRAFICA TARDA
 	
-	$('#container3').highcharts({
+function grph_tarda(){
+	
+	$('#container_t').highcharts({
 		
         chart: {
-			zoomType: 'x'
+			type: 'spline'
         },
 		
 		data: {
-            table: document.getElementById('grf_table2')
+            table: document.getElementById('grf_table_t')
         },
 		
 		exporting: {enabled: false},
        title: {
             text: ''
         },
+		 xAxis: {
+                        labels:
+                        {
+                            enabled: false
+                        }
+                    },
         yAxis: {
 			 
 			plotLines: [{ 
@@ -213,8 +230,8 @@ function grph(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 64,
-            y: -10,
+            x: 74,
+            y: -20,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -228,31 +245,33 @@ function grph(){
         }
     });
 
-
+}
 
 //GRAFICA GLOBAL
 
+function grph_all(){
 
-  $('#container2').highcharts('StockChart', {
-
-            chart: {
-                type: 'arearange'
-            },
-
-            rangeSelector: {
-                allButtonsEnabled: true,
-                inputEnabled: $('#container2').width() > 480,
-                selected: 2
-            },
-
-            data: {
-            table: document.getElementById('grf_table2')
+	 $('#container_all').highcharts({
+		
+        chart: {
+			type: 'spline'
+        },
+		
+		data: {
+            table: document.getElementById('grf_table_all')
         },
 		
 		exporting: {enabled: false},
        title: {
             text: ''
         },
+		 xAxis: {
+                        labels:
+                        {
+                            enabled: false
+                        }
+                    },
+		
         yAxis: {
 			 
 			plotLines: [{ 
@@ -265,6 +284,87 @@ function grph(){
 					}
             },{
 					value :document.getElementById('pas').innerHTML,
+					color : 'red',
+					dashStyle : 'shortdash',
+					width : 2,
+					label : {
+						text : 'PAS'
+					}
+				}],
+            allowDecimals: false,
+            title: {
+                text: null//document.getElementById('graf_pa').innerHTML
+            }
+        },
+		credits: {
+            enabled: false
+        },
+		 legend: {
+            align: 'left',
+		    layout: 'vertical',
+            backgroundColor: '#FFFFFF',
+			borderRadius: 5,
+            borderWidth: 1,
+            verticalAlign: 'top',
+            x: 74,
+            y: -20,
+            floating: true,
+			 labelFormatter: function() {
+                return this.name;
+            }
+        },
+		tooltip: {
+	
+            formatter: function() {
+               return '<b>'+ this.series.name +'</b><br/>'+ this.point.y +' '+ this.point.name.toLowerCase();
+			}
+		}
+    });
+
+
+
+
+}
+
+
+
+// GRAFICA RESULTATS
+
+
+function grph_res(){
+
+ $('#container_res').highcharts({
+		
+        chart: {
+			type: 'spline'
+        },
+		
+		data: {
+            table: document.getElementById('grf_resultats')
+        },
+		
+		exporting: {enabled: false},
+       title: {
+            text: ''
+        },
+		 xAxis: {
+                        labels:
+                        {
+                            enabled: false
+                        }
+                    },
+        yAxis: {
+			 
+			plotLines: [{ 
+                color: 'red',
+                width: 2,
+                value:80,//document.getElementById('pad').innerHTML,
+                dashStyle: 'ShortDash',
+				label : {
+						text : 'PAD'
+					}
+            },{
+					value :130,//document.getElementById('pas').innerHTML,
 					color : 'red',
 					dashStyle : 'shortdash',
 					width : 2,
@@ -301,69 +401,6 @@ function grph(){
             }
         }
     });
-
-
-/* $('#container2').highcharts({
-		
-        chart: {
-			zoomType: 'x'
-        },
-		
-		data: {
-            table: document.getElementById('grf_table2')
-        },
-		
-		exporting: {enabled: false},
-       title: {
-            text: ''
-        },
-        yAxis: {
-			 
-			plotLines: [{ 
-                color: 'red',
-                width: 2,
-                value:document.getElementById('pad').innerHTML,
-                dashStyle: 'ShortDash',
-				label : {
-						text : 'PAD'
-					}
-            },{
-					value :document.getElementById('pas').innerHTML,
-					color : 'red',
-					dashStyle : 'shortdash',
-					width : 2,
-					label : {
-						text : 'PAS'
-					}
-				}],
-            allowDecimals: false,
-            title: {
-                text: null//document.getElementById('graf_pa').innerHTML
-            }
-        },
-		credits: {
-            enabled: false
-        },
-		 legend: {
-            align: 'left',
-		    layout: 'vertical',
-            backgroundColor: '#FFFFFF',
-			borderRadius: 5,
-            borderWidth: 1,
-            verticalAlign: 'top',
-            x: 64,
-            y: -10,
-            floating: true,
-			 labelFormatter: function() {
-                return this.name;
-            }
-        },
-		tooltip: {
-            formatter: function() {
-                return '<b>'+ this.series.name +'</b><br/>'+
-                    this.point.y +' '+ this.point.name.toLowerCase();
-            }
-        }
-    });*/
 	
 }
+

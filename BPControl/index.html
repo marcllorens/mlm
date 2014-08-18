@@ -22,6 +22,7 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
 <script type="text/javascript" src="jquery.highchartTable.js" ></script>
 
 <!----------WEB SERVICE DATA-------->
@@ -30,6 +31,10 @@
 <script type="text/javascript" language="JavaScript" src="js/server/server_graph.js"></script>
 <script type="text/javascript" language="JavaScript" src="js/server/server_send.js"></script>
 <script type="text/javascript" language="JavaScript" src="js/server/server_imatge.js"></script>
+<script type="text/javascript" language="JavaScript" src="js/server/server_send_mis.js"></script>
+<script type="text/javascript" language="JavaScript" src="js/server/server_missatges.js"></script>
+<script type="text/javascript" language="JavaScript" src="js/server/server_centres.js"></script>
+
 
 <!----------NOTIFICACIONS-------->
 
@@ -58,10 +63,6 @@
 <script type="text/javascript" language="JavaScript" src="plugins/jquery-mobile-iscrollview.js"></script>
 
 
-<!-------------CAMARA--------------->
-
-<script type="text/javascript" language="JavaScript" src="camera/camera.js"></script>
-
 <!-------------FAST CLICK---------------->
 
 <script type="text/javascript" language="JavaScript" src="plugins/fastclick.js"></script>
@@ -80,6 +81,11 @@
 #mf .ui-icon { background: url(img/botons/chart_line_icon&32.png) 50% 50% no-repeat; background-size: 25px 25px; }
 #mg .ui-icon { background: url(img/botons/chart_line_icon&32.png) 50% 50% no-repeat; background-size: 32px 32px; }
 #ma .ui-icon { background: url(img/botons/list_bullets_icon&32.png) 50% 50% no-repeat; background-size: 25px 25px; }
+
+#mp1 .ui-icon { background: url(img/botons/chart_line_icon&32.png) 70% 70% no-repeat; background-size: 25px 25px; }	
+#mf1 .ui-icon { background: url(img/botons/chart_line_icon&32.png) 70% 70% no-repeat; background-size: 25px 25px; }
+#mg1 .ui-icon { background: url(img/botons/chart_line_icon&32.png) 70% 70% no-repeat; background-size: 32px 32px; }
+
 </style>  <!--/css menu inferior-->
 
 </head>
@@ -93,26 +99,33 @@
    		<img id="bpc"  src='img/imatges/bpl.png'>   
     </div>
     <div id="zprive" onClick="private()">
-  	<h5>Entrar en zona privada</h5>
+  	<h5 id="zp_txt">Entrar en zona privada</h5>
     </div>
+    	
     <div id="slideshow">
-   		<div>
-     		<img src='img/icons/bpcontrol.png' style="width:130px;height:130px; border:hidden">
-   		</div>
-   		<div>
-     		<img src='img/imatges/cor_blue.png' style="width:130px;height:130px; border:hidden">
-   		</div>
-   		<div>
-    		<img src='img/imatges/heart_beat.png' style="width:130px;height:130px; border:hidden">
-   		</div>
+    	
+        <div >
+            <img src='img/icons/bpcontrol.png' style="width:130px;height:130px; border:hidden">
+        </div>
+        <div>
+            <img src='img/imatges/bpl.png' style="width:130px;height:50px; border:hidden">
+        </div>
+        <div>
+            <img src='img/imatges/heart_beat.png' style="width:130px;height:130px; border:hidden">
+        </div>
+       
     </div>
     
-    <div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot" data-theme="d">
+    
+    
+    
+    
+    <div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot1" data-theme="d">
      	<div data-role="navbar" class="nav_bar" data-grid="b" >
 			<ul> 
-       			<li><a  id="mp" href="#centres_sanitaris" data-icon="custom" data-direction="reverse" >Centres sanitaris</a></li>
-            	<li><a  id="mf"  href="#demo" data-icon="custom" >Demo</a></li>
-				<li><a  id="mg" href="#contacte" data-icon="custom">Contacte</a></li>
+       			<li><a  id="mp1" href="#centres_sanitaris" data-icon="custom" data-direction="reverse" >Centres sanitaris</a></li>
+            	<li><a  id="mf1"  href="#demo" data-icon="custom" >Demo</a></li>
+				<li><a  id="mg1" href="#contacte" data-icon="custom">Contacte</a></li>
 			</ul> 
 		</div>
 	</div>
@@ -145,7 +158,7 @@
 <!--DEMO----------------------->
 
 <div data-role="page" id="demo">
-	<div data-role="header" data-theme="b" > 
+	<div data-role="header" data-theme="d" > 
 		<p align="center" id="header_demo">DEMO</p>
         <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
     </div>
@@ -160,13 +173,13 @@
 <!--CONTACTE---------------------->
 
 <div data-role="page" id="contacte">
-	<div data-role="header" data-theme="b" > 
+	<div data-role="header" data-theme="d" > 
 		<p align="center" id="header_contacte">CONTACTE</p>
         <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
     </div>
     <div data-role="content">
     
-		<h3>HESOFT GROOUP</h3>
+		<h3>HESOFT GROUP</h3>
 
     </div>
 </div>  <!--/contacte-->
@@ -176,7 +189,7 @@
 <!--TELEFON----------------------->
 
 <div data-role="page" id="telefon">
-	<div data-role="header" data-theme="b" > 
+	<div data-role="header" data-theme="d" > 
         <p id="aa" hidden="true" ></p> 
 		<p align="center" id="htel1">REGISTRE</p>
         <a  onClick="tel()" data-icon="arrow-r" style="margin-top:5px;" data-theme="c"  id="tele_btn" data-iconpos="right">OK</a>
@@ -204,7 +217,7 @@
 <!-- -SMS------------------->
     
 <div data-role="page" id="sms1">
-	<div data-role="header" data-theme="b" >
+	<div data-role="header" data-theme="d" >
      	<a href="#tel1" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
 		<p align="center" id="hsms">SMS</p>
        
@@ -232,7 +245,7 @@
     <div data-role="header" id="panel_header" > 		
         <p id="bph"></p>
 	</div>
-  		<button id="cmenu" >Benvingut</button>
+  		<button id="cmenu_nom" >...</button>
       	<button id="listv" onClick="p1()">Perfil</button>
        	<button id="listv" onClick="panel()">Sortir</button>
        	<button id="cmenu" >Presions Arterials</button>
@@ -243,6 +256,8 @@
         <button id="listv" onClick="">Evolució pacient</button>	  
     	<button id="cmenu">Missatges</button>       
         <button id="listv" onClick="p4()">Els meus missatges</button>
+        <button id="cmenu">Vídeos</button>       
+        <button id="listv" onClick="p31()">Vídeos associats </button>
    		<button id="cmenu">Ajuda</button> 
     	<button id="listv" onClick="p3()" >Centre sanitari</button>	
     	<button id="listv" onClick="">Contacte</button>	
@@ -263,7 +278,7 @@
     	<button id="cmenud">Ajuda</button> 
     	<button id="listvd"  onClick="p15()" >Start</button>	
         <button id="listvd"  onClick="locals()" >Esborrar</button>
-           
+        <button id="listvd"  onClick="p66()" >resultats</button>
     </div>
   </div><!-- /menu lateral perfil-->
 
@@ -273,7 +288,7 @@
   
 	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead"   >
     	<img id="latbtn" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0' style=" float:left; margin:10px;">
-    	<p style="float:left; color:#A00; font-weight:bold; margin-left:10%" id="header_perfil">PANELL CONTROL</p>  
+    	<p class="titol" id="header_perfil">PANELL CONTROL</p>  
         <img id="latbtn" onClick="panel_perfil()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;"> 
 	</div>    
     
@@ -288,7 +303,7 @@
         	<p id="telu"> ...</p>
         	<p id="email">...</p>
             <p id="p7e">Seguiment desde</p>
-            <p id="hospital">HOSPITAL SANTA MARIA</p>
+            <p id="hospital">...</p>
             <p hidden="true" id="notificacions"></p>
          </div>	    
   	</div>
@@ -319,7 +334,7 @@
 <div data-role="page" id="formulari" data-theme="d" >
 	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead"  >
     	<img id="latbtn" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0' style=" float:left; margin:10px;">
-    	<p align="center" style="float:left; color:#A00; font-weight:bold; margin-left:20%" id="header_mesures" >MESURES</p>
+    	<p align="center" class="titol" style="margin-left:20%" id="header_mesures" >MESURES</p>
        	<img id="latbtn" onClick="panel_form()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;"> 
    </div>
    <div id="scrl" data-iscroll>
@@ -388,139 +403,23 @@
     </div>  
 
 </div>  <!--/formulari-->
- 
- 
-<!--GRAFIQUES------------------------------>
 
-<div data-role="page" id="grafiques" data-theme="d" >
-   <div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
-   		<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-  		<p align="center" style="float:left; color:#A00; font-weight:bold; margin-left:15%" id="header_graph">  Evolució del pacient  </p>
-	</div>
-    
-    <div id="dateif" data-role="content">
-        <p id="ldatei">Data inici:</p>
-        <p id="ldatef">Data fi:</p>
-        <input type="date" name="date" id="datei" value=""  />	
-        <input type="date" name="date" id="datef" value=""  />
-	</div>
-    
-	<div id="graf_con" data-iscroll  >  
-     	<div id="container2" > </div> 
-   		<div id="grf_table2" ></div> 
-	</div>
-    
-	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-            	<li><a  id="mg"  data-icon="custom">global</a></li>
-       			<li><a  id="mp" href="#graf_mati" data-icon="custom" data-direction="reverse" >mati</a></li>
-            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" data-direction="reverse">tarda</a></li>
-            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!--/grafiques-->
-
-
-<!--GRAFIQUES MATI------------------------------>
-
-<div data-role="page" id="graf_mati" data-theme="d" >
-	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
-   <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-  		<p align="center" style="float:left; color:#A00; font-weight:bold; margin-left:20%" id="header_graph">  MATI  </p>
-	</div>
-	<div data-role="content" data-iscroll>  
-    	
-       <!-- <div id="container" > </div> -->
-   		
-	</div>
-	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-            	<li><a  id="mg" href="#grafiques" data-icon="custom">global</a></li>
-       			<li><a  id="mp"  data-icon="custom" data-direction="reverse" >mati</a></li>
-            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" data-direction="reverse">tarda</a></li>
-            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!--/grafiques mati-->
-
-<!--GRAFIQUES TARDA------------------------------>
-
-<div data-role="page" id="graf_tarda" data-theme="d" >
-	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
-   <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-  		<p align="center" style="float:left; color:#A00; font-weight:bold; margin-left:20%" id="header_graph">  TARDA  </p>
-	</div>
-	<div data-role="content" data-iscroll>  
-    	
-      <!--  <div id="container3" > </div> -->
-   		
-	</div> 
-
-	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-            	<li><a  id="mg" href="#grafiques" data-icon="custom">global</a></li>
-       			<li><a  id="mp" href="#graf_mati" data-icon="custom" data-direction="reverse" >mati</a></li>
-            	<li><a  id="mf"   data-icon="custom" data-direction="reverse">tarda</a></li>
-            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!--/grafiques-->
-
-<!--GRAFIQUES TAULA------------------------------>
-
-<div data-role="page" id="graf_taula" data-theme="d" >
-	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
-   		<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-  		<p align="center" style="float:left; color:#A00; font-weight:bold; margin-left:20%" id="header_graph">  LLISTAT  </p>
-	</div>
-	<div data-role="content" data-iscroll>  
-   		<div id="grf_table"> </div>
-	</div> 
-
-	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-            	<li><a  id="mg" href="#grafiques"  data-icon="custom">global</a></li>
-       			<li><a  id="mp" href="#graf_mati" data-icon="custom" data-direction="reverse" >mati</a></li>
-            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" data-direction="reverse">tarda</a></li>
-            	<li><a  id="ma" data-icon="custom">llista</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!--/ grafiques taula -->
-
-<!--AJUDA----------------------------->
-
-<div id="ajuda" data-role="page" data-theme="d" >
-	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
-    <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-		<p align="center" id="header_ajuda">Ajuda</p>
-	</div>
-	<div data-role="content" data-iscroll>	
-		<ul data-role="listview">
-   			<li><a href="#ampa">Com pendre la pressió</a></li>
-            <li><a href="#videos"> VIDEOS</a></li>
-            <li><a id="ajuda_nav" href="#ajuda_navy"> Consells utilització</a></li>
-  		</ul>
-    </div>
-</div> <!-- /ajuda-->
 
 <!--VALIDACIÓ------------------------>
 
 <div data-role="page" id="formVal" data-theme="d" >
 	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
     	<a data-rel="back" id="back_btn" data-icon="arrow-l" data-theme="c">Tornar</a>
-        <p align="center" id="header_validacio" >VALIDACIÓ</p>
+        <p style="margin-left:20%" id="header_mesures" class="titol" id="header_validacio" >VALIDACIÓ</p>
         
 	</div> 
 
      <div id="scrl1" data-iscroll>
+     		
+           
+           <div  data-role="content" id="fT1"  data-theme="c">
+          <p id="txt_form1">Estas segur que vols enviar aquestes pressions arterials ?</p>
+     </div>
      
          <div  data-role="content" id="fF1" data-theme="c" >
              <p id="btM">MATI (6-9 hores)</p>
@@ -588,115 +487,244 @@
 <div style="position:absolute" data-role="page" id="resultat" data-theme="d">
 
 	<div data-role="header"  data-theme="d" > 
-    	<img id="latbtn" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-		<p align="center" id="header_resultats">Resultats</p>
+    	<img id="latbtn" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left"/>
+		<p align="center" class="titol"  id="header_resultats">Resultats</p>
 	</div>
 
-	<div id="conten"  data-role="content" data-iscroll>
-    	<div id="field1" >
-    		<div id="res">
-    			<img id="sem_gr" src="img/semafor/semafor_green.jpg" width="35" height="64"  hidden="true"/>
-    			<img id="sem_rd" src="img/semafor/semafor_red.jpg" width="35" height="84" hidden="true"/ >
-        	   	<img id="sem_yw" src="img/semafor/semafor_yellow.jpg" width="35" height="64" hidden="true" />
-    		</div>
-		
-    	    <p id="valoracio"> ...</p>
+
+	<div data-iscroll>
+        <div id="conten"  data-role="content" >
+            <div id="field1" >
+                <div id="res">
+                    <img id="sem_gr" src="img/semafor/semafor_green.jpg" width="35" height="64"  hidden="true"/>
+                    <img id="sem_rd" src="img/semafor/semafor_red.jpg" width="35" height="84" hidden="true"/>
+                    <img id="sem_yw" src="img/semafor/semafor_yellow.jpg" width="35" height="64" hidden="true" />
+                </div>
+            
+                <p id="valoracio"> ...</p>
+                
+            </div>
+            <p id="recordatori"> Recordi pendre's la pressió i enviar els controls</p>
+            
+            <iframe id="vid_resultats" frameborder="0" allowfullscreen></iframe>
+                
+            <div id="container_res" > </div> 
+            
+         </div>	
+        
+     </div>
+     <div class="graf_table" id="grf_resultats" hidden="true"></div> 
+</div> <!--/resultats-->
+ 
+ 
+ <!--MENU LATERAL GRAFIQUES-------------------------
+
+
+  <div data-role="slider" style="right:0;" hidden="true" id="panel_graph">
+ 
+    <div data-role="header" id="paneld_header" > 
+		<img id="bph"  src='img/imatges/bp.png'>  
+	</div>
+    <div data-role="listview"> 
+    	<button id="cmenud">Grafiques</button> 
+    	<button id="listvd"  onClick="p41()" >Global</button>	
+        <button id="listvd"  onClick="p42()" >Mati</button>
+        <button id="listvd"  onClick="p43()" >Tarda</button>
+        <button id="listvd"  onClick="p44()" >Llista</button>
+           
+    </div>
+  </div><!-- /menu lateral grafiques-->
+ 
+<!--GRAFIQUES------------------------------>
+
+<div data-role="page" id="grafiques" data-theme="d" >
+   <div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
+   		<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+  		<p align="center" class="titol" id="header_graph_g">  GLOBAL  </p>
+       <!-- <img id="latbtn" onClick="panel_graph()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;">-->
+	</div>
+    <div data-iscroll>
+     <div data-role="navbar"  data-theme="a" data-grid="b" >
+        <ul>
+            <li><a  onClick="p61()" >1 mes</a></li>
+            <li><a  onClick="p62()" >3 m</a></li>
+            <li><a  onClick="p63()" >6 m</a></li>
+        </ul>
+      </div>
+        <input  type="date"  onChange="server_graph_all()" name="date" id="datei" value=""  />	
+        <input  type="date" onChange="server_graph_all()" name="date" id="datef" value=""  />
+	
+    
+        <div data-role="content">  
+            
+            <div class="container" id="container_all" ></div> 
+            <div id="grf_table_all" hidden="true"></div>
             
         </div>
-    	<p id="recordatori"> Recordi pendre's la pressió i enviar els controls</p>
-	</div>	
-    
-    <!--<div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-       			<li><a  id="mp1"  data-icon="custom" >Resultat</a></li>
-            	<li><a  id="mf1"  href="#videos1" data-icon="custom" >Videos</a></li>
-				<li><a  id="mg1" href="#grafiques1" data-icon="custom" >grafiques</a></li>
-            	<li><a  id="ma1" href="#comentaris" data-icon="custom" >Comentaris</a></li>
-			</ul>
-		</div>
-	</div>-->
-</div> <!--/resultats-->
-
-<!--VIDEOS 1-------------------------->
-
-<div data-role="page" id="videos1" data-theme="d">
-	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
-    <img id="latbtn" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-		<p align="center" id="header_videos1">Videos</p> 
-        <a href="#grafiques" data-iconpos="right" data-icon="check"  id="resend_btn"  data-theme="c">OK</a>  
-	</div>
-    
-	<div data-role="content" data-iscroll>
-    	<iframe src="http://www.youtube.com/embed/' + document.getElementById('infoLink').value'"  frameborder="0" allowfullscreen></iframe>
     </div>
-    	
-    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b">
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
-            	<li><a  id="mf1"  data-icon="custom" >Videos</a></li>
-				<li><a  id="mg1" href="#grafiques1" data-icon="custom" >grafiques</a></li>
-            	<li><a  id="ma1"  href="#comentaris" data-icon="custom">Comentaris</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!--/videos1-->
-
-<!--GRAFIQUES 1 -------------------------->
-
-<div data-role="page" id="grafiques1" data-theme="d">
-	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
-   		<img id="latbtn" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
-		<p align="center" id="header_grafiques1">Evolució del pacient</p>    
-	</div>
     
-	<div data-role="content" data-iscroll> 
-        <div id="container1" > </div> 
-   		<div id="grf_table1"> </div>
-    </div>
-    	
-    <!--<div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
 		<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul>
-       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
-            	<li><a  id="mf1"  href="#videos1" data-icon="custom" data-direction="reverse">Videos</a></li>
-				<li><a  id="mg1"  data-icon="custom" data-direction="reverse">grafiques</a></li>
-            	<li><a  id="ma1"  href="#comentaris" data-icon="custom">Comentaris</a></li>
+            	<li><a  id="mg"  data-icon="custom">global</a></li>
+       			<li><a  id="mp" href="#graf_mati" data-icon="custom" >mati</a></li>
+            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" >tarda</a></li>
+            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
 			</ul>
 		</div>
-	</div>-->
-</div> <!--/grafiques1-->
+	</div>
+</div> <!--/grafiques-->
 
 
-<!--COMENTARIS -------------------------->
+<!--GRAFIQUES MATI------------------------------>
+
+<div data-role="page" id="graf_mati" data-theme="d" >
+	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
+   <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+  		<p align="center" class="titol" id="header_graph_m">  MATI  </p>
+        <!--<img id="latbtn" onClick="panel_graph()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;">-->
+	</div>
+    <div data-iscroll>
+      <div data-role="navbar"  data-theme="a" data-grid="b" >
+        <ul>
+            <li><a  onClick="p71()" >1 mes</a></li>
+            <li><a  onClick="p72()" >3 m</a></li>
+            <li><a  onClick="p73()" >6 m</a></li>
+        </ul>
+      </div>
+      <input  type="date"  onChange="server_graph_m()" name="date" id="datei_m" value="" />	
+      <input  type="date"  onChange="server_graph_m()" name="date" id="datef_m" value=""/>
+             
+    
+        <div data-role="content">  
+            
+            <div class="container" id="container_m" ></div> 
+            <div id="grf_table_m" hidden="true"></div>
+            
+        </div>
+     </div>
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+            	<li><a  id="mg" href="#grafiques" data-icon="custom" data-direction="reverse" >global</a></li>
+       			<li><a  id="mp"  data-icon="custom">mati</a></li>
+            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" >tarda</a></li>
+            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!--/grafiques mati-->
+
+<!--GRAFIQUES TARDA------------------------------>
+
+<div data-role="page" id="graf_tarda" data-theme="d" >
+	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
+   <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+  		<p align="center" class="titol" id="header_graph_t">  TARDA  </p>
+        <!--<img id="latbtn" onClick="panel_graph()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;">-->
+	</div>
+    <div data-iscroll>
+      <div data-role="navbar"  data-theme="a" data-grid="b" >
+        <ul>
+            <li><a  onClick="p81()" >1 mes</a></li>
+            <li><a  onClick="p82()" >3 m</a></li>
+            <li><a  onClick="p83()" >6 m</a></li>
+        </ul>
+      </div>
+        <input  type="date" name="date"  onChange="server_graph_t()" id="datei_t" value=""  />	
+        <input  type="date"  name="date" onChange="server_graph_t()" id="datef_t" value=""  />
+	
+    
+        <div data-role="content">  
+            
+            <div class="container" id="container_t" > </div>
+            <div id="grf_table_t" hidden="true"></div> 
+            
+        </div> 
+	</div>
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+            	<li><a  id="mg" href="#grafiques" data-icon="custom" data-direction="reverse" >global</a></li>
+       			<li><a  id="mp" href="#graf_mati" data-icon="custom" data-direction="reverse" >mati</a></li>
+            	<li><a  id="mf" data-icon="custom">tarda</a></li>
+            	<li><a  id="ma" href="#graf_taula" data-icon="custom">llista</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!--/grafiques-->
+
+<!--GRAFIQUES TAULA------------------------------>
+
+<div data-role="page" id="graf_taula" data-theme="d" >
+	<div data-role="header" data-theme="d" data-position="fixed"  data-id="myhead" >
+   		<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+  		<p align="center" class="titol" id="header_graph_l">  LLISTAT  </p>
+        <!--<img id="latbtn" onClick="panel_graph()"  src='img/botons/wrench_plus_2_icon&32.png' border='0' style=" float:right;margin:10px;">-->
+	</div>
+	<div data-role="content" data-iscroll>  
+   		<div class="graf_table" id="grf_table_taula"> </div>
+	</div> 
+
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
+		<div data-role="navbar" class="nav_bar" data-grid="c" >
+			<ul>
+            	<li><a  id="mg" href="#grafiques"  data-icon="custom" data-direction="reverse">global</a></li>
+       			<li><a  id="mp" href="#graf_mati" data-icon="custom" data-direction="reverse" >mati</a></li>
+            	<li><a  id="mf"  href="#graf_tarda" data-icon="custom" data-direction="reverse">tarda</a></li>
+            	<li><a  id="ma" data-icon="custom">llista</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!--/ grafiques taula -->
+
+<!--AJUDA----------------------------->
+
+<div id="ajuda" data-role="page" data-theme="d" >
+	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
+    <img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+		<p align="center" class="titol" id="header_ajuda">Ajuda</p>
+	</div>
+	<div data-role="content" data-iscroll>	
+		<ul data-role="listview">
+   			<li><a href="#ampa">Com pendre la pressió</a></li>
+            <li><a href="#videos"> VIDEOS</a></li>
+            <li><a id="ajuda_nav" href="#ajuda_navy"> Consells utilització</a></li>
+  		</ul>
+    </div>
+</div> <!-- /ajuda-->
+
+
+<!--MISSATGES -------------------------->
 
 <div data-role="page" id="comentaris" data-theme="d">
-	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
-    <img id="latbtn" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left"> 
-		<p align="center" id="header_comentaris">Comentaris</p>   
+	<div data-role="header" style="display:block;" data-theme="d" data-position="fixed" data-id="myhead" >
+    	<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+		<p align="center" class="titol" id="header_comentaris">MISSATGES</p>   
+        <img id="latbtn" onClick="server_missatges(), al1()"  src='img/botons/refresh_icon&32.png' border='0' style=" float:right;margin:10px;"> 
 	</div>
     
-	<div data-role="content" data-iscroll>    </div>
-    	
-    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot1" data-theme="b" >
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-       			<li><a  id="mp1" href="#resultat" data-icon="custom" data-direction="reverse">Resultat</a></li>
-            	<li><a  id="mf1"  href="#videos1" data-icon="custom" data-direction="reverse">Videos</a></li>
-				<li><a  id="mg1" href="#grafiques1" data-icon="custom" data-direction="reverse">grafiques</a></li>
-            	<li><a  id="ma1"   data-icon="custom">Comentaris</a></li>
-			</ul>
-		</div>
-	</div>
+    <div data-iscroll>
+        
+        
+  		<div id="xat_container1"></div>
+        <div id="xat_container"></div>  
+        
+   </div>
+   
+   <div data-role="footer" id="mis_text_div" data-theme="d">
+             <input id="mis_text" onBlur="mis_css1()" onFocus="mis_css()" value="" /> 
+             <img id="xat_btn" onClick="server_send_mis(), mis_css1()"  src='img/botons/sq_next_icon&48.png' border='0' style=" float:right;margin:10px;">  
+               
+        </div>
 </div> <!--/comentaris-->
 
 
 <!--AMPA -------------------------->
 
 <div data-role="page" id="ampa" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myhead" >
-		<p align="center" id="header_ampa">AMPA</p>
+	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
+		<p align="center" class="titol" id="header_ampa">AMPA</p>
         <a   onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
 	</div>
      
@@ -720,8 +748,8 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
 <!--AJUDA NAVEGACIO-------------------------->
 
 <div data-role="page" id="ajuda_navy" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myhead" >
-		<p align="center" id="header_ajuda_n">AJUDA</p>
+	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
+		<p align="center" class="titol" id="header_ajuda_n">AJUDA</p>
         <a onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
 	</div> 
     
@@ -751,16 +779,16 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
 <!--VIDEOS-------------------------->
 
 <div data-role="page" id="videos" data-theme="d">
-	<div data-role="header" data-theme="b" data-position="fixed" data-id="myhead" >
-		<p align="center" id="header_videos">VIDEOS</p>
-        <a onClick="goBack()" data-iconpos="left" data-icon="arrow-l"  id="back_btn"  data-theme="c">OK</a>
+	<div data-role="header" data-theme="d" data-position="fixed" data-id="myhead" >
+		<img id="latbtn" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' style=" margin:10px;float:left">
+		<p align="center" class="titol" id="header_videos">VIDEOS</p>
 	</div> 
 	<div data-role="content" >	
-		<ul data-role="listview">	
+		<ul id="video_list" data-role="listview">	
            <li><iframe src="http://www.youtube.com/embed/qoXcpt58wik" frameborder="0" allowfullscreen></iframe></li>
             <li><iframe src="http://www.youtube.com/embed/wXDEhqKCa5I" frameborder="0" allowfullscreen></iframe></li>
-            <li><iframe src="http://www.youtube.com/embed/' + document.getElementById('infoLink').value'"  frameborder="0" allowfullscreen></iframe></li>
-  		</ul>
+            <!--<li><iframe  src='"http://www.youtube.com/embed/' + document.getElementById('infoLink').value + '"' frameborder="0" allowfullscreen></iframe></li>
+  		</ul>-->
 	</div>
 </div> <!--/videos-->
  
@@ -809,8 +837,15 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  <p id="pad" value="" hidden="true"/p>
  <p id="pas" value="" hidden="true"/p>
  
+ <!--grafiques----------------------------->
+ 
+ <p id="gr_min" value="2014-08-01" hidden="true"/p>
+ <p id="gr_max" value="2014-08-01" hidden="true"/p>
+ 
 </div> <!--/suport-->
-         
+
+
+<div class="modal"></div>
 
 </body>
 </html>

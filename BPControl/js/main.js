@@ -5,6 +5,7 @@ document.addEventListener("deviceready", inici, false);
 function inici() { 
 	
 	
+	
 	//SLIDESHOW
 	
 	$("#slideshow > div:gt(0)").hide();
@@ -20,8 +21,8 @@ function inici() {
 
 	//eliminar 300ms wait
 	$(function() {
-	 	//new FastClick(document.body);
- 	 	FastClick.attach(document.body);
+	 	new FastClick(document.body);
+ 	 	//FastClick.attach(document.body);
 	});
 	
 	//obrim pantalla inical
@@ -30,7 +31,13 @@ function inici() {
  	//splash screen
 	setTimeout(function(){navigator.splashscreen.hide();}, 3500);
 
+	   
 }; //  /inici
+
+//efecte loading 
+
+function crg() { $("body").addClass("loading");    }
+function crgoff() { $("body").removeClass("loading"); }    
 
 
 // ENTRADA AREA PRIVADA
@@ -44,12 +51,22 @@ function private(){
 		alert(document.getElementById("desc_txt").innerHTML); //text descàrrec
 		setTimeout(function(){$.mobile.changePage("#telefon");}, 1000);
 	}else{
+		crg();  //efecte loading
 		selMain();  // carreguem idioma
 		server_pacient(ltoken);  // carreguem dades pacient
 		server_imatge(ltoken);
-		server_graph(ltoken);  //carreguem dades gràfica	
-		server_graph2(ltoken);
-    	setTimeout(function(){$.mobile.changePage("#perfil");}, 2000);
+		server_graph_taula();  //carreguem dades gràfiques	
+		server_graph_all();
+		server_graph_m();
+		server_graph_t();
+		server_missatges(ltoken); //carreguem xat
+    	setTimeout(function(){$.mobile.changePage("#perfil");}, 5000);
+		setTimeout(function(){crgoff();}, 7000); //fi efecte loading
+		window.setInterval(function(){
+  		server_missatges();
+		alert("5 minuts");
+		}, 300000);
+		
 		}
 	}
 
@@ -85,8 +102,11 @@ function sms(){
 			localStorage.setItem("token", token);
 			inici_server_pacient(token); 	// carreguem dades pacient
 			server_imatge(token);
-			server_graph(token);		//carreguem dades gràfica
-			server_graph2(token);
+			server_graph_taula();		//carreguem dades gràfica
+			server_graph_all();
+			server_graph_m();
+			server_graph_t();
+			server_missatges(ltoken); //carreguem xat
 			setTimeout(function(){$.mobile.changePage("#perfil");}, 3000);
 				
 	});
@@ -131,10 +151,21 @@ function sendV(){ //obrir pàgina de validació
 	
 };  //  /obrir pag validació
 
-function my_alert(){
-if (confirm("segur que voleu esborrar tots els valors?")){
-cancelV();}
-};
+
+
+	
+function my_alert(){  //alerta panell lateral formulari
+	
+	 navigator.notification.confirm(
+                    'segur que voleu esborrar tots els valors?',
+                    cancelV,
+                    'BPControl',
+                    'No,Yes'
+                );
+	
+/*if (confirm("segur que voleu esborrar tots els valors?")){
+cancelV();}*/
+};	
 
 function cancelV(){ //esborrar valors del formulari
 	
@@ -182,10 +213,14 @@ function save_form(){ //guardar valors del formulari
 	localStorage.setItem("ps3t",document.getElementById('ps3t').value);
 	localStorage.setItem("pd3t",document.getElementById('pd3t').value);
 	localStorage.setItem("p3t",document.getElementById('p3t').value);
-	alert("les seves dades s'han guardat correctament");
+	navigator.notification.alert(
+                    'les seves dades s´han guardat correctament',
+                    null,
+                    'BPControl',
+                    'Acceptar'
+                );
 	
 };
-
 
 
 function load_form(){ //carergar valors del formulari
@@ -216,7 +251,7 @@ function load_form(){ //carergar valors del formulari
 // VALIDACIO 
 
 function ok(){
-	
+	alert("entra ok");
 	var element = document.getElementById('valoracio');
 	if(document.getElementById('patientStatus').value=1){
 	$(document.getElementById('sem_rd')).show();
@@ -238,8 +273,8 @@ function ok(){
 	}
 	cancelV(); //esborra formulari
 	$.mobile.changePage('#resultat');
-	setTimeout(function(){alert(document.getElementById("resultats").innerHTML); }, 200);
-	//alert(document.getElementById("resultats").innerHTML); //pressions rebudes
+	//setTimeout(function(){alert(document.getElementById("resultats").innerHTML); }, 200);
+	
 	window.plugin.notification.badge.clear(); //elimina badge notification en enviar
 };
 function no(){
@@ -397,7 +432,7 @@ window.addEventListener('load', function(){ setTimeout(function(){ window.scroll
 function tanca(){
 	navigator.app.exitApp();
 	}
-	
+
 //esborrar locals
 
 function locals(){localStorage.clear();}
@@ -486,6 +521,21 @@ function panel_form(){
 }
  	
 	
+// MENU LATERAL GRAFIQUES
+	
+function panel_graph(){
+	
+	if ( document.getElementById('panel_graph').hidden==false){
+   		$("#panel_graph").animate({right:"-200px"});
+		$.mobile.activePage.animate({left:"0"});	
+		setTimeout(function(){document.getElementById('panel_graph').hidden=true;}, 200);
+  	}else{  
+		document.getElementById('panel_graph').hidden=false;
+  		$("#panel_graph").animate({right:"0"});
+		$.mobile.activePage.animate({left:"-200px"});	
+ 	}
+}
+	
 	
 // MENU LATERAL ESQUERRA
 	
@@ -534,7 +584,143 @@ function p15(){
 	$.mobile.changePage('#start');
 	}
 	
+function p66(){  //temporal
+	panel_perfil();
+	$.mobile.changePage('#resultat');
+	}	
+	
 function p21(){
 	panel_form();
 	$.mobile.changePage('#ampa');
 	}
+	
+function p31(){
+	panel();
+	$.mobile.changePage('#videos');
+	}
+	
+function p41(){
+	panel_graph();
+	$.mobile.changePage('#grafiques');
+	}
+function p42(){
+	panel_graph();
+	$.mobile.changePage('#graf_mati');
+	}
+function p43(){
+	panel_graph();
+	$.mobile.changePage('#graf_tarda');
+	}
+function p44(){
+	panel_graph();
+	$.mobile.changePage('#graf_taula');
+	}	
+
+function p61(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef').value= data;
+	
+	date=(1).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei').value=date;
+	server_graph_all();
+	
+	}
+	
+function p62(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef').value= data;
+	
+	date=(3).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei').value=date;
+	server_graph_all();	
+	}
+	
+	
+function p63(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef').value= data;
+	
+	date=(6).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei').value=date;
+	server_graph_all();	
+	}
+
+function p71(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_m').value= data;
+	
+	date=(1).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_m').value=date;
+	server_graph_m();
+	
+	}
+	
+function p72(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_m').value= data;
+	
+	date=(3).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_m').value=date;
+	server_graph_m();	
+	}
+	
+	
+function p73(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_m').value= data;
+	
+	date=(6).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_m').value=date;
+	server_graph_m();	
+	}
+	
+function p81(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_t').value= data;
+	
+	date=(1).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_t').value=date;
+	server_graph_t();
+	
+	}
+	
+function p82(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_t').value= data;
+	
+	date=(3).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_t').value=date;
+	server_graph_t();	
+	}
+	
+	
+function p83(){
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_t').value= data;
+	
+	date=(6).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_t').value=date;
+	server_graph_t();	
+	}
+
+function al1(){
+	 navigator.notification.alert(
+				'Missatges actualitzats',
+				null,
+				'BPControl',
+				'OK'
+				)
+	}
+	
+	
+function mis_css(){
+
+		$.mobile.activePage.animate({top:"-260px"});
+		
+
+}
+ function mis_css1(){
+
+		$.mobile.activePage.animate({top:"0"});	
+		location.reload();	
+}

@@ -54,7 +54,8 @@ function selMain(){
 		$.i18n.load(i18n_dict_en);
 		}
 		
-
+		//start
+		$('h#zp_txt')._t('zp_txt');
 		//navbar
 		$('a#mp')._t('mp');
 		$('a#ma')._t('ma');
@@ -62,9 +63,14 @@ function selMain(){
 		$('a#mf')._t('mf');
 		//navbar1
 		$('a#mp1')._t('mp1');
-		$('a#ma1')._t('ma1');
 		$('a#mg1')._t('mg1');
 		$('a#mf1')._t('mf1');
+		//centre sanitari
+		$('p#header_centres')._t('header_centres');
+		//demo
+		$('p#header_demo')._t('header_demo');
+		//contacte
+		$('p#header_contacte')._t('header_contacte');
 		//perfil
 		$('p#header_perfil')._t('header_perfil');
 		$('p#photo_txt')._t('photo_txt');
@@ -86,7 +92,10 @@ function selMain(){
 		$('p#popup')._t('popup');
 		$('p#popup1')._t('popup1');
 		//grafiques
-		$('p#header_graph')._t('header_graph');
+		$('p#header_graph_g')._t('header_graph_g'); 
+		$('p#header_graph_m')._t('header_graph_m');
+		$('p#header_graph_t')._t('header_graph_t');
+		$('p#header_graph_l')._t('header_graph_l');
 		$('div#grtxt')._t('grtxt');
 		$('p#graf_ta_data')._t('graf_ta_data');
 		$('p#graf_ta_si')._t('graf_ta_si');
@@ -153,17 +162,23 @@ function selMain(){
 	
 	i18n_dict_en = {
 		
-		
+		//start
+		"zp_txt":"Enter private zone",
 		//navbar
 		"mp":"morning",
 		"ma":"table",
 		"mg":"global",
 		"mf":"afternoon",
 		//navbar1
-		"mp1":"results",
-		"ma1":"coments",
-		"mg1":"graph",
-		"mf1":"videos",
+		"mp1":"Health center",
+		"mg1":"Contact",
+		"mf1":"Demo",
+		//centre sanitari
+		"header_centres":"HEALTH CENTERS",
+		//demo
+		"header_demo":"DEMO",
+		//contacte
+		"header_contacte":"CONTACT",
 		//perfil
 		"header_perfil":"CONTROL PANEL",
 		"photo_txt":"Photo",
@@ -185,7 +200,10 @@ function selMain(){
 		"popup":"Fill all the fields, please",
 		"popup1":"Disable user. You can't send data",
 		//grafiques
-		"header_graph":"Patient evolution",
+		"header_graph_g":"GLOBAL",
+		"header_graph_m":"MORNING",
+		"header_graph_t":"AFTERNOON",
+		"header_graph_l":"LIST",
 		"grtxt":"",
 		"graf_ta_data":"Date",
 		"graf_ta_si":"Systolic",
@@ -250,17 +268,23 @@ function selMain(){
 	
 	i18n_dict_es = {
 		
-		
+		//start
+		"zp_txt":"Entrar en zona privada",
 		//navbar
 		"mp":"mañana",
 		"ma":"tabla",
 		"mg":"global",
 		"mf":"tarde",
 		//navbar1
-		"mp1":"resultados",
-		"ma1":"camentarios",
-		"mg1":"graficas",
-		"mf1":"videos",
+		"mp1":"Centro sanitario",
+		"mg1":"Contacto",
+		"mf1":"Demo",
+		//centre sanitari
+		"header_centres":"CENTROS SANITARIOS",
+		//demo
+		"header_demo":"DEMO",
+		//contacte
+		"header_contacte":"CONTACTO",
 		//perfil
 		"header_perfil":"PANELL DE CONTROL",
 		"photo_txt":"Foto",
@@ -282,7 +306,10 @@ function selMain(){
 		"popup":"Llene todos los campos porfavor",
 		"popup1":"Usuario desactivado. No puede enviar datos",
 		//grafiques
-		"header_graph":"Evolucion del paciente",
+		"header_graph_g":"GLOBAL",
+		"header_graph_m":"MAÑANA",
+		"header_graph_t":"TARDE",
+		"header_graph_l":"LISTA",
 		"grtxt":"",
 		"graf_ta_data":"Fecha",
 		"graf_pa":"Pressió arterial(mm Hg)",
@@ -350,19 +377,25 @@ function selMain(){
 	
 	i18n_dict_ca = {
 		
-		
+		//start
+		"zp_txt":"Entrar en zona privada",
 		//navbar
 		"mp":"matí",
 		"ma":"taula",
 		"mg":"global",
 		"mf":"tarda",
 		//navbar1
-		"mp1":"resultats",
-		"ma1":"comentaris",
-		"mg1":"grafiques",
-		"mf1":"videos",
+		"mp1":"Centre sanitari",
+		"mg1":"Contacte",
+		"mf1":"Demo",
+		//centre sanitari
+		"header_centres":"CENTRES SANITARIS",
+		//demo
+		"header_demo":"DEMO",
+		//contacte
+		"header_contacte":"CONTACTE",
 		//perfil
-		"header_perfil":"PANEL DE CONTROL",
+		"header_perfil":"PANELL DE CONTROL",
 		"photo_txt":"Foto",
 		"p1e":"Nom",
 		"p6e":"Cognom",
@@ -382,7 +415,10 @@ function selMain(){
 		"popup":"Ompliu tots els camps de pressió siusplau",
 		"popup1":"Usuari desactivat. No pot enviar dades",
 		//grafiques
-		"header_graph":"Evolució del pacient",
+		"header_graph_g":"GLOBAL",
+		"header_graph_m":"MATI",
+		"header_graph_t":"TARDA",
+		"header_graph_l":"LLISTA",
 		"grtxt":"",
 		"graf_ta_data":"Data",
 		"graf_ta_si":"Sistòlica",
