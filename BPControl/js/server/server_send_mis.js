@@ -9,24 +9,6 @@ function server_send_mis(){
 		type:'post',
     	data: data,
 		contentType:'application/json',
-		/*success: function(data) {         	
-			navigator.notification.alert(
-				 'missatge enviat',
-				 null,
-				 'BPControl',
-				 'Done'
-			);
-		},
-		
-		error: function(){
-	        navigator.notification.confirm(
-				'No s´han pogut enviar el missatge. Ho vol reintentar?',
-				null,
-				'Error',
-				'No,Yes'
-			);
-		}*/
-		
 	});	
 	server_missatges();
 	$("#xat_container1").html('<div id="xat_usuari">'+document.getElementById('mis_text').value+'</div>')

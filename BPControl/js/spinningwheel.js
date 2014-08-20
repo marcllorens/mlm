@@ -177,7 +177,7 @@ var SpinningWheel = {
 		this.create();
 
 		this.swWrapper.style.webkitTransitionTimingFunction = 'ease-out';
-		this.swWrapper.style.webkitTransitionDuration = '400ms';
+		this.swWrapper.style.webkitTransitionDuration = '200ms';
 		this.swWrapper.style.webkitTransform = 'translate3d(0, -285px, 0)';
 	},
 	
@@ -217,7 +217,7 @@ var SpinningWheel = {
 	
 	close: function () {
 		this.swWrapper.style.webkitTransitionTimingFunction = 'ease-in';
-		this.swWrapper.style.webkitTransitionDuration = '400ms';
+		this.swWrapper.style.webkitTransitionDuration = '200ms';
 		this.swWrapper.style.webkitTransform = 'translate3d(0, 0, 0)';
 		
 		this.swWrapper.addEventListener('webkitTransitionEnd', this, false);

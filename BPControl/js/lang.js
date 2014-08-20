@@ -73,24 +73,24 @@ function selMain(){
 		$('p#header_contacte')._t('header_contacte');
 		//perfil
 		$('p#header_perfil')._t('header_perfil');
-		$('p#photo_txt')._t('photo_txt');
-		$('p#p1e')._t('p1e');
-		$('p#p6e')._t('p6e');
-		$('p#p2e')._t('p2e');
-		$('p#p3e')._t('p3e');
-		$('p#p4e')._t('p4e');
-		$('p#p5e')._t('p5e');
+		$('p#p7e')._t('p7e');
 		$('p#gender_m')._t('gender_m');
 		$('p#gender_f')._t('gender_f');
 		//mesures
 		$('p#header_mesures')._t('header_mesures');	
-		$('a#cancel_btn')._t('cancel_btn');	
-		$('a#send_btn')._t('send_btn');	
-		$('button#btM')._t('btM');	
-		$('button#btT')._t('btT');
+		$('p#txt_form')._t('txt_form');
+		$('p#psm')._t('psm');
+        $('p#pdm')._t('pdm');
+        $('p#pm')._t('pm');	
+		$('p#btM')._t('btM');	
+		$('p#btT')._t('btT');
 		$('button#btS')._t('btS');
 		$('p#popup')._t('popup');
 		$('p#popup1')._t('popup1');
+		//validació
+		$('p#header_validacio')._t('header_validacio');	
+		$('p#txt_form1')._t('txt_form1');
+		$('button#btrS')._t('btrS');
 		//grafiques
 		$('p#header_graph_g')._t('header_graph_g'); 
 		$('p#header_graph_m')._t('header_graph_m');
@@ -101,20 +101,21 @@ function selMain(){
 		$('p#graf_ta_si')._t('graf_ta_si');
 		$('p#graf_ta_di')._t('graf_ta_di');
 		$('p#graf_ta_p')._t('graf_ta_p');
-		$('p#graf_pa')._t('graf_pa');
+		$('p#graf_pa')._t('graf_pa');	
+		$('a#b_g1')._t('b_g1');
+        $('a#b_g2')._t('b_g2');
+        $('a#b_g3')._t('b_g3');
 		//notificacions
 		$('p#noti_ti')._t('noti_ti');
 		$('p#noti_mi')._t('noti_mi');
+		//missatges
+		$('p#header_comentaris')._t('header_comentaris');
+		//centre sanitari
+		$('p#header_centre_sanitari')._t('header_centre_sanitari');
 		//ajuda
 		$('p#header_ajuda')._t('header_ajuda');
 		$('a#ajuda_nav')._t('ajuda_nav');
 		$('a#vids_l')._t('vids_l');
-		//validacio
-		$('p#header_validacio')._t('header_validacio');
-		$('a#rsend_btn')._t('rsend_btn');
-		$('a#back_btn')._t('back_btn');
-		$('p#tM')._t('tM');
-		$('p#tT')._t('tT');
 		//resultat
 		$('p#header_resultats')._t('header_resultats');
 		$('p#resultats')._t('resultats');
@@ -141,19 +142,50 @@ function selMain(){
 		$('p#ajn_graf')._t('ajn_graf');
 		$('p#ajn_help_h')._t('ajn_help_h');
 		$('p#ajn_help')._t('ajn_help');
-		//inici
-		$('div#blink')._t('blink');
-		$('p#desc_txt')._t('desc_txt');
 		//telefon
 		$('p#hetl1')._t('htel1');
-		//$('a#tele_btn')._t('tele_btn');
+		$('button#tele_btn')._t('tele_btn');
 		$('p#tel_txt')._t('tel_txt');
 		$('p#tag_dlang')._t('tag_dlang');
 		//sms
-		$('div#hsms')._t('hsms');
+		$('p#hsms')._t('hsms');
 		$('div#smstxt')._t('smstxt');
-		$('a#bSMS')._t('bSMS');
+		$('button#bSMS')._t('bSMS');
+		$('p#licence_header')._t('licence_header');
+		$('p#licence')._t('licence');
+		//menu esquerra
+		//$('button#me_nom')._t('me_nom');
+      	$('button#me_perfil')._t('me_perfil');
+       	$('button#me_sortir')._t('me_sortir');
+       	$('button#me_pa')._t('me_pa');
+    	$('button#me_entrar')._t('me_entrar');	
+    	$('button#me_gp')._t('me_gp');
+       	$('button#me_grafiques')._t('me_grafiques');	
+    	$('button#me_hp')._t('me_hp');
+        $('button#me_evolucio')._t('me_evolucio');  
+    	$('button#me_m')._t('me_m');      
+        $('button#me_missatges')._t('me_missatges');
+        $('button#me_v')._t('me_v');      
+        $('button#me_videos')._t('me_videos');
+   		$('button#me_h')._t('me_h');
+    	$('button#me_centres')._t('me_centres');
+    	$('button#me_contacte')._t('me_contacte');	
+    	$('button#me_info')._t('me_info');
+		//menu formulari
+		$('button#mf_p')._t('mf_p'); 
+    	$('button#mf_esborrar')._t('mf_esborrar');
+        $('button#mf_guardar')._t('mf_guardar');
+        $('button#mf_carregar')._t('mf_carregar');
+        $('button#mf_h')._t('mf_h');
+        $('button#mf_ampa')._t('mf_ampa');
+		//alerts
+		$('p#al_mis')._t('al_mis');
+		$('p#server_send_mis')._t('server_send_mis');
+		$('p#server_send_mis1')._t('server_send_mis1');
+		$('p#mf_esborrar_mis')._t('mf_esborrar_mis');
+		$('p#mf_guardar_mis')._t('mf_guardar_mis');
 		
+  
 	
 	};
 	
@@ -181,24 +213,24 @@ function selMain(){
 		"header_contacte":"CONTACT",
 		//perfil
 		"header_perfil":"CONTROL PANEL",
-		"photo_txt":"Photo",
-		"p1e":"Name",
-		"p6e":"Surname",
-		"p2e":"Birth date",
-		"p3e":"Phone number",
-		"p4e":"Email",
-		"p5e":"Gender",
+		"p7e":"Control from",
 		"gender_m":"Male",
 		"gender_f":"Female",
 		//mesures
 		"header_mesures":"MESURES",
-		"cancel_btn":"Erase",
-		"send_btn":"Info",
-		"btM":"MORNING",
-		"btT":"AFTERNOON",
+		"txt_form":"Please, enter your arterial pressures ...",
+		"psm":"SYSTOLIC",
+        "pdm":"DYASTOLIC",
+        "pm":"PULSE",
+		"btM":"MORNING (6-9 hours)",
+		"btT":"AFTERNOON (18-21 hours)",
 		"btS":"SEND",
 		"popup":"Fill all the fields, please",
 		"popup1":"Disable user. You can't send data",
+		//validació
+		"header_validacio":"VALIDATION",
+		"txt_form1":"Do you want to send those presures?",
+		"btrS":"SEND",
 		//grafiques
 		"header_graph_g":"GLOBAL",
 		"header_graph_m":"MORNING",
@@ -210,19 +242,20 @@ function selMain(){
 		"graf_ta_di":"Dyastolic",
 		"graf_ta_p":"Pulse",
 		"graf_pa":"Aterial Pressure (mm Hg)",
+		"b_g1":"1 month",
+        "b_g2":"3 months",
+        "b_g3":"6 months",
 		//notificacions
 		"noti_ti":"Remember",
 		"noti_mi":"Remember to send your blood presure",
+		//missatges
+		"header_comentaris":"MESSAGES",
+		//centre sanitari
+		"header_centre_sanitari":"HEALTH CENTER",
 		//ajuda
 		"header_ajuda":"HELP",
 		"ajuda_nav":"Utilization help",
 		"vids_l":"VIDEOS",
-		//validacio
-		"header_validacio":"VALIDATION",
-		"rsend_btn":"Send",
-		"back_btn":"Back",
-		"tM":"MORNING",
-		"tT":"AFTERNOON",
 		//resultats
 		"header_resultats":"RESULTS",
 		"resultats":"Your blood presures have been received OK",
@@ -249,18 +282,49 @@ function selMain(){
 		"ajn_graf":"here you can find the evolution of your blod presure mesures",
 		"ajn_help_h":"Help",
 		"ajn_help":"Navigation and hipertension help ",
-		//inici
-		"blink":"CHARGING DATA",
-		"desc_txt":"descharge text test",
 		//telefon
 		"htel1":"REGISTER",
-		//"tele_btn":"Done",
+		"tele_btn":"Done",
 		"tel_txt":"Please, confirm your country prefix and introduce your phone number",
 		"tag_dlang":"Language",
 		//sms
-		"hsms":"Autentication ",
+		"hsms":"AUTENTICATION ",
 		"bSMS":"Register",
-		"smstxt":"Introduce the SMS code received"
+		"smstxt":"Introduce the SMS code received",
+		"licence_header":"LICENCE",
+		"licence":"bla, bla, bla in inglish",
+		//menu lateral esquerra
+		//"me_nom":"Register",
+      	"me_perfil":"Profile",
+       	"me_sortir":"Exit",
+       	"me_pa":"Arterial pressures",
+    	"me_entrar":"Enter pressures",
+    	"me_gp":"Graphics",
+       	"me_grafiques":"Pressure graphics",
+    	"me_hp":"Patient history",
+        "me_evolucio":"Patient evolution",
+    	"me_m":"Messages",      
+        "me_missatges":"My messages",
+        "me_v":"Videos",  
+        "me_videos":"Associated videos",
+   		"me_h":"Help",
+    	"me_centres":"Health centers",
+    	"me_contacte":"Contact",
+    	"me_info":"Info",
+		//menu formulari
+		"mf_p":"Pressures",
+    	"mf_esborrar":"Delete mesures",
+        "mf_guardar":"Save mesures",
+        "mf_carregar":"load mesures",
+        "mf_h":"Help",
+        "mf_ampa":"Advices",
+		//alerts
+		"al_mis":"Messages updated",
+		"server_send_mis": "Data received ok" ,
+		"server_send_mis1": "Your data can not be send. Do you want to retry?",
+		"mf_esborrar_mis":"Do you want to delete all the values?",
+		"mf_guardar_mis":"Your data have been saved",
+		
 		
 	};
 	
@@ -286,25 +350,25 @@ function selMain(){
 		//contacte
 		"header_contacte":"CONTACTO",
 		//perfil
-		"header_perfil":"PANELL DE CONTROL",
-		"photo_txt":"Foto",
-		"p1e":"Nombre",
-		"p6e":"Apellido",
-		"p2e":"Fecha nacimiento",
-		"p3e":"Telefono",
-		"p4e":"Email",
-		"p5e":"Género",
+		"header_perfil":"PANEL DE CONTROL",
+		"p7e":"Seguimiento desde",
 		"gender_m":"Masculino",
 		"gender_f":"Femenino",
 		//mesures
 		"header_mesures":"MEDIDAS",
-		"cancel_btn":"Borrar",
-		"send_btn":"Info",
-		"btM":"MAÑANA",
-		"btT":"TARDE",
+		"txt_form":"Porfavor, entre sus presiones arteriales ...",
+		"psm":"SISTÓLICA",
+        "pdm":"DIASTÓLICA",
+        "pm":"PULSO",
+		"btM":"MAÑANA (6-9 horas)",
+		"btT":"TARDE (18-21 horas)",
 		"btS":"ENVIAR",
 		"popup":"Llene todos los campos porfavor",
 		"popup1":"Usuario desactivado. No puede enviar datos",
+		//validació
+		"header_validacio":"VALIDACIÓN",
+		"txt_form1":"¿Està seguro que quiere enviar estas presiones arteriales?",
+		"btrS":"ENVIAR",
 		//grafiques
 		"header_graph_g":"GLOBAL",
 		"header_graph_m":"MAÑANA",
@@ -316,19 +380,20 @@ function selMain(){
 		"graf_ta_si":"Sistolica",
 		"graf_ta_di":"Diastolica",
 		"graf_ta_p":"Pulso",
+		"b_g1":"1 mes",
+        "b_g2":"3 meses",
+        "b_g3":"6 meses",
 		//notificacions
 		"noti_ti":"Recordatorio",
 		"noti_mi":"Recuerde enviar sus presiones",
+		//missatges
+		"header_comentaris":"MENSAJES",
+		//centre sanitari
+		"header_centre_sanitari":"CENTRO SANITARIO",
 		//ajuda
 		"header_ajuda":"AYUDA",
 		"ajuda_nav":"Ayuda utilización",
 		"vids_l":"VIDEOS",
-		//validacio
-		"header_validacio":"VALIDACION",
-		"rsend_btn":"Enviar",
-		"back_btn":"Atras",
-		"tM":"MAÑANA",
-		"tT":"TARDE",
 		//resultats
 		"header_resultats":"RESULTADOS",
 		"resultats":"Sus presiones han sido recibidas correctamente",
@@ -355,21 +420,50 @@ function selMain(){
 		"ajn_graf":"aqui encontrarà la evolucion de seus medidas de presion arterial",
 		"ajn_help_h":"Ayuda",
 		"ajn_help":"aqui encontrarà ayuda para la hipertension i para la aplicacion",
-		//inici		
-		"blink":"CARGANDO DATOS",
-		"desc_txt":"prueba texto descargo",
 		//telefon
 		"htel1":"REGISTRO",
-		//"tele_btn":"Hecho",
+		"tele_btn":"Hecho",
 		"tel_txt":"Porfavor, confirme el prefijo de su país i indroduzca su numero de teléfono",
 		"tag_dlang":"Idioma",
 		//sms
-		"hsms":"Autentificacion ",
+		"hsms":"AUTENTIFICACIÓN ",
 		"bSMS":"Registrar",
-		"smstxt":"Introduzca el codigo recibido por SMS"
+		"smstxt":"Introduzca el codigo recibido por SMS",
+		"licence_header":"LICÉNCIA",
+		"licence":"bla, bla, bla en castellano",
+		//menu lateral esquerra
+		//"me_nom":"Register",
+      	"me_perfil":"Perfil",
+       	"me_sortir":"Salir",
+       	"me_pa":"Presiones arteriales",
+    	"me_entrar":"Entrar presiones",
+    	"me_gp":"Graficos",
+       	"me_grafiques":"Grafica presiones",
+    	"me_hp":"Historial paciente",
+        "me_evolucio":"Evolución paciente",
+    	"me_m":"Mensajes",      
+        "me_missatges":"Mis mensajes",
+        "me_v":"Videos",  
+        "me_videos":"Videos asociados",
+   		"me_h":"Ayuda",
+    	"me_centres":"Centros sanitarios",
+    	"me_contacte":"Contacto",
+    	"me_info":"Información",
+		//menu formulari
+		"mf_p":"Presiones",
+    	"mf_esborrar":"Borrar medidas",
+        "mf_guardar":"Guardar medidas",
+        "mf_carregar":"Cargar medidas",
+        "mf_h":"Ayuda",
+        "mf_ampa":"Consejos",
+		//alerts
+		"al_mis":"Mensajes actualizados",
+		"server_send_mis": "Sus presiones se han recibido correctamente" ,
+		"server_send_mis1": "No se han podido enviar sus datos. Quiere reintentarlo?" ,
+		"mf_esborrar_mis":"¿Seguro que quiere borrar todos los valores?",
+		"mf_guardar_mis":"Sus datos se han guardado correctamente",
 		
-		
-			
+		 
 	};
 	
 	
@@ -396,24 +490,24 @@ function selMain(){
 		"header_contacte":"CONTACTE",
 		//perfil
 		"header_perfil":"PANELL DE CONTROL",
-		"photo_txt":"Foto",
-		"p1e":"Nom",
-		"p6e":"Cognom",
-		"p2e":"Data naixement",
-		"p3e":"Telèfon",
-		"p4e":"Email",
-		"p5e":"Gènere",
+		"p7e":"Seguiment desde",
 		"gender_m":"Masculí",
 		"gender_f":"Femení",
 		//mesures
 		"header_mesures":"MESURES",
-		"cancel_btn":"Esborrar",
-		"send_btn":"Info",
-		"btM":"MATI",
-		"btT":"TARDA",
+		"txt_form":"Si us plau, entri les seves pressions arterials...",
+		"psm":"SISTÒLICA",
+        "pdm":"DIASTÒLICA",
+        "pm":"POLS",
+		"btM":"MATI (6-9 hores)",
+		"btT":"TARDA (18-21 hores)",
 		"btS":"ENVIAR",
 		"popup":"Ompliu tots els camps de pressió siusplau",
 		"popup1":"Usuari desactivat. No pot enviar dades",
+		//validació
+		"header_validacio":"VALIDACIÓ",
+		"txt_form1":"Està segur que vol enviar aquestes pressions arterials ?",
+		"btrS":"ENVIAR",
 		//grafiques
 		"header_graph_g":"GLOBAL",
 		"header_graph_m":"MATI",
@@ -425,19 +519,20 @@ function selMain(){
 		"graf_ta_di":"Diastòlica",
 		"graf_ta_p":"Pols",
 		"graf_pa":"Pressió arterial(mm Hg)",
+		"b_g1":"1 mes",
+        "b_g2":"3 mesos",
+        "b_g3":"6 mesos",
 		//notificacions
 		"noti_ti":"Recordatori",
 		"noti_mi":"Recordi enviar les seves pressions",
+		//missatges
+		"header_comentaris":"MISSATGES",
+		//centre sanitari
+		"header_centre_sanitari":"CENTRE SANITARI",
 		//ajuda
 		"header_ajuda":"AJUDA",
 		"ajuda_nav":"Ajuda utilització",
 		"vids_l":"VIDEOS",
-		//validacio
-		"header_validacio":"VALIDACIO",
-		"rsend_btn":"Enviar",
-		"back_btn":"Tornar",
-		"tM":"MATI",
-		"tT":"TARDA",
 		//resultats
 		"header_resultats":"RESULTATS",
 		"resultats":"Les seves pressions han estat rebudes correctament",
@@ -464,18 +559,49 @@ function selMain(){
 		"ajn_graf":"En aquesta pestanya trobarà una gràfica amb l'evolució de les seves mesures de pressió arterial així com una taula amb tots els valors detallats.<br />Faci lliscar la pantalla per veure'n tot el contingut",
 		"ajn_help_h":"Ajuda",
 		"ajn_help":"En aquesta pestanya trobarà ajuda. <br /> Ajuda a la navegació per l'aplicació. <br /> Ajuda per a la presa de mesures. <br />Consells per a millorar la seva salut ",
-		//inici
-		"blink":"CARREGANT DADES",
-		"desc_txt":"prova text descàrrec",
 		//telefon
 		"htel1":"REGISTRE",
-		//"tele_btn":"Fet",
+		"tele_btn":"Fet",
 		"tel_txt":"Si us plau, confirma el prefix del teu país i introdueix el teu número de telèfon",
 		"tag_dlang":"Idioma",
 		//sms
-		"hsms":"Autenticació ",
+		"hsms":"AUTENTICACIÓ ",
 		"bSMS":"Registrar",
-		"smstxt":"Introdueixi el codi rebut per SMS"
+		"smstxt":"Introdueixi el codi rebut per SMS",
+		"licence_header":"LLICÈNCIA",
+		"licence":"bla, bla, bla en català",
+		//menu lateral esquerra
+		//"me_nom":"Register",
+      	"me_perfil":"Perfil",
+       	"me_sortir":"Sortir",
+       	"me_pa":"Pressions arterials",
+    	"me_entrar":"Entrar pressions",
+    	"me_gp":"Grafiques",
+       	"me_grafiques":"Gràfica pressions",
+    	"me_hp":"Historial pacient",
+        "me_evolucio":"Evolució pacient",
+    	"me_m":"Missatges",      
+        "me_missatges":"Els meus misstges",
+        "me_v":"Vídeos",  
+        "me_videos":"Vídeos associats",
+   		"me_h":"Ajuda",
+    	"me_centres":"Centres sanitaris",
+    	"me_contacte":"Contacte",
+    	"me_info":"Informació",
+		//menu formulari
+		"mf_p":"Pressions",
+    	"mf_esborrar":"Eesborrar mesures",
+        "mf_guardar":"Guardar mesures",
+        "mf_carregar":"Carregar mesures",
+        "mf_h":"Ajuda",
+        "mf_ampa":"Consells",
+		//alerts
+		"al_mis":"Missatges actualizats",
+		"server_send_mis": "Hem rebut les seves pressions correctament" ,
+		"server_send_mis1": "No s´han pogut enviar les dades. Ho vol reintentar?" ,
+		"mf_esborrar_mis":"Segur que que vol esborrar tots els valors?",
+		"mf_guardar_mis":"Les seves dades s'han guardat correctament",
+		
 			
 			
 	};

@@ -1,46 +1,24 @@
 /* CSS Document */
 
-
 .titol{
-	float:left; 
-	color:#A00; 
-	font-weight:bold; 
-	margin-left:10%;
+	display:inline-block;
+	margin-left: 12px;
+	margin-top: 16px;
+	font-weight:bold;
 	text-align:center;
+	color:#A00; 
+	}
+	
+.latbtne{
+	float:left; 
+	margin:10px;
 	}
 
-
-
+.latbtnd{
+	float:right; 
+	margin:10px;
+	}
 /* INICI*/
-#fI{
-    position:absolute;            
-    left:50%;
-    top:35%;
-    height:50px;                   
-    width:225px;                  
-   	text-align:center;
-   	padding:110px 0px 0px 0px;    
-   	margin:-115px 0px 0px -112px;
-	
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
-
 
 .modal {
     display:    none;
@@ -51,8 +29,7 @@
     height:     100%;
     width:      100%;
     background: rgba( 255, 255, 255, .7) 
-				url('../img/loading/loading40.gif')
-                /*url('http://i.stack.imgur.com/FhHRx.gif') */
+				url('../img/loading/loading1.gif')
                 50% 50% 
                 no-repeat;
 }
@@ -65,14 +42,39 @@ body.loading .modal {
     display: block;
 }
 
+#start_header{
+	display: block;
+	margin:auto;
+	padding-top:-20px;
+	height:70px;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
+	background-image:-webkit-linear-gradient(#fdfdfd,#eee);
+	background-image:-moz-linear-gradient(#fdfdfd,#eee);
+	background-image:-ms-linear-gradient(#fdfdfd,#eee);
+	background-image:-o-linear-gradient(#fdfdfd,#eee);
+	background-image:linear-gradient(#fdfdfd,#eee);
+	}
+
+#bpc{
+	display: block;
+	margin:auto;
+	padding-top:20px;
+	border-radius:10px;
+	width:230px;
+	height:30px; 
+	}
+
+
+
 #zprive{
 	font-family:helvetica, sans-serif;
 	border: 2px #ddd solid;
-    border-radius: 20px;
-    padding-left: 25px;
-	/*background:#81a8ce;*/
+    border-radius: 10px;
+    padding-left: 15px;
 	background:#800;
-	margin: 20px;
+	margin: 10px;
+	margin-top:30px;
 	color:#fff;
 	text-shadow:0 -1px 1px #000;
 	background-image:url(../img/botons/padlock_closed_icon&48.png);
@@ -83,44 +85,34 @@ body.loading .modal {
 
 
 #slideshow { 
-	
+	position:absolute;            
+    margin:auto;
 	display: block;
-	margin-top: 35px;
-    position: relative; 
-    width: 102%; 
+	margin-bottom:10px;
+    width: 100%; 
 	min-height:170px;
-    height: 60%; 
-    padding: 10px; 
-    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+
+.zoom{
+	width:100%;
+	max-width:800px;
+	max-height:660px;
 }
 
 #slideshow > div { 
-	position: absolute; 
-    top: 20px; 
-    left: 28%; 
-    right: 10px; 
-    bottom: 10px; 
+	position: absolute;
+	top:15%;         
 }
 
-#bpc{
-	display: block;
-	margin:auto;
-	margin-top:20px;
-	margin-bottom:20px;
-	border-radius:10px;
-	width:230px;
-	height:30px; 
-	
-	}
 
 	
 /* TELEFON  */
 #tel_txt, #smstxt{
 	
 	text-align:center;
-	color:#06C;
-	
-	margin-top:20px;
+	color:#A00;
+	margin: 15px;
+	margin-top:25px;
 	font-size:18px;
 	}	
 	
@@ -130,7 +122,7 @@ body.loading .modal {
 	float:left;
 	margin: 0 30px;
 	margin-left: 17%;
-	color:#06C;
+	color:#A00;
 	
 	
 	}
@@ -139,7 +131,7 @@ body.loading .modal {
 	width:40%;
 	min-with:600px;
 	margin:0 30px;
-	color:#06C;
+	color:#A00;
 	
 	}
 	
@@ -162,7 +154,7 @@ body.loading .modal {
 	width:40%;
 	text-align:right;
 	font-size:18px;
-	color:#06C;
+	color:#A00;
 	padding-bottom:10px;
 	padding-top:10px;
 	}	
@@ -235,7 +227,6 @@ body.loading .modal {
 
 
 #grtxt{
-	
 	color:#A00;
 	font-weight:bold;
 	margin-top:20px;
@@ -256,16 +247,19 @@ body.loading .modal {
 	
 .graf_table{
 	width:90%;
-	margin:0 5px;
+	/*margin:auto;*/
+	margin-left:1px;
 	margin-top:30px;
+	padding-left:-5px;
 	}
+	
 	
 /*FORMULARI*/
 
 #txt_form, #txt_form1{
 	color:#A00;
-	margin-top:20px;
-	margin-bottom:10px;
+	margin-top:7px;
+	margin-bottom:7px;
 	font-size:14px;
 	margin-left:5%;	
 	font-weight:bold;
@@ -369,27 +363,47 @@ body.loading .modal {
 /*missatges*/
 
 #xat_usuari{
-	border: 2px #ddd solid;
-    border-radius: 10px;
+	border: 1px #ddd solid;
+    border-radius: 5px;
     padding: 10px;
 	background:#F66;
-	margin-top: 6px;
+	margin-top: 1px;
 	margin-left:20%;
 	margin-right:2px;
 	text-shadow:none;
 	}
-
+	
+#xat_hora_u{
+	width: 40%;
+	color:#666;
+	font-size:11px; 
+	margin-top: 9px;
+	margin-bottom: 1px;
+	margin-left:65%;
+	margin-right:4px;
+	text-shadow:none;
+	}
+	
 #xat_metge{
-	border: 2px #ddd solid;
-    border-radius: 10px;
+	border: 1px #ddd solid;
+    border-radius: 5px;
     padding: 10px;
 	background:#AFA;
-	margin-top: 6px;
-	margin-right:20%;
+	margin-top: 1px;
 	margin-left:2px;
 	text-shadow:none;
 	}
-
+	
+#xat_hora_m{
+	width: 30%;
+	color:#666;
+	font-size:11px; 
+	margin-top:9px;
+	margin-bottom: 1px;
+	margin-left:2px;
+	text-shadow:none;
+	}
+	
 #mis_text{
 	width:60%;
 	line-height:20px;
@@ -412,14 +426,6 @@ body.loading .modal {
 	margin-left: 10px;
 	float:left;
 	}
-/*#resultats{
-	border: 2px #ddd solid;
-    border-radius: 20px;
-    padding: 20px;
-	
-	text-shadow:none;
-	background:#E2E2E2;
-	}*/
 	
 #valoracio{
 	border: 2px #ddd solid;
@@ -439,8 +445,6 @@ body.loading .modal {
 	text-shadow:none;
 	background:#CCC;
 	font-weight:bold;
-	/*float:left;*/
-	
 	}
 
 
@@ -449,8 +453,7 @@ body.loading .modal {
 table {
       border-collapse: collapse;
 	  width:90%;
-	 /*padding-right:15px;*/
-    }
+	}
 th, td {
       padding: 5px 10px;
       border: 1px solid #999;
@@ -459,64 +462,8 @@ th {
       background-color: #eee;
     }
 
-	
-/*botons superiors*/
-
-#back_btn, #cancel_btn, #send_btn, #rsend_btn {
-	
-	top:10px;
-	width:85px;
-	height:30px; 
-	line-height:20px;
-	padding:2px 2px; 
-	margin:0;
-	font-size:12px; 
-	
-}
-
- #bSMS{
-	
-	top:10px;
-	width:90px;
-	height:30px; 
-	line-height:20px;
-	padding:2px 2px; 
-	margin:0;
-	font-size:12px; 
-	
-}
-
-#resend_btn, #tele_btn {
-	
-	top:10px;
-	height:30px; 
-	width:70px;
-	line-height:20px;
-	padding:2px 2px;
-	margin:0;
-	font-size:12px; 
-	float:right;
-	right:7px;
-	
-}
-
-#aa {
-	
-	top:10px;
-	height:0px; 
-	width:0px;
-	line-height:0px;
-	padding:2px 2px;
-	margin:0;
-	font-size:0px; 
-	
-	
-}
-
 
 /*menu lateral*/
-
-	
 	
 #panel, #panel_perfil, #panel_form, #panel_graph	{
 	top:-1px;
@@ -544,7 +491,6 @@ th {
 	
 	font-family:helvetica, sans-serif;
 	border:1px solid #ccc;
-	/*background:#bbb;*/
 	color:#333;
 	font-weight:bold;
 	text-shadow:0 1px 0 #eee;
@@ -553,23 +499,7 @@ th {
 	background-image:-moz-linear-gradient(#ddd,#bbb);
 	background-image:-ms-linear-gradient(#ddd,#bbb);
 	background-image:-o-linear-gradient(#ddd,#bbb);
-	background-image:linear-gradient(#ddd,#bbb)
-	
-	
-	
-	
-	/*font-family:helvetica, sans-serif;
-	border:1px solid #456f9a;
-	/*background:#5e87b0;
-	color:#fff;
-	font-weight:bold;
-	text-shadow:0 -1px 1px #254f7a;
-	background-image:-webkit-gradient(linear,left top,left bottom,from(#81a8ce),to(#5e87b0));
-	background-image:-webkit-linear-gradient(#81a8ce,#5e87b0);
-	background-image:-moz-linear-gradient(#81a8ce,#5e87b0);
-	background-image:-ms-linear-gradient(#81a8ce,#5e87b0);
-	background-image:-o-linear-gradient(#81a8ce,#5e87b0);
-	background-image:linear-gradient(#81a8ce,#5e87b0);*/
+	background-image:linear-gradient(#ddd,#bbb);
     }
 	
 #bph{
@@ -583,7 +513,7 @@ th {
 	
 	}
 	
-#listv{
+.listv{
 	padding-left: 10px;
 	text-align:left;
 	width:200px;
@@ -605,7 +535,7 @@ th {
 	}
 	
 	
-#listvd{
+.listvd{
 	padding-left: 10px;
 	text-align:right;
 	width:200px;
@@ -626,13 +556,12 @@ th {
 	background-position:5% 50%;
 	}
 	
-#cmenu, #cmenu_nom{
+.cmenu{
 	padding-left: 10px;
 	text-align:left;
 	width:200px;
 	height:25px;
 	border:1px solid #eee;
-	/*color:#06C;*/
 	color:#A00;
 	font-size:14px;
 	font-weight:bold;
@@ -645,7 +574,7 @@ th {
 	background-image:linear-gradient(#fdfdfd,#eee);
 	}
 	
-#cmenud{
+.cmenud{
 	padding-left: 10px;
 	text-align:right;
 	width:200px;

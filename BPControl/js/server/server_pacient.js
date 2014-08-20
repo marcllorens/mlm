@@ -6,7 +6,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, fun
 	server_centres(perfil.patient.organization.id);
 
 	document.getElementById('nom').innerHTML = perfil.patient.name;
-	document.getElementById('cmenu_nom').innerHTML = 'Benvingut ' +  perfil.patient.name;
+	document.getElementById('me_nom').innerHTML = perfil.patient.name + '  ' + perfil.patient.firstSurname;
 	document.getElementById('cognom').innerHTML = perfil.patient.firstSurname ;
 	var birth= (perfil.patient.birthDate).split('T');
     var data = birth[0].split('-');
@@ -32,7 +32,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatient/restShow/'+ token, fun
 	server_centres(perfil.patient.organization.id);
 
 	document.getElementById('nom').innerHTML =  perfil.patient.name;
-	document.getElementById('cmenu_nom').innerHTML = 'Benvingut ' +  perfil.patient.name;
+	document.getElementById('me_nom').innerHTML =perfil.patient.name + '  ' + perfil.patient.firstSurname;
 	document.getElementById('cognom').innerHTML = perfil.patient.firstSurname ;
 	var birth= (perfil.patient.birthDate).split('T');
     var data = birth[0].split('-');

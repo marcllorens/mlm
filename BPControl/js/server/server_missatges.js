@@ -6,8 +6,14 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatientChat/restList/'+ token,
 	
 	$.each( missatge, function( index, item){
 			if(item.user==null){
-			div+='<div id="xat_usuari">'+item.text+'</div>';
+				var creat= (item.dateCreated).split('T');
+				var hora = creat[1].split(':');
+				div+='<div id="xat_hora_u">'+creat[0]+' ...  '+hora[0]+':'+hora[1]+'</div>';
+				div+='<div id="xat_usuari">'+item.text+'</div>';
 			}else{
+				var creat= (item.dateCreated).split('T');
+				var hora = creat[1].split(':');
+				div+='<div id="xat_hora_m">'+creat[0]+' ...  '+hora[0]+':'+hora[1]+'</div>';
 				div+='<div id="xat_metge">'+item.text+'</div>';
 			}	 	   
    	

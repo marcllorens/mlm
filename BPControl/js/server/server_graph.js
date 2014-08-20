@@ -76,7 +76,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restListAll/'+ t
 			}else if (taken[0]>=  document.getElementById('datef_m').value) {
 				}else{
 			
-				if( data1[0]<'16'){
+				if( data1[0]<'15'){
 				table+='<tr><td>'+data[2]+'/'+data[1]+'</td><td>'+item.systole+'</td><td>'+item.diastole+'</td></tr>';
 				}
 			}
@@ -109,10 +109,9 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restListAll/'+ t
 			datax=taken[0];
 			if(taken[0]< document.getElementById('datei_t').value){
 			}else if (taken[0]>=  document.getElementById('datef_t').value) {
-				}else if( data1[0]>='16'){
+				}else if( data1[0]>='15'){
 					table+='<tr><td>'+data[2]+'/'+data[1]+'</td><td>'+item.systole+'</td><td>'+item.diastole+'</td></tr>';
-					}
-				
+					}	
 		}
      });
      table+='</table>';
