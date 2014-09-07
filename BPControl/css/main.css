@@ -1,11 +1,24 @@
 /* CSS Document */
 
+.demo {
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+	opacity: 0.1;
+    background:	url('../img/loading/demo.png')
+                50% 50% 
+                no-repeat;
+}
+
+
 .titol{
 	display:inline-block;
-	margin-left: 12px;
+	margin-left: 14px;
 	margin-top: 16px;
 	font-weight:bold;
-	text-align:center;
 	color:#A00; 
 	}
 	
@@ -33,6 +46,7 @@
                 50% 50% 
                 no-repeat;
 }
+
 
 body.loading {
     overflow: hidden;   
@@ -78,7 +92,7 @@ body.loading .modal {
 	color:#fff;
 	text-shadow:0 -1px 1px #000;
 	background-image:url(../img/botons/padlock_closed_icon&48.png);
-	background-size:10%;
+	background-size:30px 30px;
 	background-repeat:no-repeat;
 	background-position:90% 50%;
 	}
@@ -104,6 +118,19 @@ body.loading .modal {
 	top:15%;         
 }
 
+#versio{
+	float:right;
+	font-size:9px;
+	}
+	
+#start_txt{
+	text-align:center;
+	color:#A00;
+	margin: 15px;
+	margin-top:25px;
+	font-size:18px;
+	font-weight:bold;
+	}
 
 	
 /* TELEFON  */
@@ -114,6 +141,7 @@ body.loading .modal {
 	margin: 15px;
 	margin-top:25px;
 	font-size:18px;
+	font-weight:bold;
 	}	
 	
 #prefix{
@@ -161,7 +189,7 @@ body.loading .modal {
 	
 /* PERFIL  */
 
-#Image{
+#Image, #logo, #logoc, #ad_logo{
 	display: block;
 	margin: auto;
 	margin-left:40%;
@@ -175,16 +203,23 @@ body.loading .modal {
 	}
 
 	
-#nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e{
+#nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e, #CS_nom, #CS_nom1, #CS_descripcio, #CS_contactpax, #CS_contactweb, #ad_CS_nom, #ad_CS_nom1, #ad_CS_descripcio, #ad_CS_contactpax, #ad_CS_contactweb{
 	
+	font-size:15px;
 	margin: 10px;
 	width:80%;
 	text-align:left;
 	color:#A00;
 	}	
-	
+#cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e{
+	font-size:16px;
+	}
+#nom, #CS_nom, #ad_CS_nom{
+	margin-top:20px;
+	font-weight:bold;
+	}
 #hospital{
-	
+	font-size:16px;
 	margin: 10px;
 	width:90%;
 	text-align:right;
@@ -195,13 +230,13 @@ body.loading .modal {
 /* GRAFIQUES */
 
 
-#datei, #datei_m, #datei_t{
+#datei, #datei_m, #datei_t, #datei_tau{
 	font-size:15px;
 	color:#A00;
 	width:35%;
 	min-with:300px;
 	float:left;
-	margin-left: 5%;
+	margin-left:5%;
 	margin-right: 5%;
 	margin-top:10px;
 	margin-bottom:5px;	
@@ -210,7 +245,7 @@ body.loading .modal {
 	
 	
 	
-#datef, #datef_m, #datef_t{
+#datef, #datef_m, #datef_t, #datef_tau{
 	font-size:15px;
 	color:#A00;
 	width:35%;
@@ -238,7 +273,7 @@ body.loading .modal {
 
 .container{
 	width:90%;
-	margin:0 5px;
+	margin: 0 5px;
 	}
 	
 #container_res{
@@ -246,11 +281,17 @@ body.loading .modal {
 	}
 	
 .graf_table{
+	border-collapse: collapse;
 	width:90%;
 	/*margin:auto;*/
-	margin-left:1px;
-	margin-top:30px;
-	padding-left:-5px;
+	}
+	
+#wrap  {
+	clear: both; 
+	float: left; 
+	display: block; 
+	width:120%;
+	margin-left:-20px;
 	}
 	
 	
@@ -366,7 +407,7 @@ body.loading .modal {
 	border: 1px #ddd solid;
     border-radius: 5px;
     padding: 10px;
-	background:#F66;
+	background:#EEE;
 	margin-top: 1px;
 	margin-left:20%;
 	margin-right:2px;
@@ -388,19 +429,20 @@ body.loading .modal {
 	border: 1px #ddd solid;
     border-radius: 5px;
     padding: 10px;
-	background:#AFA;
+	background:#AFA;	
 	margin-top: 1px;
 	margin-left:2px;
+	margin-right:20%;
 	text-shadow:none;
 	}
 	
 #xat_hora_m{
-	width: 30%;
+	width: 40%;
 	color:#666;
 	font-size:11px; 
 	margin-top:9px;
 	margin-bottom: 1px;
-	margin-left:2px;
+	margin-left:6px;
 	text-shadow:none;
 	}
 	
@@ -413,6 +455,25 @@ body.loading .modal {
 	float:left;
 	}
 
+
+#xat_btn1{
+	font-family:helvetica, sans-serif;
+	line-height:20px;
+	height: 42px;
+	margin:12px;
+	float:right;
+	border: 2px #fff solid;
+    border-radius: 5px;
+	background:#fff;
+	color:#323232;
+	font-weight:bold;
+	background-image:url(../img/botons/playback_play_icon&32.png);
+	background-size:25px 25px;
+	background-repeat:no-repeat;
+	background-position:50% 15%;
+	}
+
+
 /*resultats*/
 
 #field1{
@@ -422,8 +483,8 @@ body.loading .modal {
 #res{
 	width:10%;
 	min-with:35px;
-	margin-top:10px;
-	margin-left: 10px;
+	margin-top:5px;
+	margin-left:10px;
 	float:left;
 	}
 	
@@ -450,18 +511,36 @@ body.loading .modal {
 
 /* TAULA  */
 
-table {
+#tau, #taur {
       border-collapse: collapse;
-	  width:90%;
+	  width: 100%;
 	}
-th, td {
+#tau_th, #taur_th{	
+	 
       padding: 5px 10px;
       border: 1px solid #999;
- 	}
-th {
-      background-color: #eee;
-    }
+	  background-color: #eee;
+	}
+#tau_td, #taur_td{	
+	  padding: 5px 10px;
+      border: 1px solid #999;
+	}
+	
 
+	
+#est {
+      border-collapse: collapse;
+	  padding-right:-7px;
+	  width: 100%;
+	}
+	
+#est_tr {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+	padding: 5px 20px;
+	text-align:center;
+}
 
 /*menu lateral*/
 	
@@ -519,7 +598,7 @@ th {
 	width:200px;
 	height:30px;
 	border:1px solid #eee;
-	font-size:14px;
+	font-size:16px;
 	background:#eee;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -541,7 +620,7 @@ th {
 	width:200px;
 	height:30px;
 	border:1px solid #eee;
-	font-size:14px;
+	font-size:16px;
 	background:#eee;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -563,7 +642,7 @@ th {
 	height:25px;
 	border:1px solid #eee;
 	color:#A00;
-	font-size:14px;
+	font-size:16px;
 	font-weight:bold;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -581,7 +660,7 @@ th {
 	height:25px;
 	border:1px solid #eee;
 	color:#A00;
-	font-size:14px;
+	font-size:16px;
 	font-weight:bold;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -591,3 +670,4 @@ th {
 	background-image:-o-linear-gradient(#fdfdfd,#eee);
 	background-image:linear-gradient(#fdfdfd,#eee);
 	}
+	

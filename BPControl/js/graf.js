@@ -1,105 +1,7 @@
-function grph(){
-   
-		
-       /* $('#container1').highcharts({
-            chart: {
-                type: 'spline',
-                animation: Highcharts.svg, // don't animate in old IE
-                marginRight: 10,
-                events: {
-                    load: function() {
-    
-                        // set up the updating of the chart each second
-                        var series = this.series[0];
-                        setInterval(function() {
-                            var x = (new Date()).getTime(), // current time
-                                y = Math.random();
-                            
-                            series.addPoint([x, y], true, true);
-                        }, 2000);
-                    }
-                }
-            },
-           exporting: {enabled: false},
-       title: {
-            text: ''
-        },
-        yAxis: {
-			 
-			plotLines: [{ 
-                color: 'red',
-                width: 2,
-                value:document.getElementById('pad').innerHTML,
-                dashStyle: 'ShortDash',
-				label : {
-						text : 'PAD'
-					}
-            },{
-					value :document.getElementById('pas').innerHTML,
-					color : 'red',
-					dashStyle : 'shortdash',
-					width : 2,
-					label : {
-						text : 'PAS'
-					}
-				}],
-            allowDecimals: false,
-            title: {
-                text: null//document.getElementById('graf_pa').innerHTML
-            }
-        },
-		credits: {
-            enabled: false
-        },
-		 legend: {
-            align: 'left',
-		    layout: 'vertical',
-            backgroundColor: '#FFFFFF',
-			borderRadius: 5,
-            borderWidth: 1,
-            verticalAlign: 'top',
-            x: 64,
-            y: -10,
-            floating: true,
-			 labelFormatter: function() {
-                return this.name;
-            }
-        },
-            tooltip: {
-                formatter: function() {
-                        return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
-                        Highcharts.numberFormat(this.y, 2);
-                }
-            },
-            
-            
-            series: [{
-				data: {table: document.getElementById('grf_table')}
-              	/*data: (function() {
-         		 var data = document.getElementById('grf_table');
-		         var time = (new Date()).getTime(),
-                        i;
-    
-                    for (i = -19; i <= 0; i++) {
-                        data.push({
-                            x: time + i * 2000,
-                            y: Math.random()
-                        });
-                    }
-                    return data;
-                })()//aqui hi va final de comnetari
-				
-            }]
-        });
-   
-		*/
-
-}
-	// GRAFICA MATI
+// GRAFICA MATI
 	
 function grph_mati(){
-
+	 
 	 $('#container_m').highcharts({
 		
         chart: {
@@ -107,19 +9,21 @@ function grph_mati(){
         },
 		
 		data: {
+			
             table: document.getElementById('grf_table_m')
         },
-		
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
 		exporting: {enabled: false},
        title: {
             text: ''
         },
 		  xAxis: {
+			    
                         labels:
                         {
-                            enabled: false
+                            enabled: true
                         }
-                    },
+                    }, 
         yAxis: {
 			 
 			plotLines: [{ 
@@ -140,9 +44,10 @@ function grph_mati(){
 					}
 				}],
             allowDecimals: false,
-            title: {
+			title: {
                 text: null//document.getElementById('graf_pa').innerHTML
-            }
+            },
+           
         },
 		credits: {
             enabled: false
@@ -154,8 +59,8 @@ function grph_mati(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 74,
-            y: -20,
+            x: 44,
+            y: 270,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -168,14 +73,12 @@ function grph_mati(){
             }
         }
     });
-	
-	
 }
 	
 	//GRAFICA TARDA
 	
 function grph_tarda(){
-	
+	 
 	$('#container_t').highcharts({
 		
         chart: {
@@ -185,7 +88,7 @@ function grph_tarda(){
 		data: {
             table: document.getElementById('grf_table_t')
         },
-		
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
 		exporting: {enabled: false},
        title: {
             text: ''
@@ -193,7 +96,7 @@ function grph_tarda(){
 		 xAxis: {
                         labels:
                         {
-                            enabled: false
+                            enabled: true
                         }
                     },
         yAxis: {
@@ -230,8 +133,8 @@ function grph_tarda(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 74,
-            y: -20,
+            x: 44,
+            y: 270,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -244,14 +147,13 @@ function grph_tarda(){
             }
         }
     });
-
 }
 
 //GRAFICA GLOBAL
 
 function grph_all(){
 
-	 $('#container_all').highcharts({
+	$('#container_all').highcharts({
 		
         chart: {
 			type: 'spline'
@@ -260,6 +162,7 @@ function grph_all(){
 		data: {
             table: document.getElementById('grf_table_all')
         },
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
 		
 		exporting: {enabled: false},
        title: {
@@ -268,7 +171,7 @@ function grph_all(){
 		 xAxis: {
                         labels:
                         {
-                            enabled: false
+                            enabled: true
                         }
                     },
 		
@@ -306,8 +209,8 @@ function grph_all(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 74,
-            y: -20,
+            x: 44,
+            y: 270,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -320,10 +223,7 @@ function grph_all(){
 			}
 		}
     });
-
-
-
-
+	
 }
 
 
@@ -340,9 +240,9 @@ function grph_res(){
         },
 		
 		data: {
-            table: document.getElementById('grf_resultats')
+            table: document.getElementById('grf_table_all')
         },
-		
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
 		exporting: {enabled: false},
        title: {
             text: ''
@@ -350,7 +250,7 @@ function grph_res(){
 		 xAxis: {
                         labels:
                         {
-                            enabled: false
+                            enabled: true
                         }
                     },
         yAxis: {
@@ -387,8 +287,8 @@ function grph_res(){
 			borderRadius: 5,
             borderWidth: 1,
             verticalAlign: 'top',
-            x: 64,
-            y: -10,
+            x: 44,
+            y: 270,
             floating: true,
 			 labelFormatter: function() {
                 return this.name;
@@ -401,6 +301,9 @@ function grph_res(){
             }
         }
     });
-	
 }
+
+
+
+
 

@@ -48,7 +48,7 @@ if(pqst==1){ //setmanal
 		t2=new Date.today().set({ day: 1, hour: 8, minute: 00 });
 		t21=new Date.today().set({ day: 1, hour: 21, minute: 00 });
 		
-		t2=new Date.today().set({ day: 15, hour: 8, minute: 00 });
+		t3=new Date.today().set({ day: 15, hour: 8, minute: 00 });
 		t31=new Date.today().set({ day: 15, hour: 21, minute: 00 });
 		quinzenal(t2,t21,t3,t31);
 	 
@@ -59,17 +59,19 @@ if(pqst==1){ //setmanal
 };
 			
 function setmanal(t2,t3){
-		
+
 		window.plugin.notification.local.add({ title:document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
-			 badge:1});
+			 badge:1
+			 });
+		 
 	
 		window.plugin.notification.local.add({
 			 id:      1,
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 repeat:  'daily',
+			 repeat:  'weekly', 
 			 date:    t2
 			});
 		window.plugin.notification.local.add({
@@ -77,7 +79,7 @@ function setmanal(t2,t3){
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 repeat:  'daily',
+			 repeat:  'weekly', 
 			 date:    t3
 			});
 		   
@@ -85,16 +87,17 @@ function setmanal(t2,t3){
 	
 function quinzenal(t2,t21,t3,t31){
 		
+		
 		window.plugin.notification.local.add({ title:document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
-			 badge:1});
+			 badge:1
+			  });
 		
 		window.plugin.notification.local.add({
 			 id:      1,
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 //repeat:  'monthly',
 			 date:    t2
 			});
 		window.plugin.notification.local.add({
@@ -102,7 +105,6 @@ function quinzenal(t2,t21,t3,t31){
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 //repeat:  'monthly',
 			 date:    t21
 			});
 		window.plugin.notification.local.add({
@@ -110,7 +112,6 @@ function quinzenal(t2,t21,t3,t31){
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 //repeat:  'monthly',
 			 date:    t3
 			});
 		window.plugin.notification.local.add({
@@ -118,7 +119,6 @@ function quinzenal(t2,t21,t3,t31){
 			 title:   document.getElementById('noti_ti').innerHTML,
 			 message: document.getElementById('noti_mi').innerHTML,
 			 badge:	  1,
-			 //repeat:  'monthly',
 			 date:    t31
 			});
 		   

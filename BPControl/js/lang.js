@@ -4,7 +4,6 @@ function inicilang(){
 	
 	navigator.globalization.getPreferredLanguage(
 		function(language){
-			
 			if(language.value=="ca" || language.value=="catala"){
 				$('#langsel > option[value="1"]').attr('selected', 'selected');
 				localStorage.setItem('lang',1);
@@ -42,7 +41,6 @@ function selChange(){
 //DICCIONARI
 	
 function selMain(){
-		
 		var valor=localStorage.getItem('lang');
 		if(valor==1){
 		$.i18n.load(i18n_dict_ca);
@@ -105,11 +103,18 @@ function selMain(){
 		$('a#b_g1')._t('b_g1');
         $('a#b_g2')._t('b_g2');
         $('a#b_g3')._t('b_g3');
+		//estat pacient
+		$('p#header_estat')._t('header_estat'); 
+		$('p#estat_data')._t('estat_data');
+		$('p#estat_hora')._t('estat_hora');
+		$('p#estat_estat')._t('estat_estat');
+		$('p#estat_mesures')._t('estat_mesures');
 		//notificacions
 		$('p#noti_ti')._t('noti_ti');
 		$('p#noti_mi')._t('noti_mi');
 		//missatges
 		$('p#header_comentaris')._t('header_comentaris');
+		$('h#btn_xat_txt')._t('btn_xat_txt');
 		//centre sanitari
 		$('p#header_centre_sanitari')._t('header_centre_sanitari');
 		//ajuda
@@ -195,7 +200,7 @@ function selMain(){
 	i18n_dict_en = {
 		
 		//start
-		"zp_txt":"Enter private zone",
+		"zp_txt":"Patient area",
 		//navbar
 		"mp":"morning",
 		"ma":"table",
@@ -204,11 +209,11 @@ function selMain(){
 		//navbar1
 		"mp1":"Health center",
 		"mg1":"Contact",
-		"mf1":"Demo",
+		"mf1":"Info",
 		//centre sanitari
 		"header_centres":"HEALTH CENTERS",
 		//demo
-		"header_demo":"DEMO",
+		"header_demo":"INFORMATIOIN",
 		//contacte
 		"header_contacte":"CONTACT",
 		//perfil
@@ -245,11 +250,18 @@ function selMain(){
 		"b_g1":"1 month",
         "b_g2":"3 months",
         "b_g3":"6 months",
+		//estat pacient
+		"header_estat":"PATIENT EVOLUTION",
+		"estat_data":"Date",
+		"estat_hora":"Hour",
+		"estat_estat":"State",
+		"estat_mesures":"Mesures",
 		//notificacions
-		"noti_ti":"Remember",
+		"noti_ti":"ENTER PRESSURES",
 		"noti_mi":"Remember to send your blood presure",
 		//missatges
 		"header_comentaris":"MESSAGES",
+		"btn_xat_txt":"SEND",
 		//centre sanitari
 		"header_centre_sanitari":"HEALTH CENTER",
 		//ajuda
@@ -261,9 +273,9 @@ function selMain(){
 		"resultats":"Your blood presures have been received OK",
 		"valoracio":"...",
 		"recordatori":"Remember to take your presure and send the controls",
-		"result_ok":"Everything OK",
-		"result_ko":"We saw your mesures. Don't worry, we'll forward your apointment ",
-		"result_idem":"No changes",
+		"result_ok":"Everything is okay.<br /> Remember to measure your blood pressures and to send the controls.",
+		"result_ko":"We have seen your records,<br /> do not worry, we will advance your visit.",
+		"result_idem":"Do not forget, no salt diet, remember to take medication and do physical activity.<br /> It is important.",
 		//ampa
 		"header_ampa":"A.M.P.A.",
 		"ampa_postura_h":"Postura:",
@@ -289,16 +301,16 @@ function selMain(){
 		"tag_dlang":"Language",
 		//sms
 		"hsms":"AUTENTICATION ",
-		"bSMS":"Register",
+		"bSMS":"Enter",
 		"smstxt":"Introduce the SMS code received",
 		"licence_header":"LICENCE",
-		"licence":"bla, bla, bla in inglish",
+		"licence":"English Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Profile",
        	"me_sortir":"Exit",
        	"me_pa":"Arterial pressures",
-    	"me_entrar":"Enter pressures",
+    	"me_entrar":"Introduce pressures",
     	"me_gp":"Graphics",
        	"me_grafiques":"Pressure graphics",
     	"me_hp":"Patient history",
@@ -308,7 +320,7 @@ function selMain(){
         "me_v":"Videos",  
         "me_videos":"Associated videos",
    		"me_h":"Help",
-    	"me_centres":"Health centers",
+    	"me_centres":"Health center",
     	"me_contacte":"Contact",
     	"me_info":"Info",
 		//menu formulari
@@ -333,7 +345,7 @@ function selMain(){
 	i18n_dict_es = {
 		
 		//start
-		"zp_txt":"Entrar en zona privada",
+		"zp_txt":"Area paciente",
 		//navbar
 		"mp":"mañana",
 		"ma":"tabla",
@@ -342,11 +354,11 @@ function selMain(){
 		//navbar1
 		"mp1":"Centro sanitario",
 		"mg1":"Contacto",
-		"mf1":"Demo",
+		"mf1":"Info",
 		//centre sanitari
 		"header_centres":"CENTROS SANITARIOS",
 		//demo
-		"header_demo":"DEMO",
+		"header_demo":"INFORMACION",
 		//contacte
 		"header_contacte":"CONTACTO",
 		//perfil
@@ -356,7 +368,7 @@ function selMain(){
 		"gender_f":"Femenino",
 		//mesures
 		"header_mesures":"MEDIDAS",
-		"txt_form":"Porfavor, entre sus presiones arteriales ...",
+		"txt_form":"Por favor, entre sus presiones arteriales ...",
 		"psm":"SISTÓLICA",
         "pdm":"DIASTÓLICA",
         "pm":"PULSO",
@@ -367,7 +379,7 @@ function selMain(){
 		"popup1":"Usuario desactivado. No puede enviar datos",
 		//validació
 		"header_validacio":"VALIDACIÓN",
-		"txt_form1":"¿Està seguro que quiere enviar estas presiones arteriales?",
+		"txt_form1":"¿Esta seguro que quiere enviar estas presiones arteriales?",
 		"btrS":"ENVIAR",
 		//grafiques
 		"header_graph_g":"GLOBAL",
@@ -376,20 +388,27 @@ function selMain(){
 		"header_graph_l":"LISTA",
 		"grtxt":"",
 		"graf_ta_data":"Fecha",
-		"graf_pa":"Pressió arterial(mm Hg)",
-		"graf_ta_si":"Sistolica",
-		"graf_ta_di":"Diastolica",
+		"graf_pa":"Presion arterial(mm Hg)",
+		"graf_ta_si":"Sistólica",
+		"graf_ta_di":"Diastólica",
 		"graf_ta_p":"Pulso",
 		"b_g1":"1 mes",
         "b_g2":"3 meses",
         "b_g3":"6 meses",
+		//estat pacient
+		"header_estat":"EVOLUCIÓN PACIENTE",
+		"estat_data":"Fecha",
+		"estat_hora":"Hora",
+		"estat_estat":"Estado",
+		"estat_mesures":"Medidas",
 		//notificacions
-		"noti_ti":"Recordatorio",
+		"noti_ti":"ENTRAR PRESIONES",
 		"noti_mi":"Recuerde enviar sus presiones",
 		//missatges
 		"header_comentaris":"MENSAJES",
+		"btn_xat_txt":"ENVIAR",
 		//centre sanitari
-		"header_centre_sanitari":"CENTRO SANITARIO",
+		"header_centre_sanitari":"CENTROS SANITARIOS",
 		//ajuda
 		"header_ajuda":"AYUDA",
 		"ajuda_nav":"Ayuda utilización",
@@ -399,17 +418,17 @@ function selMain(){
 		"resultats":"Sus presiones han sido recibidas correctamente",
 		"valoracio":"...",
 		"recordatori":"Recuerde tomarse la tensión y enviar los controles",
-		"result_ok":"Todo va bien",
-		"result_ko":"Hemos visto sus registros.<br /> No se preocupe, adelantaremos su visita.",
-		"result_idem":"Todo igual",
+		"result_ok":"Todo va bien.<br /> Recuerde tomarse la tensión y enviar los controles.",
+		"result_ko":"Hemos visto sus registros,<br /> no se preocupe le adelantaremos la visita.",
+		"result_idem":"No lo olvide, dieta sin sal, tome la medicación y recuerde hacer actividad física.<br /> Es importante.",
 		//ampa
 		"header_ampa":"A.M.P.A.",
 		"ampa_postura_h":"Postura:",
-		"ampa_postura":"Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.<br />Adoptar una postura còmoda i relaxada.<br />No creuar les cames.",
+		"ampa_postura":"Sentado o tendido con el brazo donde se tiene que tomar la presión a la altura del corazon.<br />Adoptar una postura cómoda y relajada.<br />No cruzar las piernas.",
 		"ampa_condicions_h":"Condiciones:",
-		"ampa_condicions":"No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.<br />No prendre la pressió amb la bufeta plena.<br />Evitar sorolls i situacions estressants.<br />Cal estar en repòs al menys cinc minuts abans de la mesura.",
+		"ampa_condicions":"No haver tomado café, alcohol, comido, fumado o hecho ejercicio una hora antes de tomar la presión.<br />No tomar la presión con la bufeta llena.<br />Evitar ruidos y situaciones estresantes.<br />Debe estar en reposo al menos cinco minutos antes de la medida.",
 		"ampa_manegot_h":"Manguito:",
-		"ampa_manegot":"Cal posar-lo 2-3 cm per sobre de la flexura del colze.<br />Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.",
+		"ampa_manegot":"Debe ponerse 2-3 cm por encima del codo.<br />Debe tenerse en cuenta el tamanyo del manguito mas adiente segun el perímetro del brazo.",
 		//ajuda navegacio
 		"header_ajuda_n":"AYUDA",
 		"ajn_perfil_h":"Perfil",
@@ -423,20 +442,20 @@ function selMain(){
 		//telefon
 		"htel1":"REGISTRO",
 		"tele_btn":"Hecho",
-		"tel_txt":"Porfavor, confirme el prefijo de su país i indroduzca su numero de teléfono",
+		"tel_txt":"Por favor, confirme el prefijo de su país y indroduzca su numero de teléfono",
 		"tag_dlang":"Idioma",
 		//sms
 		"hsms":"AUTENTIFICACIÓN ",
-		"bSMS":"Registrar",
+		"bSMS":"Entrar",
 		"smstxt":"Introduzca el codigo recibido por SMS",
 		"licence_header":"LICÉNCIA",
-		"licence":"bla, bla, bla en castellano",
+		"licence":"Castellano Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Perfil",
        	"me_sortir":"Salir",
        	"me_pa":"Presiones arteriales",
-    	"me_entrar":"Entrar presiones",
+    	"me_entrar":"Introducir presiones",
     	"me_gp":"Graficos",
        	"me_grafiques":"Grafica presiones",
     	"me_hp":"Historial paciente",
@@ -446,7 +465,7 @@ function selMain(){
         "me_v":"Videos",  
         "me_videos":"Videos asociados",
    		"me_h":"Ayuda",
-    	"me_centres":"Centros sanitarios",
+    	"me_centres":"Centro sanitario",
     	"me_contacte":"Contacto",
     	"me_info":"Información",
 		//menu formulari
@@ -472,7 +491,7 @@ function selMain(){
 	i18n_dict_ca = {
 		
 		//start
-		"zp_txt":"Entrar en zona privada",
+		"zp_txt":"Àrea pacient",
 		//navbar
 		"mp":"matí",
 		"ma":"taula",
@@ -481,11 +500,11 @@ function selMain(){
 		//navbar1
 		"mp1":"Centre sanitari",
 		"mg1":"Contacte",
-		"mf1":"Demo",
+		"mf1":"Info",
 		//centre sanitari
 		"header_centres":"CENTRES SANITARIS",
 		//demo
-		"header_demo":"DEMO",
+		"header_demo":"INFORMACIÓ",
 		//contacte
 		"header_contacte":"CONTACTE",
 		//perfil
@@ -522,11 +541,18 @@ function selMain(){
 		"b_g1":"1 mes",
         "b_g2":"3 mesos",
         "b_g3":"6 mesos",
+		//estat pacient
+		"header_estat":"EVOLUCIÓ PACIENT",
+		"estat_data":"Data",
+		"estat_hora":"Hora",
+		"estat_estat":"Estat",
+		"estat_mesures":"Mesures",
 		//notificacions
-		"noti_ti":"Recordatori",
+		"noti_ti":"ENTRAR PRESSIONS",
 		"noti_mi":"Recordi enviar les seves pressions",
 		//missatges
 		"header_comentaris":"MISSATGES",
+		"btn_xat_txt":"ENVIAR",
 		//centre sanitari
 		"header_centre_sanitari":"CENTRE SANITARI",
 		//ajuda
@@ -538,9 +564,9 @@ function selMain(){
 		"resultats":"Les seves pressions han estat rebudes correctament",
 		"valoracio":"...",
 		"recordatori":"Recordi pendre's la pressió i enviar els controls",
-		"result_ok":"Tot va be",
+		"result_ok":"Tot va bé.<br /> Recordi mesurar-se la pressió i enviar els controls.",
 		"result_ko":"Hem vist els seus registres.<br />No es preocupi li avançarem la visita.",
-		"result_idem":"Tot igual",
+		"result_idem":"No ho oblidi, dieta sense sal, prengui la medicació i recordi fer activitat física.<br /> És important.",
 		//ampa
 		"header_ampa":"A.M.P.A.",
 		"ampa_postura_h":"Postura:",
@@ -566,31 +592,31 @@ function selMain(){
 		"tag_dlang":"Idioma",
 		//sms
 		"hsms":"AUTENTICACIÓ ",
-		"bSMS":"Registrar",
+		"bSMS":"Entrar",
 		"smstxt":"Introdueixi el codi rebut per SMS",
 		"licence_header":"LLICÈNCIA",
-		"licence":"bla, bla, bla en català",
+		"licence":"Català Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Perfil",
        	"me_sortir":"Sortir",
        	"me_pa":"Pressions arterials",
-    	"me_entrar":"Entrar pressions",
-    	"me_gp":"Grafiques",
+    	"me_entrar":"Introduir pressions",
+    	"me_gp":"Gràfiques",
        	"me_grafiques":"Gràfica pressions",
     	"me_hp":"Historial pacient",
         "me_evolucio":"Evolució pacient",
     	"me_m":"Missatges",      
-        "me_missatges":"Els meus misstges",
+        "me_missatges":"Els meus missatges",
         "me_v":"Vídeos",  
         "me_videos":"Vídeos associats",
    		"me_h":"Ajuda",
-    	"me_centres":"Centres sanitaris",
+    	"me_centres":"Centre sanitari",
     	"me_contacte":"Contacte",
     	"me_info":"Informació",
 		//menu formulari
 		"mf_p":"Pressions",
-    	"mf_esborrar":"Eesborrar mesures",
+    	"mf_esborrar":"Esborrar mesures",
         "mf_guardar":"Guardar mesures",
         "mf_carregar":"Carregar mesures",
         "mf_h":"Ajuda",

@@ -1,7 +1,6 @@
 //INICIALITZACIO
 
-
-//back button android
+//control back button android
 	document.addEventListener("backbutton", function(e){
     if($.mobile.activePage.is('#homepage')){
         e.preventDefault();
@@ -12,37 +11,64 @@
     }
 }, false);
 
-
+// event deviceready 
 document.addEventListener("deviceready", inici, false);
 function inici() { 
-
-	
-	//SLIDESHOW
-	
-	$("#slideshow > div:gt(0)").hide();
-	setInterval(function() { 
-  		$('#slideshow > div:first')
-    	.fadeOut(1000)
-    	.next()
-    	.fadeIn(1000)
-    	.end()
-    	.appendTo('#slideshow');
-	},  3000);
-	
+			
 
 	//eliminar 300ms wait
 	$(function() {
 	 	new FastClick(document.body);
- 	 	//FastClick.attach(document.body);
 	});
 	
-	//obrim pantalla inical
-	setTimeout(function(){$.mobile.changePage("#start");}, 1000);
-	
  	//splash screen
-	setTimeout(function(){navigator.splashscreen.hide();}, 3500);
-
-	   
+	setTimeout(function(){navigator.splashscreen.hide();}, 20000);
+	
+	//COMPROVACIO TOKEN 
+	var ltoken = localStorage.getItem('token') || '<empty>'; 
+	
+   	if(ltoken=='<empty>' || null){
+		crg(); //efecte loading
+		inicilang(); // establim idioma telèfon	
+		server_centres_all(); //carreguem centres sanitaris
+		server_admin();
+		//Slideshow
+		$("#slideshow > div:gt(0)").hide();
+		setInterval(function() { 
+			$('#slideshow > div:first')
+			.fadeOut(1000)
+			.next()
+			.fadeIn(1000)
+			.end()
+			.appendTo('#slideshow');
+		},  3000);
+		setTimeout(function(){$.mobile.changePage("#start");}, 100);
+		setTimeout(function(){crgoff();}, 10000); //fi efecte loading
+		
+	}else{
+		crg();  //efecte loading
+		selMain();  // carreguem idioma
+		server_pacient(ltoken);  // carreguem dades pacient
+		server_admin();
+		server_missatges(); //carreguem xat
+		estat();	//carreguem estats
+		server_graph_taula();  //carreguem dades gràfiques
+		server_graph_res();
+		p61(); //establim grafiques
+		p71();
+		p81();
+		p93();
+		vid();//carreguem videos
+    	
+		window.setInterval(function(){
+  		server_missatges();
+		}, 100000); //consultem xat cada minut		
+		
+		server_centres_all(); //proves!! eliminar!!!!!
+		
+		setTimeout(function(){$.mobile.changePage("#perfil");}, 100);
+		setTimeout(function(){crgoff();}, 20000); //fi efecte loading
+	}	   
 }; //  /inici
 
 //efecte loading 
@@ -54,83 +80,12 @@ function crgoff() { $("body").removeClass("loading"); }
 // ENTRADA AREA PRIVADA
 
 function private(){
+	crg();  //efecte loading
+	$.mobile.changePage("#telefon");
+	setTimeout(function(){crgoff();}, 10000);
 	
-	var ltoken = localStorage.getItem('token') || '<empty>'; 
-	
-   	if(ltoken=='<empty>' || null){
-		inicilang(); // establim idioma telèfon	
-		setTimeout(function(){$.mobile.changePage("#telefon");}, 1000);
-	}else{
-		crg();  //efecte loading
-		selMain();  // carreguem idioma
-		server_pacient(ltoken);  // carreguem dades pacient
-		server_imatge(ltoken);
-		server_graph_taula();  //carreguem dades gràfiques	
-		server_graph_all();
-		server_graph_m();
-		server_graph_t();
-		server_missatges(ltoken); //carreguem xat
-		p61(); //establim grafiques
-		p71();
-		p81();
-		vid();//carreguem videos
-    	setTimeout(function(){$.mobile.changePage("#perfil");}, 6000);
-		setTimeout(function(){crgoff();}, 40000); //fi efecte loading
-		window.setInterval(function(){
-  		server_missatges();
-		}, 300000); //consultem xat cada 5 minuts
-		
-		}
 	}
 
-// COMPROVACIO TELEFON
-
-function tel(){
-	
-	var prefix = $(document.getElementById("prefix")).val();
-	var telefon = $(document.getElementById("tel")).val();
-	
-	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateMobile/"+ prefix ;//+ telefon;  
-	
-	$.getJSON(arxiuValidacio);
-	$.mobile.changePage("#sms1");
-
-}; //  /comprovacio telèfon
-
-
-
-// COMPROVACIÓ SMS
-
-function sms(){
-	
-	var prefix = $(document.getElementById("prefix")).val();
-	var telefon = $(document.getElementById("tel")).val();
-	var code= $(document.getElementById("smsin")).val();
-	
-	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateCode/" + prefix + telefon + "?code=" + code;
-	
-	$.getJSON(arxiuValidacio, function(server){
-		
-			crg();  //efecte loading
-			var token = server.uuid;		//guardem identificació pacient
-			localStorage.setItem("token", token);
-			inici_server_pacient(token); 	// carreguem dades pacient
-			server_imatge(token);
-			server_graph_taula();		//carreguem dades gràfica
-			server_graph_all();
-			server_graph_m();
-			server_graph_t();
-			server_missatges(token); //carreguem xat
-			p61(); //establim grafiques
-			p71();
-			p81();
-			vid();//carreguem videos
-			setTimeout(function(){$.mobile.changePage("#perfil");}, 2000);
-			setTimeout(function(){crgoff();}, 30000); //fi efecte loading
-				
-	});
-	
-}; //  /comprovacio sms
 
 
 // FORMULARI 
@@ -180,16 +135,21 @@ function sendV(){ //obrir pàgina de validació
 };  //  /obrir pag validació
 
 
-function my_alert(){  //alerta panell lateral formulari
+function my_alert(){  //funcio esborrar panell lateral formulari
 	
 	 navigator.notification.confirm(
                     document.getElementById('mf_esborrar_mis').innerHTML,
-                    cancelV,
+                    cancel_con,
                     'BPControl',
                     'No,Yes'
                 );
 	
 };	
+
+function cancel_con(confirmar){ // funcio esborrar
+	if(confirmar==1){}
+	else{cancelV();}
+	}
 
 function cancelV(){ //esborrar valors del formulari
 	
@@ -243,7 +203,6 @@ function save_form(){ //guardar valors del formulari
                     'BPControl',
                     'Acceptar'
                 );
-	
 };
 
 
@@ -268,7 +227,6 @@ function load_form(){ //carergar valors del formulari
 	(document.getElementById('ps3t').value) = localStorage.getItem('ps3t') || '<empty>';
 	(document.getElementById('pd3t').value) = localStorage.getItem( 'pd3t') || '<empty>';
 	(document.getElementById('p3t').value) = localStorage.getItem( 'p3t') || '<empty>';
-	
 };
 
 
@@ -277,19 +235,20 @@ function load_form(){ //carergar valors del formulari
 function ok(patient_stat){
 	crg(); //carreguem efecte loading
 	var element = document.getElementById('valoracio');
-	if(patient_stat=1){
+	if(patient_stat==1){
 	$(document.getElementById('sem_rd')).show();
 	$(document.getElementById('sem_gr')).hide();
 	$(document.getElementById('sem_yw')).hide();
 	element.style.background='#F66';
 	element.innerHTML = document.getElementById('result_ko').innerHTML;
-	}else if(patient_stat=0){
+	}else if(patient_stat==0){
 	$(document.getElementById('sem_gr')).show();
 	$(document.getElementById('sem_rd')).hide();
 	$(document.getElementById('sem_yw')).hide();
 	element.style.background='#AFA';
 	element.innerHTML = document.getElementById('result_ok').innerHTML;
-	}else{$(document.getElementById('sem_yw')).show();
+	}else{
+	$(document.getElementById('sem_yw')).show();
 	$(document.getElementById('sem_rd')).hide();
 	$(document.getElementById('sem_gr')).hide();
 	element.style.background='#FF9';
@@ -297,9 +256,7 @@ function ok(patient_stat){
 	}
 	cancelV(); //esborra formulari
 	$.mobile.changePage('#resultat');
-	
 	setTimeout(function(){crgoff();}, 10000); //fi efecte loading);
-	
 	window.plugin.notification.badge.clear(); //elimina badge notification en enviar
 };
 function no(){
@@ -315,43 +272,33 @@ function sel_sw(p){
 
 function openPresio() {
 	off(); //deshabilitar textbox
-	
 	setTimeout(function(){
 		var sistolica = { };
 		var diastolica = { };
 		var pols = { };
-	
 		for( var i = 50; i < 250; i += 1 ) {
 			sistolica[i] = i;
 		}
-	
 		for( var i = 30; i < 130; i += 1 ) {
 			diastolica[i] = i;
 		}
-		
 		for( var i = 10; i < 200; i += 1 ) {
 			pols[i] = i;
 		}
 		SpinningWheel.addSlot(sistolica, 'center', 130); //pas
 		SpinningWheel.addSlot(diastolica, 'center', 80); //pad
 		SpinningWheel.addSlot(pols, 'center', 75); //pols
-	
 		SpinningWheel.setCancelAction(cancel);
-		SpinningWheel.setDoneAction(done);
-		
-		SpinningWheel.open();
-		
-	}, 100);
-	
+		SpinningWheel.setDoneAction(done);	
+		SpinningWheel.open();		
+	}, 100);	
 }
 
 function done() {
 	var results = SpinningWheel.getSelectedValues();
 	var posu=document.getElementById('popup').value;
-	
 	switch (posu)
 		  {
-		 
 		  case 1: 
 		  	document.getElementById('ps1m').value = results.sist;
 			document.getElementById('pd1m').value = results.dist ;
@@ -414,8 +361,7 @@ function on(){
 	document.getElementById('p3t').disabled=false;
 	document.getElementById('btM').disabled=false;
 	document.getElementById('btT').disabled=false;
-	document.getElementById('btS').disabled=false;
-	
+	document.getElementById('btS').disabled=false;	
 	};
 	
 //deshabilitar textbox
@@ -440,7 +386,6 @@ function off(){
 	document.getElementById('ps3t').disabled=true;
 	document.getElementById('pd3t').disabled=true;
 	document.getElementById('p3t').disabled=true;
-	//document.getElementById('lat_btn').disabled=true;
 	document.getElementById('btM').disabled=true;
 	document.getElementById('btT').disabled=true;
 	document.getElementById('btS').disabled=true;
@@ -542,28 +487,11 @@ function panel_form(){
 		$("#formulari").animate({left:"-200px"});	
  	}
 }
- 	
-	
-// MENU LATERAL GRAFIQUES
-	
-function panel_graph(){
-	
-	if ( document.getElementById('panel_graph').hidden==false){
-   		$("#panel_graph").animate({right:"-200px"});
-		$.mobile.activePage.animate({left:"0"});	
-		setTimeout(function(){document.getElementById('panel_graph').hidden=true;}, 200);
-  	}else{  
-		document.getElementById('panel_graph').hidden=false;
-  		$("#panel_graph").animate({right:"0"});
-		$.mobile.activePage.animate({left:"-200px"});	
- 	}
-}
-	
+
 	
 // MENU LATERAL ESQUERRA
 	
-function panel(){
-	
+function panel(){	
 	if ( document.getElementById('panel').hidden==false){
    		$("#panel").animate({left:"-200px"});
 		$.mobile.activePage.animate({left:"0"});	
@@ -574,8 +502,7 @@ function panel(){
 		$.mobile.activePage.animate({left:"+200px"});	
  	}
 }
- 	
-	
+
 function p1(){
 	panel();
 	$.mobile.changePage('#perfil');
@@ -601,66 +528,96 @@ function p5(){
 	$.mobile.changePage('#grafiques');
 	}
 	
-	
-function p15(){
-	panel_perfil();
-	$.mobile.changePage('#start');
-	}
-	
-function p66(){  //temporal
-	panel_perfil();
-	$.mobile.changePage('#resultat');
-	}	
-	
-function p21(){
-	panel_form();
-	$.mobile.changePage('#ampa');
-	}
-	
-function p31(){
+function p6(){
 	panel();
 	$.mobile.changePage('#videos');
 	}
 	
-function p41(){
-	panel_graph();
-	$.mobile.changePage('#grafiques');
+function p7(){
+	panel();
+	$.mobile.changePage('#estat_pacient');
 	}
-function p42(){
-	panel_graph();
-	$.mobile.changePage('#graf_mati');
+	
+function p8(){
+	panel();
+	$.mobile.changePage('#contacte');
 	}
-function p43(){
-	panel_graph();
-	$.mobile.changePage('#graf_tarda');
+	
+function p9(){
+	panel();
+	$.mobile.changePage('#demo');
 	}
-function p44(){
-	panel_graph();
-	$.mobile.changePage('#graf_taula');
+
+//perfil
+
+function p15(){ //temporal  eliminar!!!!
+	panel_perfil();
+	$.mobile.changePage('#start');
+	}
+	
+function p66(){  //temporal    eliminar!!!!
+	panel_perfil();
+	$.mobile.changePage('#resultat');
 	}	
+	
+function p67(){  //temporal    eliminar!!!!
+	panel_perfil();
+	fi();
+	}	
+	
+//formulari
+
+function p21(){
+	panel_form();
+	$.mobile.changePage('#ampa');
+	}
+
+//demo
+function p101(){
+	var ct = parseInt(localStorage.getItem('ct')) || 0; 
+			
+	if (ct>0){
+				ct=ct-1;
+				localStorage.setItem('ct', ct);
+				document.getElementById("ig").src= 'img/demo/p'+ct+'.png';
+	}
+
+	}
+	
+function p102(){
+	var ct = parseInt(localStorage.getItem('ct')) || 0; 
+			
+	if (ct<16){
+				ct=ct+1;
+				localStorage.setItem('ct', ct);
+				document.getElementById("ig").src= 'img/demo/p'+ct+'.png';
+	}
+
+	}
 
 //grafica global
 
 function p61(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
-	document.getElementById('datef').value= data;
-	
-	date=(1).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datef').value= data;	
+	date=(5).days().ago().toString("yyyy-MM-dd");
+	//date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei').value=date;
 	server_graph_all();
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
+	
+	
 	
 function p62(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef').value= data;
-	
 	date=(3).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei').value=date;
 	server_graph_all();	
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 	
 	
@@ -668,12 +625,13 @@ function p63(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef').value= data;
-	
 	date=(6).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei').value=date;
 	server_graph_all();	
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
+	
+
 
 //grafica mati
 
@@ -681,22 +639,21 @@ function p71(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_m').value= data;
-	
-	date=(1).months().ago().toString("yyyy-MM-dd");
+	date=(5).days().ago().toString("yyyy-MM-dd");
+	//date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_m').value=date;
 	server_graph_m();
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);	
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);	
 	}
 	
 function p72(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_m').value= data;
-	
 	date=(3).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_m').value=date;
 	server_graph_m();
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 	
 	
@@ -704,11 +661,10 @@ function p73(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_m').value= data;
-	
 	date=(6).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_m').value=date;
 	server_graph_m();
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 
 //grafica tarda
@@ -717,22 +673,21 @@ function p81(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_t').value= data;
-	
-	date=(1).months().ago().toString("yyyy-MM-dd");
+	date=(5).days().ago().toString("yyyy-MM-dd");
+	//date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_t').value=date;
 	server_graph_t();
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 	
 function p82(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_t').value= data;
-	
 	date=(3).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_t').value=date;
 	server_graph_t();	
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 	
 	
@@ -740,11 +695,43 @@ function p83(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_t').value= data;
-	
 	date=(6).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_t').value=date;
 	server_graph_t();	
-	setTimeout(function(){ $('body').removeClass("loading"); } , 4000);
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
+	}
+
+//taula
+	
+function p91(){
+	$('body').addClass("loading"); 
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_tau').value= data;
+	date=(1).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_tau').value=date;
+	server_graph_taula();
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
+	}
+	
+function p92(){
+	$('body').addClass("loading"); 
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_tau').value= data;
+	date=(3).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_tau').value=date;
+	server_graph_taula();	
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
+	}
+	
+	
+function p93(){
+	$('body').addClass("loading"); 
+	data=Date.today().toString("yyyy-MM-dd");
+	document.getElementById('datef_tau').value= data;
+	date=(6).months().ago().toString("yyyy-MM-dd");
+	document.getElementById('datei_tau').value=date;
+	server_graph_taula();	
+	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
 	}
 
 //actualització missatges
@@ -759,28 +746,25 @@ function al1(){
 	}
 	
 //efecte css teclat xat
-	
+
 function mis_css(){
-		$.mobile.activePage.animate({top:"-260px"});
+	$("#comentaris").animate({top:"-260px"});
+	//$.mobile.activePage.animate({top:"-260px"});
 }
  function mis_css1(){
-		$.mobile.activePage.animate({top:"0"});		
+	 $("#comentaris").animate({top:"0"});
+	//$.mobile.activePage.animate({top:"0"});	
 }
 
 //videos
 
 function vid(){
-	var div='<hr/>';
+	var div='';//<hr/>
 	var count = localStorage.getItem('count') || 0;
 	var i=1, a=0;
 	for(i=1; i<=count; i++){
 		var videos = localStorage.getItem('videos'+i);
-		div +='<li><iframe src="http://www.youtube.com/embed/'+videos+'" frameborder="0" allowfullscreen></iframe></li> <hr/>'	
-	}
-	
-	$("#video_list").html(div);	
-	$("#txt_list").html(div);
-			
-					
-		
-	}
+		div +='<li><iframe  class="zoom" src="http://www.youtube.com/embed/'+videos+'" frameborder="0" allowfullscreen></iframe></li> '	
+	}	
+	$("#video_list").html(div);								
+}
