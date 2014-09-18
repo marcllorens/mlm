@@ -99,15 +99,14 @@
 
 </style>  <!--/css menu inferior-->
 <script>
-	window.onorientationchange = function() { };
-
+	//window.onorientationchange = function() { };
+	//funció  prevent click event twice
 	$(document).ready(function(){
+		
+		//$(".btrS").unbind().click(function() {
+		//	server_send();
+		//});	
 				 
-		$("#btrSS").bind("click", function(event) {
-			event.preventDefault();
-			server_send();  
-			event.propagationStopped();
-		});
 	});
       
 </script>
@@ -128,7 +127,7 @@
 
 <div data-role="page" id="start" data-theme="d">
 	<div id="start_header" >
-   		<img id="bpc"  src='img/imatges/bpl.png'>
+   		<img id="bpc"  src='img/imatges/bpld.png'>
     </div>
     <div id="zprive" onClick="private()">
   	<h5 id="zp_txt" style="margin-left:15px;">Àrea pacient</h5>
@@ -170,7 +169,7 @@
 		<p class="titol" id="header_centres">CENTRES SANITARIS</p>
         <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
     </div>
-    <div data-role="content" data-iscroll>	
+    <div data-role="content" data-iscroll>	<!--//data-iscroll-->
         
         <div id="server_centres_all"></div>	    
         
@@ -180,27 +179,51 @@
 
 <!--DEMO----------------------->
 
-<div data-role="page" id="demo">
+<div data-role="page" style="background-color:#FFF" id="demo">
 	<div data-role="header" data-theme="d" > 
 		<p class="titol" id="header_demo">INFO</p>
         <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
     </div>
+    
+     <div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw"  onClick="p101()" data-icon="custom"></a></li>
+       			<li><a  id="bk" onClick="p102()"  data-icon="custom"></a></li>
+			</ul>
+		</div>
+    
     <div data-role="content" style="background-color:#FFF" data-iscroll>
     	 <div>
 		 <img id="ig" class="zoom" style="border:hidden;  "/>
          </div>
 		  <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
     </div>
-    <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="d" >
-		<div data-role="navbar" class="nav_bar" data-grid="a" >
-			<ul>
-            	<li><a  id="fw"  onClick="p101()" data-icon="custom"></a></li>
-       			<li><a  id="bk" onClick="p102()"  data-icon="custom"></a></li>
-			</ul>
-		</div>
-	</div>
+   
 </div>  <!--/demo-->
 
+<!--DEMO pacient----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demop">
+	<div data-role="header" data-theme="d" > 
+		<p class="titol" id="header_demop">INFO</p>
+        <img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
+    </div>
+    
+     <div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw"  onClick="p111()" data-icon="custom"></a></li>
+       			<li><a  id="bk" onClick="p112()"  data-icon="custom"></a></li>
+			</ul>
+		</div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+    	 <div>
+		 <img id="igp" class="zoom" style="border:hidden;  "/>
+         </div>
+		  <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
+    </div>
+   
+</div>  <!--/demo-->
 
 <!--CONTACTE---------------------->
 
@@ -211,17 +234,44 @@
     </div>
     <div data-role="content" data-iscroll>	
 		<div id="prf">
-	        <img style="width:130px;height:130px; border:hidden; border-radius:6px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="ad_logo" />
+	        <img style="max-width:200px;height:130px; border:hidden; border-radius:6px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="ad_logo" />
        		<p id="ad_CS_nom">...</p>
             <p id="ad_CS_nom1">...</p>
         	<p id="ad_CS_descripcio">...</p>
+            <p id="ad_CS_contactadr">...</p>
+            <p id="ad_CS_contactcom">...</p>
         	<p id="ad_CS_contactpax" >...</p>
-            <p id="ad_CS_contactweb">...</p>
+            <p id="ad_CS_contactpho">...</p>
+            <p id="ad_CS_contactml">...</p>
+            <p id="ad_CS_contactweb">...</p> 
         	
          </div>	    
     </div>
 </div>  <!--/contacte-->
 
+<!--CONTACTE pacient---------------------->
+
+<div data-role="page" id="contactep">
+	<div data-role="header" data-theme="d" > 
+		<p class="titol" id="header_contactep">CONTACTE</p>
+       <img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
+    </div>
+    <div data-role="content" data-iscroll>	
+		<div id="prf">
+	        <img style="max-width:200px;height:130px; border:hidden; border-radius:6px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="ad_logo_p" />
+       		<p id="ad_CS_nom_p">...</p>
+            <p id="ad_CS_nom1_p">...</p>
+        	<p id="ad_CS_descripcio_p">...</p>
+        	<p id="ad_CS_contactadr_p">...</p>
+            <p id="ad_CS_contactcom_p">...</p>
+        	<p id="ad_CS_contactpax_p" >...</p>
+            <p id="ad_CS_contactpho_p">...</p>
+            <p id="ad_CS_contactml_p">...</p>
+            <p id="ad_CS_contactweb_p">...</p> 
+        	
+         </div>	    
+    </div>
+</div>  <!--/contacte-->
 
 
 <!--TELEFON----------------------->
@@ -236,16 +286,16 @@
 	<div data-role="content" id="fT">	
    
       <input type="number" id="prefix"  value="34"  required/>
-      <input type="tel" id="tel" value="677356334" placeholder="introdueixi el seu telefon" stylerequired/>
-      <hr style="margin:20px"/>
+      <input type="tel" id="tel" value="" placeholder="introdueixi el seu telefon" stylerequired/>
+      <!--<hr style="margin:20px"/>
       <p id="tag_dlang" >Idioma </p>
-      <select name="langsel1" id="langsel"  onChange="selChange()" data-theme="c" style="padding-top:20px">
+      <select name="langsel1" id="langsel" onChange="selChange()" data-theme="c" style="padding-top:20px">
          	<option value="1">Català</option>
             <option value="2">Castellano</option>
             <option value="3">English</option>
        </select>
        <hr style="margin-top:20px; margin-bottom:20px"/> 
-       
+       -->
        <button onClick="tel()" data-icon="arrow-r" data-iconpos="right" id="tele_btn"> ENVIA </button>
        
         <div >
@@ -269,11 +319,18 @@
     </div>
 	<div data-role="content" id="fS">	
 		
-      	<input type="text" id="smsin" value="4790" placeholder="introdueixi SMS" style=" color:#A00; font-weight:bold; margin-bottom:30px;" required/>
-                <button  onClick="sms()"  data-icon="arrow-r"  data-iconpos="right" id="bSMS">ENTRAR</button>
+      	<input type="text" id="smsin" value="" placeholder="introdueixi SMS" style=" color:#A00; font-weight:bold; margin-bottom:30px;" required/>
+                <button  data-icon="arrow-r"  onClick="pin()" data-iconpos="right" id="bSMS">ENTRAR</button>
                 
-        <p id="licence_header">Llicència</p>
-        <input type="checkbox" id="licence" value="false"> <p id="licence_header">Llicència</p>
+
+        <div data-role="fieldcontain">
+        <label for="flip-5">LICENCE:</label>
+        <select name="flip-5" id="licence" data-role="slider" data-theme="c" data-track-theme="a">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+        </select>
+		</div>
+      <!--  <input type="checkbox" id="licence" value="false"> <p id="licence_header">Llicència</p>-->
         <p id="licence">bla bla bla ...</p>
 	</div>
 	
@@ -290,6 +347,7 @@
 	</div>
   		<button class="cmenu" id="me_nom" >...</button>
       	<button class="listv" id="me_perfil" onClick="p1()">Perfil</button>
+        <button class="listv" id="me_idioma" onClick="p10()">Idioma</button>
        	<button class="listv" id="me_sortir" onClick="panel(),tanca()">Sortir</button>
        	<button class="cmenu" id="me_pa" >Presions Arterials</button>
     	<button class="listv" id="me_entrar" onClick="p2()">Entrar pressions</button> 	
@@ -305,6 +363,7 @@
     	<button class="listv" id="me_centres" onClick="p3()" >Centre sanitari</button>	
     	<button class="listv" id="me_contacte" onClick="p8()">Contacte</button>	
     	<button class="listv" id="me_info" onClick="p9()">Info</button>	
+        
  </div><!-- /menu lateral esquerra-->
   
 
@@ -344,18 +403,61 @@
         	<p id="birth" >...</p>
             <p id="gender">...</p>
         	<p id="telu"> ...</p>
-        	<p id="email">...</p>
+        	<p id="email">...</p> 
             <p id="p7e">Seguiment desde</p>
             <p id="hospital">...</p>
             <p hidden="true" id="notificacions"></p>
-         </div>	    
+     
+          </div>	    
           <div >
           
             <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-            <h1 id="versio">V 1.0.6</h1>
+            <h1 id="versio">V 1.1.0</h1>
         </div>
   	</div>
 </div> <!--/perfil-->
+
+<!--idioma----------------------->
+
+<div data-role="page" id="idioma" data-theme="d" data-prefetch>
+  
+	<div data-role="header" data-theme="d"  data-id="myhead"   >
+    	<img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
+    	<p class="titol" id="header_idioma">IDIOMA</p>  
+ 
+	</div>    
+    
+   
+    
+    <fieldset data-role="controlgroup" id="langsel">
+		<legend id="idioma_label">Language</legend>
+    
+     	<input type="radio" name="langsel1" id="radio-choice-1" value="1" />
+     	<label for="radio-choice-1">Català</label>
+
+     	<input type="radio" name="langsel1" id="radio-choice-2" value="2"  />
+     	<label for="radio-choice-2">Castellano</label>
+
+     	<input type="radio" name="langsel1" id="radio-choice-3" value="3"  />
+     	<label for="radio-choice-3">English</label>
+
+	</fieldset>
+    
+    
+    
+            
+  <!--     <select  name="langsel1" id="langsel" onChange="selChange()" data-theme="c" style="padding-top:20px">
+         	<option value="1">Català</option>
+            <option value="2">Castellano</option>
+            <option value="3">English</option>
+       </select>-->
+       
+       <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
+
+  	
+</div> <!--/idioma-->
+
+
 
 <!--MENU LATERAL FORMLARI------------------------->
 
@@ -381,7 +483,7 @@
 <!--FORMULARI-------------------------->
 
 <div data-role="page" id="formulari" data-theme="d" >
-	<div data-role="header" data-theme="d"  data-id="myhead"  >
+	<div data-role="header"  data-theme="d"  data-id="myhead"  >
     	<img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
     	<p class="titol" id="header_mesures" >MESURES</p>
        	<img class="latbtnd" onClick="panel_form()"  src='img/botons/wrench_plus_2_icon&32.png' border='0'/> 
@@ -520,7 +622,7 @@
              </div>
           </div>   <!--/Ff1-->
            <div  data-role="content" id="fV1" data-theme="c" >
-           		<button id="btrSS"  data-theme="c" >ENVIAR</button>
+           		<button id="btrSS" class="btrS" data-theme="c" >ENVIAR</button>
          </div>  <!--/fV1-->
       </div>  <!-- /srl1-->
 </div> <!--/validadió-->
@@ -531,7 +633,7 @@
 
 <div data-role="page" id="resultat" data-theme="d">
 
-	<div data-role="header"  data-theme="d" > 
+	<div data-role="header" data-theme="d" > 
     	<img class="latbtne" onClick="panel(1)" src='img/botons/align_just_icon&32.png' border='0'/>
 		<p class="titol"  id="header_resultats">Resultats</p>
 	</div>
@@ -570,7 +672,7 @@
    		<img class="latbtne" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' />
   		<p class="titol" id="header_graph_g">  GLOBAL  </p>
 	</div>
-    <div  id="grclass" data-iscroll >
+    <div  id="grclass" data-iscroll data-iscroll="scroller">
      <div data-role="navbar"  data-theme="a" data-grid="b" >
         <ul>
             <li><a id="b_g1" data-theme="c" onClick="p61()" >1 mes</a></li>
@@ -582,7 +684,7 @@
       <input  type="date" onChange="server_graph_all()" name="date" id="datei" value=""  />	
       <input  type="date" onChange="server_graph_all()" name="date" id="datef" value=""  />
 	  <div id="wrap"> </div>
-        <div data-role="content" class="iscroll-content">
+        <div data-role="content" >
         	
         	<div class="container" id="container_all" ></div>  
             <div class="graf_table" id="grf_table_all" hidden="true"></div>
@@ -592,7 +694,7 @@
     	</div>
      </div><!--/iscroll--> 
        
-	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a" >
+	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav_bar" data-grid="c" >
 			<ul>
             	<li><a  id="mg"  data-icon="custom">global</a></li>
@@ -742,23 +844,6 @@
 </div> <!--/ estat pacient -->
 
 
-<!--AJUDA----------------------------->
-
-<div id="ajuda" data-role="page" data-theme="d" >
-	<div data-role="header" data-theme="d" data-id="myhead" >
-    <img class="latbtne" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' />
-		<p class="titol" id="header_ajuda">Ajuda</p>
-	</div>
-	<div data-role="content" data-iscroll>	
-		<ul data-role="listview">
-   			<li><a href="#ampa">Com pendre la pressió</a></li>
-            <li><a href="#videos"> VIDEOS</a></li>
-            <li><a id="ajuda_nav" href="#ajuda_navy"> Consells utilització</a></li>
-  		</ul>
-    </div>
-</div> <!-- /ajuda-->
-
-
 <!--MISSATGES -------------------------->
 
 <div data-role="page" id="comentaris" data-theme="d">
@@ -768,7 +853,7 @@
         <img class="latbtnd" onClick="server_missatges(), al1()"  src='img/botons/refresh_icon&32.png' border='0' /> 
 	</div>
     
-    <div data-iscroll>
+    <div id="miscrol" data-iscroll>
        	<div class="graf_table" id="mis_table" hidden="true"></div>
      	<div id="xat_container"></div>  
         <div id="fcs" >...</div>     
@@ -809,36 +894,6 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
     
 </div> <!--/ampa-->
 
-<!--AJUDA NAVEGACIO-------------------------->
-
-<div data-role="page" id="ajuda_navy" data-theme="d">
-	<div data-role="header" data-theme="d" data-id="myhead" >
-    <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
-		<p class="titol" id="header_ajuda_n">AJUDA</p>  
-	</div> 
-    
-	<div data-role="content" data-iscroll>
-    	<p id="ajn_perfil_h" style="font-weight:bold; color:#06C;" hidden="true">Perfil</p>
-    	<p id="ajn_perfil" hidden="true">...</p>
-		<p id="ajn_mesures_h" style="font-weight:bold; color:#06C;" hidden="true"> Mesures</p>
-    	<p id="ajn_mesures" hidden="true">...</p>
-		<p id="ajn_graf_h" style="font-weight:bold; color:#06C;" hidden="true"> Grafiques</p>
-    	<p id="ajn_graf" hidden="true">...</p>
-        <p id="ajn_help_h" style="font-weight:bold; color:#06C;" hidden="true"> Ajuda</p>
-    	<p id="ajn_help" hidden="true">...</p>
-	</div>	
-    
-    <div data-role="footer" class="nav_bar" data-position="fixed" data-id="myfoot" data-theme="d" >
-		<div data-role="navbar" class="nav_bar" data-grid="c" >
-			<ul>
-       			<li><a  id="mp"  onClick="x1()" data-icon="custom" >perfil</a></li>
-            	<li><a  id="mf"  onClick="x2()" data-icon="custom" >mesures</a></li>
-				<li><a  id="mg"  onClick="x3()" data-icon="custom" >grafiques</a></li>
-            	<li><a  id="ma"  onClick="x4()" data-icon="custom">ajuda</a></li>
-			</ul>
-		</div>
-	</div>
-</div> <!-- /ajuda navegacio--> 
 
 <!--VIDEOS-------------------------->
 
@@ -857,7 +912,7 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
 <div data-role="page" id="centre_sanitari" data-theme="d" >
 	<div data-role="header" data-theme="d" data-id="myhead" >
     	<p class="titol" id="header_centre_sanitari">CENTRE SANITARI</p>  
-         <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+        <img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
 	</div>    
     
     <div data-role="content" data-iscroll>

@@ -32,7 +32,7 @@ function grph_mati(){
                 value:document.getElementById('pad').innerHTML,
                 dashStyle: 'ShortDash',
 				label : {
-						text : 'PAD'
+						text : 'PAD  '+ document.getElementById('pad').innerHTML
 					}
             },{
 					value :document.getElementById('pas').innerHTML,
@@ -40,7 +40,7 @@ function grph_mati(){
 					dashStyle : 'shortdash',
 					width : 2,
 					label : {
-						text : 'PAS'
+						text : 'PAS  '+ document.getElementById('pas').innerHTML
 					}
 				}],
             allowDecimals: false,

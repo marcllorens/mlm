@@ -10,8 +10,11 @@ function estat(){ // taula estat
 		for(i=1; i<=cnt; i++){
 			var estat_all = localStorage.getItem('estat'+i);
 			var estat = estat_all.split('*');
-			if (estat[0]==0){var aux='img/semafor/semafor_green.jpg';}
-			else{var aux='img/semafor/semafor_red.jpg';}
+			if (parseInt(estat[0])==0){var aux='img/semafor/semafor_green.jpg';}
+			else{
+				if(parseInt(estat[0])==1){var aux='img/semafor/semafor_red.jpg';}
+				else{var aux='img/semafor/semafor_yellow.jpg';}
+				}		
 			var data_all = estat[1].split('T');
 			var data_p=data_all[1].split(':'); 
 			var data=data_all[0].split('-');

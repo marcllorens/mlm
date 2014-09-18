@@ -1,5 +1,6 @@
 /* CSS Document */
 
+
 .demo {
     position:   fixed;
     z-index:    1000;
@@ -169,7 +170,7 @@ body.loading .modal {
 	
 	float:left;
 	margin: 0 10px;
-	font-size:16px;
+	font-size:17px;
 	padding-bottom:10px;
 	padding-top:10px;
 	
@@ -192,34 +193,34 @@ body.loading .modal {
 #Image, #logo, #logoc, #ad_logo{
 	display: block;
 	margin: auto;
-	margin-left:40%;
+	/*margin-left:35%;*/
 	}
 	
 #prf{
 	width:97%;
 	font-family:helvetica, sans-serif;
-	font-size:16px;
+	font-size:17px;
 	margin-left:20px;
 	}
 
 	
 #nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e, #CS_nom, #CS_nom1, #CS_descripcio, #CS_contactpax, #CS_contactweb, #ad_CS_nom, #ad_CS_nom1, #ad_CS_descripcio, #ad_CS_contactpax, #ad_CS_contactweb{
 	
-	font-size:15px;
+	font-size:16px;
 	margin: 10px;
 	width:80%;
 	text-align:left;
 	color:#A00;
 	}	
 #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e{
-	font-size:16px;
+	font-size:17px;
 	}
 #nom, #CS_nom, #ad_CS_nom{
 	margin-top:20px;
 	font-weight:bold;
 	}
 #hospital{
-	font-size:16px;
+	font-size:17px;
 	margin: 10px;
 	width:90%;
 	text-align:right;
@@ -231,7 +232,7 @@ body.loading .modal {
 
 
 #datei, #datei_m, #datei_t, #datei_tau{
-	font-size:15px;
+	font-size:16px;
 	color:#A00;
 	width:35%;
 	min-with:300px;
@@ -246,7 +247,7 @@ body.loading .modal {
 	
 	
 #datef, #datef_m, #datef_t, #datef_tau{
-	font-size:15px;
+	font-size:16px;
 	color:#A00;
 	width:35%;
 	float:right;
@@ -301,7 +302,7 @@ body.loading .modal {
 	color:#A00;
 	margin-top:7px;
 	margin-bottom:7px;
-	font-size:14px;
+	font-size:15px;
 	margin-left:5%;	
 	font-weight:bold;
 	}
@@ -598,7 +599,7 @@ body.loading .modal {
 	width:200px;
 	height:30px;
 	border:1px solid #eee;
-	font-size:16px;
+	font-size:17px;
 	background:#eee;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -620,7 +621,7 @@ body.loading .modal {
 	width:200px;
 	height:30px;
 	border:1px solid #eee;
-	font-size:16px;
+	font-size:17px;
 	background:#eee;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -642,7 +643,7 @@ body.loading .modal {
 	height:25px;
 	border:1px solid #eee;
 	color:#A00;
-	font-size:16px;
+	font-size:17px;
 	font-weight:bold;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));
@@ -660,7 +661,7 @@ body.loading .modal {
 	height:25px;
 	border:1px solid #eee;
 	color:#A00;
-	font-size:16px;
+	font-size:17px;
 	font-weight:bold;
 	text-shadow:0 1px 1px #f6f6f6;
 	background-image:-webkit-gradient(linear,left top,left bottom,from(#fdfdfd),to(#eee));

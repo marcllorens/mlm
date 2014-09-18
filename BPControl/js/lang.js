@@ -4,14 +4,17 @@ function inicilang(){
 	
 	navigator.globalization.getPreferredLanguage(
 		function(language){
-			if(language.value=="ca" || language.value=="catala"){
-				$('#langsel > option[value="1"]').attr('selected', 'selected');
+			if(language.value=="ca" || language.value=="catala" || language.value=="cat"){
+				//$('#langsel > option[value="1"]').attr('selected', 'selected');
+				$('input:radio[name=langsel1]')[1].checked = true;
 				localStorage.setItem('lang',1);
 			}else if(language.value=='es' || language.value=='español'){
-				$('#langsel > option[value="2"]').attr('selected', 'selected');
+				//$('#langsel > option[value="2"]').attr('selected', 'selected');
+				$('input:radio[name=langsel1]')[2].checked = true;
 				localStorage.setItem('lang',2);
 			}else{
-				$('#langsel > option[value="3"]').attr('selected', 'selected');
+				//$('#langsel > option[value="3"]').attr('selected', 'selected');
+				$('input:radio[name=langsel1]')[3].checked = true;
 				localStorage.setItem('lang',3);
 			}
 			selMain()
@@ -24,36 +27,53 @@ function inicilang(){
 // escull idioma al canviar
 	
 function selChange(){
+	
 		
-		var valor=$(document.getElementById('langsel')).val();
-		if(valor==1){
-		localStorage.setItem('lang',1);
-		}
-		else if(valor==2){
-		localStorage.setItem('lang',2);
-		}
-		else{
-		localStorage.setItem('lang',3);
-		}	
-		selMain()	
+	//var valor=parseInt($(document.getElementById('langsel')).val());
+	var valor=parseInt($('input:radio[name=langsel]:checked').val());
+	switch (valor)
+		  {
+		  case 0: 
+			break;
+		  case 1: 
+		 	localStorage.setItem('lang',1);
+			break;
+		  case 2: 
+		 	localStorage.setItem('lang',2);
+			break;
+		  case 3:
+		  	localStorage.setItem('lang',3);
+			break;
+		  }
+
+	selMain();
 };
 
 //DICCIONARI
 	
 function selMain(){
-		var valor=localStorage.getItem('lang');
-		if(valor==1){
-		$.i18n.load(i18n_dict_ca);
-		}
-		else if(valor==2){
-		$.i18n.load(i18n_dict_es);
-		}
-		else{
-		$.i18n.load(i18n_dict_en);
-		}
+		var valor=parseInt(localStorage.getItem('lang'));
+		
+		switch (valor)
+		  {
+		  case 0: 
+			break;
+		  case 1: 
+		 	$.i18n.load(i18n_dict_ca);
+			break;
+		  case 2: 
+		 	$.i18n.load(i18n_dict_es);
+			break;
+		  case 3:
+		  	$.i18n.load(i18n_dict_en);;
+			break;
+		  default:
+		    $.i18n.load(i18n_dict_es);
+			break;
+		  }
 		
 		//start
-		$('h#zp_txt')._t('zp_txt');
+		$('h5#zp_txt')._t('zp_txt');
 		//navbar
 		$('a#mp')._t('mp');
 		$('a#ma')._t('ma');
@@ -67,13 +87,20 @@ function selMain(){
 		$('p#header_centres')._t('header_centres');
 		//demo
 		$('p#header_demo')._t('header_demo');
+		//demo
+		$('p#header_demop')._t('header_demop');
 		//contacte
 		$('p#header_contacte')._t('header_contacte');
+		//contacte pacient
+		$('p#header_contactep')._t('header_contactep');
 		//perfil
 		$('p#header_perfil')._t('header_perfil');
 		$('p#p7e')._t('p7e');
 		$('p#gender_m')._t('gender_m');
 		$('p#gender_f')._t('gender_f');
+		//idioma
+		$('p#header_idioma')._t('header_idioma');
+		$('legend#idioma_label')._t('idioma_label');
 		//mesures
 		$('p#header_mesures')._t('header_mesures');	
 		$('p#txt_form')._t('txt_form');
@@ -213,14 +240,21 @@ function selMain(){
 		//centre sanitari
 		"header_centres":"HEALTH CENTERS",
 		//demo
-		"header_demo":"INFORMATIOIN",
+		"header_demo":"INFORMATION",
+		//demo pacient
+		"header_demop":"INFORMATION",
 		//contacte
 		"header_contacte":"CONTACT",
+		//contacte pacient
+		"header_contactep":"CONTACT",
 		//perfil
 		"header_perfil":"CONTROL PANEL",
 		"p7e":"Control from",
 		"gender_m":"Male",
 		"gender_f":"Female",
+		//idioma
+		"header_idioma":"LANGUAGE",
+		"idioma_label":"Select language",
 		//mesures
 		"header_mesures":"MESURES",
 		"txt_form":"Please, enter your arterial pressures ...",
@@ -278,12 +312,12 @@ function selMain(){
 		"result_idem":"Do not forget, no salt diet, remember to take medication and do physical activity.<br /> It is important.",
 		//ampa
 		"header_ampa":"A.M.P.A.",
-		"ampa_postura_h":"Postura:",
-		"ampa_postura":"Assegut o estirat amb el braç on s'ha de prendre la pressió a l'altura del cor.Adoptar una postura còmoda i relaxada.No creuar les cames.",
-		"ampa_condicions_h":"Condicions:",
-		"ampa_condicions":"No haver pres cafè, alcohol, menjat, fumat o fet exercici una hora abans de prendre la pressió.No prendre la pressió amb la bufeta plena.Evitar sorolls i situacions estressants.Cal estar en repòs al menys cinc minuts abans de la mesura.",
-		"ampa_manegot_h":"Manegot:",
-		"ampa_manegot":"Cal posar-lo 2-3 cm per sobre de la flexura del colze.Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.",
+		"ampa_postura_h":"Position:",
+		"ampa_postura":"Sitting or lying with the arm which you should take the pressure at the height of your heart.Make yourself comfortable. Don't cross your legs.",
+		"ampa_condicions_h":"Conditions:",
+		"ampa_condicions":"Not have been taken coffee, alcohol, eating, smoking or exercise done an hour before taking the pressure. Do not take the pressure with the full bladder. Avoid noise and stressful situations. You must be at rest at least five minutes before the measurement.",
+		"ampa_manegot_h":"Cuff:",
+		"ampa_manegot":"We must get it 2-3 cm above the elbow flexure. Keep in mind the most appropriate cuff size according arm perimeter.",
 		//ajuda navegacio
 		"header_ajuda_n":"HELP",
 		"ajn_perfil_h":"Profile",
@@ -359,13 +393,20 @@ function selMain(){
 		"header_centres":"CENTROS SANITARIOS",
 		//demo
 		"header_demo":"INFORMACION",
+		//demo pacient
+		"header_demop":"INFORMACION",
 		//contacte
 		"header_contacte":"CONTACTO",
+		//contacte pacient
+		"header_contactep":"CONTACTO",
 		//perfil
 		"header_perfil":"PANEL DE CONTROL",
 		"p7e":"Seguimiento desde",
 		"gender_m":"Masculino",
 		"gender_f":"Femenino",
+		//idioma
+		"header_idioma":"IDIOMA",
+		"idioma_label":"Esculli idioma",
 		//mesures
 		"header_mesures":"MEDIDAS",
 		"txt_form":"Por favor, entre sus presiones arteriales ...",
@@ -505,13 +546,20 @@ function selMain(){
 		"header_centres":"CENTRES SANITARIS",
 		//demo
 		"header_demo":"INFORMACIÓ",
+		//demo pacient
+		"header_demop":"INFORMACIÓ",
 		//contacte
 		"header_contacte":"CONTACTE",
+		//contacte pacient
+		"header_contactep":"CONTACTE",
 		//perfil
 		"header_perfil":"PANELL DE CONTROL",
 		"p7e":"Seguiment desde",
 		"gender_m":"Masculí",
 		"gender_f":"Femení",
+		//idioma
+		"header_idioma":"IDIOMA",
+		"idioma_label":"Escoja idioma",
 		//mesures
 		"header_mesures":"MESURES",
 		"txt_form":"Si us plau, entri les seves pressions arterials...",

@@ -2,7 +2,7 @@
 
 //control back button android
 	document.addEventListener("backbutton", function(e){
-    if($.mobile.activePage.is('#homepage')){
+    if($.mobile.activePage.is('#perfil')){
         e.preventDefault();
         navigator.app.exitApp();
     }
@@ -14,8 +14,19 @@
 // event deviceready 
 document.addEventListener("deviceready", inici, false);
 function inici() { 
-			
 
+	$(".btrS").unbind().click(function() {
+			server_send();
+	});	
+	
+	
+	//mida teclat
+	window.height = $(window).height();
+ 	$(window).resize(function(){
+ 		 window.currentHeight = $(this).height();
+  		 window.heightDiff = window.height - window.currentHeight;
+	});
+	
 	//eliminar 300ms wait
 	$(function() {
 	 	new FastClick(document.body);
@@ -42,6 +53,12 @@ function inici() {
 			.end()
 			.appendTo('#slideshow');
 		},  3000);
+		
+		window.setInterval(function(){
+  		server_centres_all();
+		server_admin();
+		}, 500000); //consultem canvis cada 5 minuts	
+		
 		setTimeout(function(){$.mobile.changePage("#start");}, 100);
 		setTimeout(function(){crgoff();}, 10000); //fi efecte loading
 		
@@ -49,11 +66,11 @@ function inici() {
 		crg();  //efecte loading
 		selMain();  // carreguem idioma
 		server_pacient(ltoken);  // carreguem dades pacient
-		server_admin();
+		server_admin_p();
 		server_missatges(); //carreguem xat
 		estat();	//carreguem estats
 		server_graph_taula();  //carreguem dades gràfiques
-		server_graph_res();
+		//server_graph_res();
 		p61(); //establim grafiques
 		p71();
 		p81();
@@ -63,8 +80,6 @@ function inici() {
 		window.setInterval(function(){
   		server_missatges();
 		}, 100000); //consultem xat cada minut		
-		
-		server_centres_all(); //proves!! eliminar!!!!!
 		
 		setTimeout(function(){$.mobile.changePage("#perfil");}, 100);
 		setTimeout(function(){crgoff();}, 20000); //fi efecte loading
@@ -82,7 +97,7 @@ function crgoff() { $("body").removeClass("loading"); }
 function private(){
 	crg();  //efecte loading
 	$.mobile.changePage("#telefon");
-	setTimeout(function(){crgoff();}, 10000);
+	setTimeout(function(){crgoff();}, 1000);
 	
 	}
 
@@ -458,6 +473,14 @@ function x4(){
 	}
 	
 	
+function pin(){
+		if(document.getElementById('licence').value =='no'){alert("licence");}
+		else{
+				sms();
+			}
+	}	
+	
+
 // MENU LATERAL PERFIL
 	
 function panel_perfil(){
@@ -540,12 +563,17 @@ function p7(){
 	
 function p8(){
 	panel();
-	$.mobile.changePage('#contacte');
+	$.mobile.changePage('#contactep');
 	}
 	
 function p9(){
 	panel();
-	$.mobile.changePage('#demo');
+	$.mobile.changePage('#demop');
+	}
+	
+function p10(){
+	panel();
+	$.mobile.changePage('#idioma');
 	}
 
 //perfil
@@ -575,25 +603,49 @@ function p21(){
 //demo
 function p101(){
 	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-			
+	var lng=parseInt(localStorage.getItem('lang'));		
 	if (ct>0){
 				ct=ct-1;
 				localStorage.setItem('ct', ct);
-				document.getElementById("ig").src= 'img/demo/p'+ct+'.png';
+				document.getElementById("ig").src= 'img/demo/p'+lng+'-'+ct+'.png';
 	}
 
 	}
 	
 function p102(){
 	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-			
-	if (ct<16){
+	var lng=parseInt(localStorage.getItem('lang'));		
+	if (ct<15){
 				ct=ct+1;
 				localStorage.setItem('ct', ct);
-				document.getElementById("ig").src= 'img/demo/p'+ct+'.png';
+				document.getElementById("ig").src= 'img/demo/p'+lng+'-'+ct+'.png';
 	}
 
 	}
+
+//demo pacient
+function p111(){
+	var ct = parseInt(localStorage.getItem('ct')) || 0; 
+	var lng=parseInt(localStorage.getItem('lang'));
+	if (ct>0){
+				ct=ct-1;
+				localStorage.setItem('ct', ct);
+				document.getElementById("igp").src= 'img/demo/p'+lng+'-'+ct+'.png';
+	}
+
+	}
+	
+function p112(){
+	var ct = parseInt(localStorage.getItem('ct')) || 0; 
+	var lng=parseInt(localStorage.getItem('lang'));		
+	if (ct<15){
+				ct=ct+1;
+				localStorage.setItem('ct', ct);
+				document.getElementById("igp").src= 'img/demo/p'+lng+'-'+ct+'.png';
+	}
+
+	}
+
 
 //grafica global
 
@@ -601,8 +653,8 @@ function p61(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef').value= data;	
-	date=(5).days().ago().toString("yyyy-MM-dd");
-	//date=(1).months().ago().toString("yyyy-MM-dd");
+	//date=(5).days().ago().toString("yyyy-MM-dd");
+	date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei').value=date;
 	server_graph_all();
 	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
@@ -639,8 +691,8 @@ function p71(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_m').value= data;
-	date=(5).days().ago().toString("yyyy-MM-dd");
-	//date=(1).months().ago().toString("yyyy-MM-dd");
+	//date=(5).days().ago().toString("yyyy-MM-dd");
+	date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_m').value=date;
 	server_graph_m();
 	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);	
@@ -673,8 +725,8 @@ function p81(){
 	$('body').addClass("loading"); 
 	data=Date.today().toString("yyyy-MM-dd");
 	document.getElementById('datef_t').value= data;
-	date=(5).days().ago().toString("yyyy-MM-dd");
-	//date=(1).months().ago().toString("yyyy-MM-dd");
+	//date=(5).days().ago().toString("yyyy-MM-dd");
+	date=(1).months().ago().toString("yyyy-MM-dd");
 	document.getElementById('datei_t').value=date;
 	server_graph_t();
 	setTimeout(function(){ $('body').removeClass("loading"); } , 7000);
@@ -749,6 +801,8 @@ function al1(){
 
 function mis_css(){
 	$("#comentaris").animate({top:"-260px"});
+	//$("#comentaris").animate({top:window.heightDiff});
+	alert("mida "+ window.heightDiff);
 	//$.mobile.activePage.animate({top:"-260px"});
 }
  function mis_css1(){

@@ -49,7 +49,7 @@
     <preference name="exit-on-suspend"            value="false" />          
     <preference name="auto-hide-splash-screen"    value="true" />           
     <preference name="disable-cursor"             value="false" />          
-    <preference name="android-minSdkVersion"      value="7" />             
+    <preference name="android-minSdkVersion"      value="11" />             
     <preference name="android-installLocation"    value="auto" />          
 	
 	

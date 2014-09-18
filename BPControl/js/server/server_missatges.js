@@ -13,13 +13,15 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatientChat/restList/'+ token,
 				var creat= (item.dateCreated).split('T');
 				var girat= creat[0].split('-');
 				var hora = creat[1].split(':');
-				div+='<div id="xat_hora_u">'+girat[2]+'-'+girat[1]+'-'+girat[0]+' ...  '+hora[0]+':'+hora[1]+'</div>';
+				var horan=parseInt(hora[0])+2;
+				div+='<div id="xat_hora_u">'+girat[2]+'-'+girat[1]+'-'+girat[0]+' ...  '+horan+':'+hora[1]+'</div>';
 				div+='<div id="xat_usuari">'+item.text+'</div>';
 			}else{
 				var creat= (item.dateCreated).split('T');
 				var girat= creat[0].split('-');
 				var hora = creat[1].split(':');
-				div+='<div id="xat_hora_m">'+girat[2]+'-'+girat[1]+'-'+girat[0]+' ...  '+hora[0]+':'+hora[1]+'</div>';
+				var horan=parseInt(hora[0])+2;
+				div+='<div id="xat_hora_m">'+girat[2]+'-'+girat[1]+'-'+girat[0]+' ...  '+horan+':'+hora[1]+'</div>';
 				div+='<div id="xat_metge">'+item.text+'</div>';
 			}	 	   
    	

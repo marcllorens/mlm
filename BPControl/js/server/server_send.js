@@ -14,8 +14,8 @@ function server_send(){
 		type:'post',
     	data: date1,
 		contentType:'application/json',
-		success: function(data) {   
-		 
+		success: function(data) {  
+						
 			//posem el video a resultats
 			document.getElementById("vid_resultats").src= 'http://www.youtube.com/embed/'+ data.infoLink;	
 			//comprovem que no existeix el video i el guardem
@@ -49,7 +49,7 @@ function server_send(){
 			estat();
 			
 			//pintem la grafica			
-			server_graph_res();
+			server_graph_taula();
 			
 			//creem resultats
 			ok(data.patientStatus);

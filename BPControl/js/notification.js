@@ -60,12 +60,7 @@ if(pqst==1){ //setmanal
 			
 function setmanal(t2,t3){
 
-		window.plugin.notification.local.add({ title:document.getElementById('noti_ti').innerHTML,
-			 message: document.getElementById('noti_mi').innerHTML,
-			 badge:1
-			 });
-		 
-	
+
 		window.plugin.notification.local.add({
 			 id:      1,
 			 title:   document.getElementById('noti_ti').innerHTML,
@@ -87,11 +82,6 @@ function setmanal(t2,t3){
 	
 function quinzenal(t2,t21,t3,t31){
 		
-		
-		window.plugin.notification.local.add({ title:document.getElementById('noti_ti').innerHTML,
-			 message: document.getElementById('noti_mi').innerHTML,
-			 badge:1
-			  });
 		
 		window.plugin.notification.local.add({
 			 id:      1,
