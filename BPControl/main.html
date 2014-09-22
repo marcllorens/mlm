@@ -60,8 +60,8 @@
 <!-------------ISCROLL--------------->
 
 <script type="text/javascript" language="JavaScript" src="js/plugins/iscroll.js"></script>
-
 <script type="text/javascript" language="JavaScript" src="js/plugins/jquery-mobile-iscrollview.js"></script>
+
 
 
 <!-------------FAST CLICK---------------->
@@ -99,16 +99,17 @@
 
 </style>  <!--/css menu inferior-->
 <script>
-	//window.onorientationchange = function() { };
-	//funció  prevent click event twice
+
+
 	$(document).ready(function(){
-		
-		//$(".btrS").unbind().click(function() {
-		//	server_send();
-		//});	
-				 
+
 	});
-      
+				 
+
+	window.onorientationchange = function() {
+
+		 };
+
 </script>
 </head>
 
@@ -184,20 +185,29 @@
 		<p class="titol" id="header_demo">INFO</p>
         <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
     </div>
+		</div>
     
-     <div data-role="navbar" class="nav_bar" data-grid="a" >
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+    	 <div>
+		 <img id="ig" class="zoom" src="img/demo/p2-0.png" style="border:hidden; "/>
+         </div>
+	
+          <p id="inf_txt">...</p>
+          
+            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
+          
+    </div>
+    
+    
+   <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
 			<ul>
             	<li><a  id="fw"  onClick="p101()" data-icon="custom"></a></li>
        			<li><a  id="bk" onClick="p102()"  data-icon="custom"></a></li>
 			</ul>
 		</div>
-    
-    <div data-role="content" style="background-color:#FFF" data-iscroll>
-    	 <div>
-		 <img id="ig" class="zoom" style="border:hidden;  "/>
-         </div>
-		  <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-    </div>
+   </div>
+   
    
 </div>  <!--/demo-->
 
@@ -209,20 +219,26 @@
         <img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
     </div>
     
-     <div data-role="navbar" class="nav_bar" data-grid="a" >
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+    	 <div>
+		 <img id="igp" class="zoom" src="img/demo/p2-0.png" style="border:hidden; "/>
+         </div>
+	
+          <p id="info_txt">...</p>
+          
+            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
+          
+    </div>
+    
+   <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
 			<ul>
             	<li><a  id="fw"  onClick="p111()" data-icon="custom"></a></li>
        			<li><a  id="bk" onClick="p112()"  data-icon="custom"></a></li>
 			</ul>
 		</div>
-    
-    <div data-role="content" style="background-color:#FFF" data-iscroll>
-    	 <div>
-		 <img id="igp" class="zoom" style="border:hidden;  "/>
-         </div>
-		  <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-    </div>
-   
+   </div>
 </div>  <!--/demo-->
 
 <!--CONTACTE---------------------->
@@ -287,16 +303,8 @@
    
       <input type="number" id="prefix"  value="34"  required/>
       <input type="tel" id="tel" value="" placeholder="introdueixi el seu telefon" stylerequired/>
-      <!--<hr style="margin:20px"/>
-      <p id="tag_dlang" >Idioma </p>
-      <select name="langsel1" id="langsel" onChange="selChange()" data-theme="c" style="padding-top:20px">
-         	<option value="1">Català</option>
-            <option value="2">Castellano</option>
-            <option value="3">English</option>
-       </select>
-       <hr style="margin-top:20px; margin-bottom:20px"/> 
-       -->
-       <button onClick="tel()" data-icon="arrow-r" data-iconpos="right" id="tele_btn"> ENVIA </button>
+  
+      <button onClick="tel()" data-icon="arrow-r" data-iconpos="right" id="tele_btn"> ENVIA </button>
        
         <div >
              <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
@@ -330,7 +338,7 @@
                 <option value="yes">Yes</option>
         </select>
 		</div>
-      <!--  <input type="checkbox" id="licence" value="false"> <p id="licence_header">Llicència</p>-->
+      
         <p id="licence">bla bla bla ...</p>
 	</div>
 	
@@ -345,10 +353,11 @@
     <div data-role="header" id="panel_header" > 		
         <img id="bph"  src='img/imatges/bp.png'> 
 	</div>
+    <div data-role="content" data-iscroll>
   		<button class="cmenu" id="me_nom" >...</button>
       	<button class="listv" id="me_perfil" onClick="p1()">Perfil</button>
         <button class="listv" id="me_idioma" onClick="p10()">Idioma</button>
-       	<button class="listv" id="me_sortir" onClick="panel(),tanca()">Sortir</button>
+       	<button class="listv" id="me_sortir" onClick="p11()">Sortir</button>
        	<button class="cmenu" id="me_pa" >Presions Arterials</button>
     	<button class="listv" id="me_entrar" onClick="p2()">Entrar pressions</button> 	
     	<button class="cmenu" id="me_gp">Grafiques</button>
@@ -363,7 +372,7 @@
     	<button class="listv" id="me_centres" onClick="p3()" >Centre sanitari</button>	
     	<button class="listv" id="me_contacte" onClick="p8()">Contacte</button>	
     	<button class="listv" id="me_info" onClick="p9()">Info</button>	
-        
+    </div>      
  </div><!-- /menu lateral esquerra-->
   
 
@@ -388,14 +397,13 @@
 
 <div data-role="page" id="perfil" data-theme="d" data-prefetch>
   
-	<div data-role="header" data-theme="d"  data-id="myhead"   >
+	<div data-role="header" data-theme="d" data-id="myhead" >
     	<img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
     	<p class="titol" id="header_perfil">PANELL CONTROL</p>  
         <img class="latbtnd" onClick="panel_perfil()"  src='img/botons/wrench_plus_2_icon&32.png' border='0'/> 
 	</div>    
     
     <div data-role="content" data-iscroll>
-    
     	<div id="prf">
 	        <img style="width:130px;height:130px; border:hidden; border-radius:6px;box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="Image";  />
        		<p id="nom">...</p>
@@ -417,7 +425,7 @@
   	</div>
 </div> <!--/perfil-->
 
-<!--idioma----------------------->
+<!--IDIOMA---------------------->
 
 <div data-role="page" id="idioma" data-theme="d" data-prefetch>
   
@@ -427,31 +435,21 @@
  
 	</div>    
     
-   
+   <p id="idioma_label">Language</p>
     
-    <fieldset data-role="controlgroup" id="langsel">
-		<legend id="idioma_label">Language</legend>
+    <fieldset data-role="controlgroup"  id="langsel" onClick="selChange()">
     
-     	<input type="radio" name="langsel1" id="radio-choice-1" value="1" />
-     	<label for="radio-choice-1">Català</label>
+     	<input type="radio"  onChange="selChange()" name="langsel1" id="rc1" value="1" />
+     	<label for="rc1">Català</label>
 
-     	<input type="radio" name="langsel1" id="radio-choice-2" value="2"  />
-     	<label for="radio-choice-2">Castellano</label>
+     	<input type="radio" onChange="selChange()" name="langsel1" id="rc2" value="2"  />
+     	<label for="rc2">Castellano</label>
 
-     	<input type="radio" name="langsel1" id="radio-choice-3" value="3"  />
-     	<label for="radio-choice-3">English</label>
-
+     	<input type="radio" onChange="selChange()" name="langsel1" id="rc3" value="3"  />
+     	<label for="rc3">English</label>
+		
 	</fieldset>
-    
-    
-    
-            
-  <!--     <select  name="langsel1" id="langsel" onChange="selChange()" data-theme="c" style="padding-top:20px">
-         	<option value="1">Català</option>
-            <option value="2">Castellano</option>
-            <option value="3">English</option>
-       </select>-->
-       
+      
        <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
 
   	
@@ -988,8 +986,29 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
   <p id="server_send_mis1" value="No s´han pogut enviar les dades. Ho vol reintentar?" hidden="true"/p>
   <!--menu lateral form---------->
   <p id="mf_esborrar_mis" value="segur que voleu esborrar tots els valors?" hidden="true"/p>
-    <p id="mf_guardar_mis" value="Les seves dades s'han guardat correctament" hidden="true"/p>
-
+  <p id="mf_guardar_mis" value="Les seves dades s'han guardat correctament" hidden="true"/p>
+   <!--demo ---------->
+  <p id="0" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="1" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="2" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="3" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="4" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="5" style="font-weight:bold; color:#A00;" hidden="true">...</p>
+  <p id="6" style="font-weight:bold; color:#A00;" value="6..." hidden="true"/p>
+  <p id="7" style="font-weight:bold; color:#A00;" value="7..." hidden="true"/p>
+  <p id="8" style="font-weight:bold; color:#A00;" value="8..." hidden="true"/p>
+  <p id="9" style="font-weight:bold; color:#A00;" value="9..." hidden="true"/p>
+  <p id="10" style="font-weight:bold; color:#A00;" value="10..." hidden="true"/p>
+  <p id="11" style="font-weight:bold; color:#A00;" value="11..." hidden="true"/p>
+  <p id="12" style="font-weight:bold; color:#A00;" value="12..." hidden="true"/p>
+  <p id="13" style="font-weight:bold; color:#A00;" value="13..." hidden="true"/p>
+  <p id="14" style="font-weight:bold; color:#A00;" value="14..." hidden="true"/p>
+  <p id="15" style="font-weight:bold; color:#A00;" value="15..." hidden="true"/p>
+  <p id="16" style="font-weight:bold; color:#A00;" value="16..." hidden="true"/p>
+  <p id="17" style="font-weight:bold; color:#A00;" value="17..." hidden="true"/p>
+  <p id="18" style="font-weight:bold; color:#A00;" value="18..." hidden="true"/p>
+  <p id="19" style="font-weight:bold; color:#A00;" value="19..." hidden="true"/p>
+  <p id="20" style="font-weight:bold; color:#A00;" value="20..." hidden="true"/p>
 </div> <!--/suport-->
 
 <div class="modal"></div>

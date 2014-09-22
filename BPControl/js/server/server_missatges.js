@@ -26,7 +26,8 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionPatientChat/restList/'+ token,
 			}	 	   
    	
      });
-
+	 
+	 
 	  $("#xat_container").html(div);
 	
 });

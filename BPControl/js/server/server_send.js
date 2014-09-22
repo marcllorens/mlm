@@ -49,7 +49,7 @@ function server_send(){
 			estat();
 			
 			//pintem la grafica			
-			server_graph_taula();
+			server_graph_res();
 			
 			//creem resultats
 			ok(data.patientStatus);

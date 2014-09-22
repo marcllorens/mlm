@@ -312,8 +312,8 @@ var d2=null, pul;
 var t15s6=null, t15d6=null, t30s6=null, t30d6=null, t15s8=null, t15d8=null, t30s8=null, t30d8=null;
 var sys6=null, sys8=null, systole=null, dia6=null, dia8=null, diastole=null, diastole1=null, systole1=null;
 $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restListAll/'+ token, function(data){
-	 var table ='<table id="taur" > ';
-	 table+='<thead><tr><th id="taur_th">' + document.getElementById('graf_ta_data').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_si').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_di').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_p').innerHTML + '</th></tr></thead><tbody>';
+	 var tabler ='<table id="taur" > ';
+	 tabler+='<thead><tr><th id="taur_th">' + document.getElementById('graf_ta_data').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_si').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_di').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_p').innerHTML + '</th></tr></thead><tbody>';
 	 
      $.each( data, function( index, item){
 		var taken= (item.dateTaken).split('T');
@@ -365,7 +365,7 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restListAll/'+ t
 					t15d8=null;
 					t30d6=null;
 					t30d8=null;			
-					table+='<tr><td id="taur_td">'+data[2]+'/'+data[1]+'</td><td id="taur_td">'+systole+'</td><td id="taur_td">'+diastole+'</td><td id="taur_td">'+pul+'</td></tr>';
+					tabler+='<tr><td id="taur_td">'+data[2]+'/'+data[1]+'</td><td id="taur_td">'+systole+'</td><td id="taur_td">'+diastole+'</td><td id="taur_td">'+pul+'</td></tr>';
 					systole=null;
 					dyastole=null;
 				}
@@ -373,52 +373,15 @@ $.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restListAll/'+ t
 		   }
 		}
      });
-     table+='</tbody></table>';
+     tabler+='</tbody></table>';
 	 
-	 $("#grf_resultats").html(table);
+	 $("#grf_resultats").html(tabler);
 	  
 	 grph_res();
 	 
-	//  reverseTableRows('taur'); //girem la taula
-});
-
-}
-
-/*function server_graph_res(){ // taula resultats
-	
-var token = localStorage.getItem('token');
-var d2=null;	
-$.getJSON('http://app2.hesoftgroup.eu/hypertensionBloodPressure/restList/'+ token, function(data){
-	
-	 var table_r ='<table id="taur">';
-	 table_r+='<thead><tr><th id="taur_th">' + document.getElementById('graf_ta_data').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_si').innerHTML + '</th><th id="taur_th">' + document.getElementById('graf_ta_di').innerHTML + '</th></tr></thead><tbody>';
-     $.each( data, function( index, item){
-		var taken= (item.dateTaken).split('T');
-		var hora = taken[1].split(':');
-		var data = taken[0].split('-');
-		
-		var inici=Date.today().toString("yyyy-MM-dd");	//establim 1 mes
-		date=(1).months().ago().toString("yyyy-MM-dd");
-		var d1=taken[0]+'T'+hora[0]+':'+hora[1];
-		if(taken[0]< inici){
-		}else if (taken[0]>=  fi) {
-		}else{
-			if(d2==d1){
-			}else{
-				d2=d1;  
-				table_r+='<tr><th id="taur_td">'+data[1]+'/'+data[2]+'</th><td id="taur_td">'+item.systole+'</td><td id="taur_td">'+item.diastole+'</td></tr>';
-			}
-		}
-     });
-     table_r+='</tbody></table>';
-	 
-     $("#grf_resultats").html(table_r);
-	 grph_res();
-	 
+	 reverseTableRows('taur'); //girem la taula
 });
 
 }
 
 
-
-*/

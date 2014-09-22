@@ -1,6 +1,11 @@
 /* CSS Document */
 
-
+.wrapper{
+	position:relative;
+	overflow:hidden;
+	}
+	
+	
 .demo {
     position:   fixed;
     z-index:    1000;
@@ -150,6 +155,7 @@ body.loading .modal {
 	min-with:70px;
 	float:left;
 	margin: 0 30px;
+	margin-bottom:35px;
 	margin-left: 17%;
 	color:#A00;
 	
@@ -160,40 +166,34 @@ body.loading .modal {
 	width:40%;
 	min-with:600px;
 	margin:0 30px;
+	margin-bottom:35px;
 	color:#A00;
 	
 	}
 	
 /* idioma  */
-
-#tag_dlang,#device_lang{
 	
-	float:left;
-	margin: 0 10px;
-	font-size:17px;
-	padding-bottom:10px;
-	padding-top:10px;
 	
+#langsel{
+	width:90%;
+	margin:10px;
 	}
 	
-	
-#device_lang1,#langsel{
-	
-	margin:0 50%;
-	width:40%;
-	text-align:right;
+#idioma_label{
 	font-size:18px;
+	margin:20px;
 	color:#A00;
-	padding-bottom:10px;
-	padding-top:10px;
-	}	
+	font-weight:bold;
+	}
+	
+#langsel1{
+	font-size:17px;
+	}
 	
 /* PERFIL  */
-
-#Image, #logo, #logoc, #ad_logo{
+#Image/*, #logo, #logoc, #ad_logo*/{
 	display: block;
 	margin: auto;
-	/*margin-left:35%;*/
 	}
 	
 #prf{
@@ -204,8 +204,9 @@ body.loading .modal {
 	}
 
 	
-#nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e, #CS_nom, #CS_nom1, #CS_descripcio, #CS_contactpax, #CS_contactweb, #ad_CS_nom, #ad_CS_nom1, #ad_CS_descripcio, #ad_CS_contactpax, #ad_CS_contactweb{
+#nom, #cognom, #birth ,#telu, #email, #deviceLanguage, #gender, #notificacions, #p7e, #CS_nom, #CS_nom1, #CS_descripcio, #CS_contactpax, #CS_contactweb, #CS_contactadr, #CS_contactcom, #CS_contactpho, #CS_contactml, #ad_CS_nom, #ad_CS_nom1, #ad_CS_descripcio, #ad_CS_contactpax, #ad_CS_contactweb, #ad_CS_contactadr, #ad_CS_contactcom, #ad_CS_contactpho, #ad_CS_contactml{
 	
+
 	font-size:16px;
 	margin: 10px;
 	width:80%;

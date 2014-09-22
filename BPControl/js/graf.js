@@ -234,6 +234,7 @@ function grph_all(){
 function grph_res(){
 
  $('#container_res').highcharts({
+
 		
         chart: {
 			type: 'spline'
@@ -243,6 +244,7 @@ function grph_res(){
             table: document.getElementById('grf_table_all')
         },
 		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
+		
 		exporting: {enabled: false},
        title: {
             text: ''
@@ -253,18 +255,19 @@ function grph_res(){
                             enabled: true
                         }
                     },
+		
         yAxis: {
 			 
 			plotLines: [{ 
                 color: 'red',
                 width: 2,
-                value:80,//document.getElementById('pad').innerHTML,
+                value:document.getElementById('pad').innerHTML,
                 dashStyle: 'ShortDash',
 				label : {
 						text : 'PAD'
 					}
             },{
-					value :130,//document.getElementById('pas').innerHTML,
+					value :document.getElementById('pas').innerHTML,
 					color : 'red',
 					dashStyle : 'shortdash',
 					width : 2,
@@ -295,13 +298,18 @@ function grph_res(){
             }
         },
 		tooltip: {
+	
             formatter: function() {
-                return '<b>'+ this.series.name +'</b><br/>'+
-                    this.point.y +' '+ this.point.name.toLowerCase();
-            }
-        }
+               return '<b>'+ this.series.name +'</b><br/>'+ this.point.y +' '+ this.point.name.toLowerCase();
+			}
+		}
     });
+	
 }
+
+
+
+		
 
 
 
