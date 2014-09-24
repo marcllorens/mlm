@@ -1,5 +1,5 @@
 function server_send_mis(){
-	if(document.getElementById('mis_text').value==null || document.getElementById('mis_text').value == '<empty>'|| document.getElementById('mis_text').value=='' ){alert("escriu alguna cosa carcamal");}
+	if(document.getElementById('mis_text').value==null || document.getElementById('mis_text').value == '<empty>'|| document.getElementById('mis_text').value=='' ){}
 	else{
 		var uuid = localStorage.getItem('token');
 		var url='http://app2.hesoftgroup.eu/hypertensionPatientChat/restSave';

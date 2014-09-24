@@ -12,7 +12,7 @@ function grph_mati(){
 			
             table: document.getElementById('grf_table_m')
         },
-		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
+		series: [{type:'spline',lineWidth: 3, index:3, visible:true},{type:'spline',lineWidth: 3, index:4, visible:true},{type: 'column', visible: false, color: '#CCC', index:2}],
 		exporting: {enabled: false},
        title: {
             text: ''
@@ -88,7 +88,7 @@ function grph_tarda(){
 		data: {
             table: document.getElementById('grf_table_t')
         },
-		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column',visible: false, color: '#CCC', index:2}],
 		exporting: {enabled: false},
        title: {
             text: ''
@@ -162,7 +162,7 @@ function grph_all(){
 		data: {
             table: document.getElementById('grf_table_all')
         },
-		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column',  visible: false, color: '#CCC', index:2}],
 		
 		exporting: {enabled: false},
        title: {
@@ -243,7 +243,7 @@ function grph_res(){
 		data: {
             table: document.getElementById('grf_table_all')
         },
-		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', color: '#CCC', index:2}],
+		series: [{type:'spline',lineWidth: 3, index:3},{type:'spline',lineWidth: 3, index:4},{type: 'column', visible: false, color: '#CCC', index:2}],
 		
 		exporting: {enabled: false},
        title: {
