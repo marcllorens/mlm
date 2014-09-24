@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
 <title>BPControl</title>
 <link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
 <link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
@@ -47,7 +48,6 @@
 <!----------IDIOMA-------->
 
 <script type="text/javascript" language="JavaScript" src="js/plugins/jquery.i18n.js"></script>
-
 <script type="text/javascript" language="JavaScript" src="js/lang.js"></script>
 
 
@@ -55,7 +55,6 @@
 
 <link rel="stylesheet" href="css/spinningwheel.css" type="text/css" media="all" />
 <script type="text/javascript" src="js/spinningwheel.js"></script>
-<!--?v=1.4-->
 
 <!-------------ISCROLL--------------->
 
@@ -93,36 +92,25 @@
 	background-image:linear-gradient(#ddd,#bbb);
 }
 
-#fw .ui-icon { background: url(img/botons/arrow_l_icon&32.png) 50% 50% no-repeat; background-size: 30px 30px; }	
-#bk .ui-icon { background: url(img/botons/arrow_r_icon&32.png) 50% 50% no-repeat; background-size: 30px 30px; }
-
+#fw .ui-icon { background: url(img/botons/br_prev_icon&48.png) 50% 50% no-repeat; background-size: 30px 30px; }	
+#bk .ui-icon { background: url(img/botons/br_next_icon&48.png) 50% 50% no-repeat; background-size: 30px 30px; }
 
 </style>  <!--/css menu inferior-->
 <script>
-
-
-	$(document).ready(function(){
-
-	});
-				 
-
-	window.onorientationchange = function() {
-
-		 };
-
+	
+	
 </script>
 </head>
 
 <body id="bdy" >
 
-<!-- PANTALLA INICIAL -->
+<!-- IMATGE INICIAL -->
 
 <div data-role="page" id="start1" data-theme="d">
   
         <img src='img/imatges/bpcontrol.jpeg' style=" border:hidden; display:block; margin:auto; "/>
-    
-   
-</div> <!-- /inici-->
+
+</div> <!-- /inicial-->
 
 <!-- PANTALLA INICIAL -->
 
@@ -132,10 +120,8 @@
     </div>
     <div id="zprive" onClick="private()">
   	<h5 id="zp_txt" style="margin-left:15px;">Àrea pacient</h5>
-    </div>
-    	
+    </div> 	
     <div id="slideshow">
-    	
         <div >
             <img class="zoom" src='img/imatges/clinic2.png' style="border:hidden; box-shadow: 0 0 20px rgba(0,0,0,0.4); "/>
         </div>
@@ -145,32 +131,27 @@
         <div>
         <img class="zoom" src='img/imatges/smaria2.png' style=" border:hidden; box-shadow: 0 0 20px rgba(0,0,0,0.4); "/>
       
-        </div >    
-     
-        
+        </div >     
     </div>
-	
-    
     <div data-role="footer" class="nav_bar" data-position="fixed"  data-id="myfoot1" data-theme="c">
      	<div data-role="navbar" data-theme="c" class="nav_bar" data-grid="b" >
 			<ul> 
-            	<li><a  id="mf1" data-theme="c" href="#demo" data-icon="custom" >Info</a></li>
+            	<li><a  id="mf1" data-theme="c" href="#demo1" data-icon="custom" >Info</a></li>
        			<li><a  id="mp1" data-theme="c" href="#centres_sanitaris" data-icon="custom" >Centres sanitaris</a></li>
 				<li><a  id="mg1" data-theme="c" href="#contacte" data-icon="custom">Contacte</a></li>
 			</ul> 
 		</div>
 	</div>
-   
-</div> <!-- /inici-->
+</div> <!-- /start-->
 
 <!--TOTS ELS CENTRES SANITARIS----------------------->
 
 <div data-role="page" id="centres_sanitaris">
-	<div data-role="header" data-theme="d" > 
+	<div data-role="header" data-theme="d" onClick="goBack()" > 
 		<p class="titol" id="header_centres">CENTRES SANITARIS</p>
-        <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+        <img class="latbtne" onClick="goBack()" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
     </div>
-    <div data-role="content" data-iscroll>	<!--//data-iscroll-->
+    <div data-role="content" data-iscroll>	
         
         <div id="server_centres_all"></div>	    
         
@@ -180,73 +161,452 @@
 
 <!--DEMO----------------------->
 
-<div data-role="page" style="background-color:#FFF" id="demo">
-	<div data-role="header" data-theme="d" > 
+<div data-role="page" style="background-color:#FFF" id="demo1">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
 		<p class="titol" id="header_demo">INFO</p>
-        <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
     </div>
-		</div>
     
     <div data-role="content" style="background-color:#FFF" data-iscroll>
-    	 <div>
-		 <img id="ig" class="zoom" src="img/demo/p2-0.png" style="border:hidden; "/>
-         </div>
-	
-          <p id="inf_txt">...</p>
-          
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-          
+		 <img id="ig" class="zoom" src="img/demo/p3-1.png" style="border:hidden; "/>
+         <p id="1" style="color:#A00;" value=""/p>      
     </div>
-    
-    
-   <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+  
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
    		<div data-role="navbar" class="nav_bar" data-grid="a" >
 			<ul>
-            	<li><a  id="fw"  onClick="p101()" data-icon="custom"></a></li>
-       			<li><a  id="bk" onClick="p102()"  data-icon="custom"></a></li>
-			</ul>
-		</div>
-   </div>
-   
-   
-</div>  <!--/demo-->
-
-<!--DEMO pacient----------------------->
-
-<div data-role="page" style="background-color:#FFF" id="demop">
-	<div data-role="header" data-theme="d" > 
-		<p class="titol" id="header_demop">INFO</p>
-        <img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
-    </div>
-    
-    
-    <div data-role="content" style="background-color:#FFF" data-iscroll>
-    	 <div>
-		 <img id="igp" class="zoom" src="img/demo/p2-0.png" style="border:hidden; "/>
-         </div>
-	
-          <p id="info_txt">...</p>
-          
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-          
-    </div>
-    
-   <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
-   		<div data-role="navbar" class="nav_bar" data-grid="a" >
-			<ul>
-            	<li><a  id="fw"  onClick="p111()" data-icon="custom"></a></li>
-       			<li><a  id="bk" onClick="p112()"  data-icon="custom"></a></li>
+            	<li><a  id="fw"  data-icon="custom"></a></li>
+       			<li><a  id="bk" href="#demo2"  data-icon="custom"></a></li>
 			</ul>
 		</div>
    </div>
 </div>  <!--/demo-->
+
+<!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo2">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-2.png" style="border:hidden; "/>
+          <p id="2" style="color:#A00;" value=""/p>
+  	</div>
+    
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo1" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo3" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+<!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo3">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-3.png" style="border:hidden; "/>
+          <p id="3" style="color:#A00;" value=""/p>
+  	</div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo2" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo4" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+ <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo4">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-4.png" style="border:hidden; "/>
+           <p id="4" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo3" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo5" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo5">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-5.png" style="border:hidden; "/>
+           <p id="5" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo4" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo6" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo6">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-6.png" style="border:hidden; "/>
+         <p id="6" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo5" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo7" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo7">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-7.png" style="border:hidden; "/>
+         <p id="7" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo6" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo8" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo8">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-8.png" style="border:hidden; "/>
+         <p id="8" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo7" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo9" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo--> 
+
+ <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo9">
+	<div data-role="header" data-theme="d" onClick="p111()" > 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne"  src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-9.png" style="border:hidden; "/>
+         <p id="9" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo8" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo10" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo10">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-10.png" style="border:hidden; "/>
+         <p id="10" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo9" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo11" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo11">
+	<div data-role="header" data-theme="d" onClick="p111()" > 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" id="bt" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-11.png" style="border:hidden; "/>
+         <p id="11" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo10" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo12" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo12">
+	<div data-role="header" data-theme="d" onClick="p111()" > 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-12.png" style="border:hidden; "/>
+         <p id="12" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo11" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo13" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo13">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-13.png" style="border:hidden; "/>
+         <p id="13" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo12" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo14" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo14">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-14.png" style="border:hidden; "/>
+         <p id="14" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo13" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo15" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo15">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-15.png" style="border:hidden; "/>
+         <p id="15" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo14" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo16" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo16">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-16.png" style="border:hidden; "/>
+         <p id="16" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo15" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo17" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo17">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-17.png" style="border:hidden; "/>
+         <p id="17" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo16" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo18" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo18">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-18.png" style="border:hidden; "/>
+         <p id="18" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo17" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo19" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+ 
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo19">
+	<div data-role="header" data-theme="d" onClick="p111()" > 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-19.png" style="border:hidden; "/>	
+         <p id="19" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo18" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" href="#demo20" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+  <!--DEMO----------------------->
+
+<div data-role="page" style="background-color:#FFF" id="demo20">
+	<div data-role="header" data-theme="d" onClick="p111()"> 
+		<p class="titol" id="header_demo">INFO</p>
+        <img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
+    </div>
+    
+    <div data-role="content" style="background-color:#FFF" data-iscroll>
+		 <img id="ig" class="zoom" src="img/demo/p3-20.png" style="border:hidden; "/>
+         <p id="20" style="color:#A00;" value=""/p>
+    </div>
+  <div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">	
+   		<div data-role="navbar" class="nav_bar" data-grid="a" >
+			<ul>
+            	<li><a  id="fw" href="#demo19" data-icon="custom" data-direction="reverse"></a></li>
+       			<li><a  id="bk" data-icon="custom"></a></li>
+			</ul>
+		</div>
+   </div>
+</div>  <!--/demo-->
+
 
 <!--CONTACTE---------------------->
 
 <div data-role="page" id="contacte">
-	<div data-role="header" data-theme="d" > 
+	<div data-role="header" data-theme="d" onClick="goBack()"> 
 		<p class="titol" id="header_contacte">CONTACTE</p>
-       <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+       <img class="latbtne" onClick="goBack()" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
     </div>
     <div data-role="content" data-iscroll>	
 		<div id="prf">
@@ -259,8 +619,7 @@
         	<p id="ad_CS_contactpax" >...</p>
             <p id="ad_CS_contactpho">...</p>
             <p id="ad_CS_contactml">...</p>
-            <p id="ad_CS_contactweb">...</p> 
-        	
+            <p id="ad_CS_contactweb">...</p>    	
          </div>	    
     </div>
 </div>  <!--/contacte-->
@@ -289,12 +648,11 @@
     </div>
 </div>  <!--/contacte-->
 
-
 <!--TELEFON----------------------->
 
 <div data-role="page" id="telefon">
-	<div data-role="header" data-theme="d" > 
-    <img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+	<div data-role="header" data-theme="d" onClick="goBack()"> 
+    <img class="latbtne" onClick="goBack()" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
 		<p class="titol" id="htel1">REGISTRE</p>
     </div>
         
@@ -302,24 +660,22 @@
 	<div data-role="content" id="fT">	
    
       <input type="number" id="prefix"  value="34"  required/>
-      <input type="tel" id="tel" value="" placeholder="introdueixi el seu telefon" stylerequired/>
+      <input type="tel" id="tel" value="" stylerequired/>
   
       <button onClick="tel()" data-icon="arrow-r" data-iconpos="right" id="tele_btn"> ENVIA </button>
        
         <div >
              <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-        </div>
-       
+        </div>     
 	</div>
-   
 </div>  <!--/telèfon-->
 
 
 <!-- -SMS------------------->
     
 <div data-role="page" id="sms1">
-	<div data-role="header" data-theme="d" >
-     	<img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+	<div data-role="header" data-theme="d" onClick="goBack()">
+     	<img class="latbtne" onClick="goBack()" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
 		<p class="titol" id="hsms">SMS</p>
 	</div>
     <div id="smstxt">
@@ -341,7 +697,6 @@
       
         <p id="licence">bla bla bla ...</p>
 	</div>
-	
 </div> <!-- /sms-->
 
 
@@ -400,10 +755,9 @@
 	<div data-role="header" data-theme="d" data-id="myhead" >
     	<img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
     	<p class="titol" id="header_perfil">PANELL CONTROL</p>  
-        <img class="latbtnd" onClick="panel_perfil()"  src='img/botons/wrench_plus_2_icon&32.png' border='0'/> 
 	</div>    
-    
-    <div data-role="content" data-iscroll>
+    <div id="wrapper" >
+    <div data-role="content" data-iscroll> <!--data-iscroll-->
     	<div id="prf">
 	        <img style="width:130px;height:130px; border:hidden; border-radius:6px;box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="Image";  />
        		<p id="nom">...</p>
@@ -416,11 +770,11 @@
             <p id="hospital">...</p>
             <p hidden="true" id="notificacions"></p>
      
-          </div>	    
+          </div>    
           <div >
-          
             <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
             <h1 id="versio">V 1.1.0</h1>
+        </div>
         </div>
   	</div>
 </div> <!--/perfil-->
@@ -429,7 +783,7 @@
 
 <div data-role="page" id="idioma" data-theme="d" data-prefetch>
   
-	<div data-role="header" data-theme="d"  data-id="myhead"   >
+	<div data-role="header" data-theme="d"  data-id="myhead" >
     	<img class="latbtne" onClick="panel()" src='img/botons/align_just_icon&32.png' border='0'/>
     	<p class="titol" id="header_idioma">IDIOMA</p>  
  
@@ -451,10 +805,9 @@
 	</fieldset>
       
        <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4); border-radius:7px; "/>
-
-  	
+       
+       
 </div> <!--/idioma-->
-
 
 
 <!--MENU LATERAL FORMLARI------------------------->
@@ -547,18 +900,16 @@
          </div>
          <div  data-role="content" id="fV"  data-theme="c">
           	<button id="btS" data-theme="c" onClick="sendV()">ENVIAR</button>
-      	 </div>
-       
+      	 </div>      
     </div>  
-
 </div>  <!--/formulari-->
 
 
 <!--VALIDACIÓ------------------------>
 
 <div data-role="page" id="formVal" data-theme="d" >
-	<div data-role="header" data-theme="d"  data-id="myhead" >
-    	<img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+	<div data-role="header" data-theme="d" data-id="myhead" onClick="goBack()" >
+    	<img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
         <p class="titol" id="header_validacio" >VALIDACIÓ</p>
 	</div> 
      <div id="scrl1" data-iscroll >  
@@ -620,7 +971,7 @@
              </div>
           </div>   <!--/Ff1-->
            <div  data-role="content" id="fV1" data-theme="c" >
-           		<button id="btrSS" class="btrS" data-theme="c" >ENVIAR</button>
+           		<button id="btrSS" class="btrS" onClick="server_send()" data-theme="c" >ENVIAR</button>
          </div>  <!--/fV1-->
       </div>  <!-- /srl1-->
 </div> <!--/validadió-->
@@ -655,11 +1006,7 @@
             <div id="container_res" ></div> 
             <div class="graf_table" id="grf_resultats"></div> 
          </div>	
-         <div >
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 0 20px rgba(0,0,0,0.4); border-radius:7px; "/>
-    	</div>
-     </div>
-     
+     </div>    
 </div> <!--/resultats-->
 
  
@@ -670,7 +1017,7 @@
    		<img class="latbtne" onClick="panel()"  src='img/botons/align_just_icon&32.png' border='0' />
   		<p class="titol" id="header_graph_g">  GLOBAL  </p>
 	</div>
-    <div  id="grclass" data-iscroll data-iscroll="scroller">
+    <div  id="grclass" data-iscroll>
      <div data-role="navbar"  data-theme="a" data-grid="b" >
         <ul>
             <li><a id="b_g1" data-theme="c" onClick="p61()" >1 mes</a></li>
@@ -687,9 +1034,6 @@
         	<div class="container" id="container_all" ></div>  
             <div class="graf_table" id="grf_table_all" hidden="true"></div>
         </div>
-        <div>
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 0 20px rgba(0,0,0,0.4); border-radius:7px; "/>
-    	</div>
      </div><!--/iscroll--> 
        
 	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed" data-theme="a">
@@ -729,9 +1073,6 @@
         	 <div class="container" id="container_m" ></div>
              <div class="graf_table" id="grf_table_m" hidden="true"></div>  
       </div>
-      <div>
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 0 20px rgba(0,0,0,0.4); border-radius:7px; "/>
-       </div>
     </div><!--/iscroll-->
 
 	<div data-role="footer" data-id="myfoot" class="nav_bar" data-position="fixed"  data-theme="a">
@@ -770,9 +1111,6 @@
         	<div class="container" id="container_t" > </div>         
             <div class="graf_table" id="grf_table_t" hidden="true"></div> 
     
-      </div>
-      <div>
-            <img class="zoom" src='img/imatges/bpl.png' style="border:hidden; margin-top:50px; box-shadow: 0 0 20px rgba(0,0,0,0.4); border-radius:7px; "/>
       </div> 
 	</div><!--/iscroll-->
     
@@ -838,7 +1176,6 @@
 	<div data-role="content" data-iscroll>  
    		<div class="graf_table" id="estat_pacient_taula"> </div>
 	</div> 
-
 </div> <!--/ estat pacient -->
 
 
@@ -858,10 +1195,10 @@
    </div>
    
    <div data-role="footer" id="mis_text_div" data-theme="d">
-             <input id="mis_text" onBlur="mis_css1()" onFocus="mis_css()"  value="" /> 
-            <div id="xat_btn1" onClick="server_send_mis(), mis_css1()">
+        <input id="mis_text" onBlur="mis_css1()" onFocus="mis_css()"  value="" /> 
+        <div id="xat_btn1" onClick="server_send_mis(), mis_css1()">
              	<h5 id="btn_xat_txt">Enviar</h5>
-            </div>               
+        </div>               
    </div>
 </div> <!--/comentaris-->
 
@@ -869,8 +1206,8 @@
 <!--AMPA -------------------------->
 
 <div data-role="page" id="ampa" data-theme="d">
-	<div data-role="header" data-theme="d" data-id="myhead" >
-    	<img class="latbtne" onClick="goBack()" src='img/botons/arrow_l_icon&32.png' border='0' />
+	<div data-role="header" data-theme="d" data-id="myhead" onClick="goBack()" >
+    	<img class="latbtne" src='img/botons/br_prev_icon&48.png' border='0' style="width:20px;height:20px; margin:15px" />
 		<p class="titol" id="header_ampa">AMPA</p>
         
 	</div>
@@ -888,8 +1225,7 @@ Cal estar en repòs al menys cinc minuts abans de la mesura.</p>
 		<p id="ampa_manegot_h" style="font-weight:bold; color:#A00;"> Manegot:</p>
     	<p id="ampa_manegot">Cal posar-lo 2-3 cm per sobre de la flexura del colze.
 Cal tenir en compte el tamany de manegot més adient segons el permímetre del braç.</p> 
-	</div>	
-    
+	</div>	   
 </div> <!--/ampa-->
 
 
@@ -915,7 +1251,7 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
     
     <div data-role="content" data-iscroll>
     	<div id="prf">
-	        <img style="width:130px;height:130px; border:hidden; border-radius:6px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="logo" />
+	        <img style="max-width:200px;height:130px; border:hidden; border-radius:6px; box-shadow: 0 20px 10px -10px rgba(0,0,0,0.4);" id="logo" />
        		<p id="CS_nom">...</p>
             <p id="CS_nom1">...</p>
         	<p id="CS_descripcio">...</p>
@@ -944,8 +1280,8 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  <p id="noti_ti" value="Recordatori" hidden="true"/p>
  <p id="noti_mi" value="Recordi enviar les pressions" hidden="true"/p>
  <p id="noti_tis" value="Benvingut" hidden="true"/p>
-  <p id="noti_mis" value="Benvingut a BPControl. Recordi enviar les pressions regularment" hidden="true"/p>
-  <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
+ <p id="noti_mis" value="Benvingut a BPControl. Recordi enviar les pressions regularment" hidden="true"/p>
+ <p id="graf_pa" value="Pressió arterial (mm Hg)" hidden="true"/p>
  
  <!--estat pacient------------------------------>
  
@@ -979,36 +1315,17 @@ Cal tenir en compte el tamany de manegot més adient segons el permímetre del b
  
  <!--ALERTS----------------------------->
  
-  <!--xat---------->
+ <!--xat---------->
  <p id="al_mis" value="Missatges actualitzats" hidden="true"/p>
-  <!--server_send---------->
-  <p id="server_send_mis" value="Hem rebut les seves pressions correctament" hidden="true"/p>
-  <p id="server_send_mis1" value="No s´han pogut enviar les dades. Ho vol reintentar?" hidden="true"/p>
-  <!--menu lateral form---------->
-  <p id="mf_esborrar_mis" value="segur que voleu esborrar tots els valors?" hidden="true"/p>
-  <p id="mf_guardar_mis" value="Les seves dades s'han guardat correctament" hidden="true"/p>
-   <!--demo ---------->
-  <p id="0" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="1" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="2" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="3" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="4" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="5" style="font-weight:bold; color:#A00;" hidden="true">...</p>
-  <p id="6" style="font-weight:bold; color:#A00;" value="6..." hidden="true"/p>
-  <p id="7" style="font-weight:bold; color:#A00;" value="7..." hidden="true"/p>
-  <p id="8" style="font-weight:bold; color:#A00;" value="8..." hidden="true"/p>
-  <p id="9" style="font-weight:bold; color:#A00;" value="9..." hidden="true"/p>
-  <p id="10" style="font-weight:bold; color:#A00;" value="10..." hidden="true"/p>
-  <p id="11" style="font-weight:bold; color:#A00;" value="11..." hidden="true"/p>
-  <p id="12" style="font-weight:bold; color:#A00;" value="12..." hidden="true"/p>
-  <p id="13" style="font-weight:bold; color:#A00;" value="13..." hidden="true"/p>
-  <p id="14" style="font-weight:bold; color:#A00;" value="14..." hidden="true"/p>
-  <p id="15" style="font-weight:bold; color:#A00;" value="15..." hidden="true"/p>
-  <p id="16" style="font-weight:bold; color:#A00;" value="16..." hidden="true"/p>
-  <p id="17" style="font-weight:bold; color:#A00;" value="17..." hidden="true"/p>
-  <p id="18" style="font-weight:bold; color:#A00;" value="18..." hidden="true"/p>
-  <p id="19" style="font-weight:bold; color:#A00;" value="19..." hidden="true"/p>
-  <p id="20" style="font-weight:bold; color:#A00;" value="20..." hidden="true"/p>
+ <!--server_send---------->
+ <p id="server_send_mis" value="Hem rebut les seves pressions correctament" hidden="true"/p>
+ <p id="server_send_mis1" value="No s´han pogut enviar les dades. Ho vol reintentar?" hidden="true"/p>
+ <!--menu lateral form---------->
+ <p id="mf_esborrar_mis" value="segur que voleu esborrar tots els valors?" hidden="true"/p>
+ <p id="mf_guardar_mis" value="Les seves dades s'han guardat correctament" hidden="true"/p>
+ <!--llicència---------->
+ <p id="mis_licence" value="Heu llegit l'acord de llicència?" hidden="true"/p>
+ 
 </div> <!--/suport-->
 
 <div class="modal"></div>

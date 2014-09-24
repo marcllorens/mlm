@@ -55,12 +55,12 @@ function server_send(){
 			ok(data.patientStatus);
 			
 			//tot correcte
-			navigator.notification.alert(
-				 		document.getElementById('server_send_mis').innerHTML,
-				 		null,
-				 		'BPControl',
-				 		'Done'
-						);	 
+			//navigator.notification.alert(
+			//	 		document.getElementById('server_send_mis').innerHTML,
+			//	 		null,
+			//	 		'BPControl',
+			//	 		'Done'
+			//			);	 
 		},
 		
 		error: function(){

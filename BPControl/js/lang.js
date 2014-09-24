@@ -8,8 +8,10 @@ function inicilang(){
 				localStorage.setItem('lang',1);
 			}else if(language.value=='es' || language.value=='español' || language.value=='esp'  || language.value=='spanish'){
 				localStorage.setItem('lang',2);
-			}else{	
+			}else if(language.value=='en' || language.value=='english' || language.value=='eng'){
 				localStorage.setItem('lang',3);
+			}else{	
+				localStorage.setItem('lang',2);
 			}
 			selMain()
 	});
@@ -219,6 +221,7 @@ function selMain(){
 		$('p#server_send_mis1')._t('server_send_mis1');
 		$('p#mf_esborrar_mis')._t('mf_esborrar_mis');
 		$('p#mf_guardar_mis')._t('mf_guardar_mis');
+		$('p#mis_licence')._t('mis_licence');
 		
   		
 	
@@ -237,7 +240,7 @@ function selMain(){
 		"mg":"global",
 		"mf":"afternoon",
 		//navbar1
-		"mp1":"Health center",
+		"mp1":"Centers",
 		"mg1":"Contact",
 		"mf1":"Info",
 		//centre sanitari
@@ -253,7 +256,7 @@ function selMain(){
 		"5":"Here we can find our personal data and data of the patient's health center [2].<br /> In the top of the screen we have acces to the main menú [1].",
 		"6":"Opening the main menú we have acces to all the app tools. Patient profile [1]. App language [2]. Exit app [3]. Introduce blood pressure [4]. Charts [5]. Clinical history [6]. Doctor's chat [7]. Doctor's vídeos [8]. Help and information [9].",
 		"7":"This tool allows us to change the language of the app.",
-		"8":"In this screen we introduce our blood pressures (systolic [3], diastolic [4] and pulse [5]) wich will be send to the doctor. We have acces to the menú[1] and other specific tools [2].<br />Touching any of the three input fields a selector shows up and we can select our blood tension and pulse.",
+		"8":"In this screen we introduce our blood pressures (systolic [3], diastolic [4] and pulse [5]) wich will be send to the doctor. We have acces to the menu[1] and other specific tools [2].<br />Touching any of the three input fields a selector shows up and we can select our blood tension and pulse.",
 		"9":"Scrolling up and down (systolic [4], diastolic [5] and pulse [6]) we can select the desired pressure and pulsep [3] and save them  [2] or cancel the selection [1].",
 		"10":"You must fill all the pressures before send them.",
 		"11":"In the left menú [1] you can find the tools to save [3], erase [2] or load [4] the blood pressures.<br />And a screen with some tips about how to make your measures [5].",
@@ -326,7 +329,7 @@ function selMain(){
 		"resultats":"Your blood presures have been received OK",
 		"valoracio":"...",
 		"recordatori":"Remember to take your presure and send the controls",
-		"result_ok":"Everything is okay.<br /> Remember to measure your blood pressures and to send the controls.",
+		"result_ok":"Everything is okay.<br /> Remember to measure your blood pressures and send the controls.",
 		"result_ko":"We have seen your records,<br /> do not worry, we will advance your visit.",
 		"result_idem":"Do not forget, no salt diet, remember to take medication and do physical activity.<br /> It is important.",
 		//ampa
@@ -380,6 +383,7 @@ function selMain(){
 		"server_send_mis1": "Your data can not be send. Do you want to retry?",
 		"mf_esborrar_mis":"Do you want to delete all the values?",
 		"mf_guardar_mis":"Your data have been saved",
+		"mis_licence":"You must accept the licence agreement",
 		
 		 
 	};
@@ -396,7 +400,7 @@ function selMain(){
 		"mg":"global",
 		"mf":"tarde",
 		//navbar1
-		"mp1":"Centro sanitario",
+		"mp1":"Centros",
 		"mg1":"Contacto",
 		"mf1":"Info",
 		//centre sanitari
@@ -405,7 +409,7 @@ function selMain(){
 		"header_demo":"INFORMACIÓN",
 		//demo pacient
 		"header_demop":"INFORMACIÓN",
-		"1":" Esta pantalla és accesible para pacientes no registrados.<br />En la parte inferior podemos encontrar enlaces con información sobre la aplicación [2], los centros donde actualmente se pueden apuntar al programa y la información e contacto, todos accesibles sin estar registrado en la aplicación.<br />En la aprte superior está el acceso al área privada de los pacientes [1] que, si previamente han sido dados de alta en el servidor por su medico, se podran registrar en la aplilcación  con su número de teléfono.<br />Cuando el usuario està registrado la aplicación salta esta pantalla de presentación i accede directamente al área de paciente.",
+		"1":" Esta pantalla és accesible para pacientes no registrados.<br />En la parte inferior podemos encontrar enlaces con información sobre la aplicación [2], los centros donde actualmente se pueden apuntar al programa y la información e contacto, todos accesibles sin estar registrado en la aplicación.<br />En la aprte superior está el acceso al área privada de los pacientes [1] que, si previamente han sido dados de alta en el servidor por su medico, se podran registrar en la aplilcación  con su número de teléfono.<br />Cuando el usuario està registrado la aplicación salta esta pantalla de presentación y accede directamente al área de paciente.",
 		"2":"Estas són tres pantallas con información sobre la aplicación, los centros sanitarios colaboradores [2] y los datos de contacto, a los que tendrá acceso cualquier usuario no registrado que se descargue la aplicació. Con el botón superior [1] volvemos a la pantalla inicial",
 		"3":"Los usuarios tienen que registrarse en la aplicación proporcionando el codigo de pais [1] i el número de teléfon [2], el qual se contrastará con la base de datos del hospital, si el teléfono introducido es correcto se enviará un SMS con un codigo al paciente para validar que és el propietario del telefono introducido [3].",
 		"4":"Si estamos registrados, el sistema nos enviará un SMS que tendremos que introducir en este punto [1]. Si la autenticación és valida, después de aceptar el acuerdo de licencia [3] accedemos al área de paciente [2].",
@@ -419,7 +423,7 @@ function selMain(){
 		"12":"En esta pantalla podremos leer consejos bàsicos sobre como hacer correctamente las medidas de presion arterial en nuestro domicilio [2] i volver a la pantalla anterior [1].",
 		"13":"Una vez llenadas las presiones de la mañana y las de la tarde podemos enviar las presiones [1], despues de confirmar en la pantalla de validación que són correctas.",
 		"14":"La pantalla de resultados nos muestra nuestro estado de salud a través de un semáforo [1] y una pequeña descripción [2].<br />Tambien podemos encontrar un vídeo [3] seleccionado por el médico con consejos sobre el control de la presión arterial. Estos vídeos i los estados del paciente los podremos recuperar en el apartado correspondiente del menú.",
-		"15":"História clínica paciente",
+		"15":"Historia clínica del paciente",
 		"16":"Vídeos enviados por el médico",
 		"17":"En la sección de gràficos podemos encontrar la evolución del paciente. Podemos encontrar diferentes modalidades de visualización en el menú inferior [3]. En Global veremos un gráfico  de todas nuestras presiones arteriales y en Mañana y Tarde nuestro historial en estas franjas horarias. En Lista tenemos un listado numérico de todas nuestras presiones.<br />En las cuatro pantallas podremos seleccionar los datos que queremos visualizar con los selectores de 1, 3 y 6 meses [1] o introducir directamente el rango de fechas a visualizar con los selectores de fecha[2].",
 		"18":"Listado de presiones.",
@@ -539,6 +543,7 @@ function selMain(){
 		"server_send_mis1": "No se han podido enviar sus datos. Quiere reintentarlo?" ,
 		"mf_esborrar_mis":"¿Seguro que quiere borrar todos los valores?",
 		"mf_guardar_mis":"Sus datos se han guardado correctamente",
+		"mis_licence":"Ha leido i aceptador el acuerdo de licéncia",
 		
 		 
 	};
@@ -556,7 +561,7 @@ function selMain(){
 		"mg":"global",
 		"mf":"tarda",
 		//navbar1
-		"mp1":"Centre sanitari",
+		"mp1":"Centres",
 		"mg1":"Contacte",
 		"mf1":"Info",
 		//centre sanitari
@@ -581,7 +586,7 @@ function selMain(){
 		"12":"En aquesta pantalla hi podem llegir un cosells bàsics de com fer correctament les mesures de pressió arterial al nostre domicili [2] i tornar a la pantalla anterior [1].",
 		"13":"Un cop hem omplert totes les mesures del mati i de la tarda podem enviar les pressions [1], desprès de confirmar a la pantalla de validació que són correctes.",
 		"14":"La pantalla de resultats ens mostra el nostre estat de salut a través d’un semàfor [1] i una petita descripció [2].<be />També hi podrem trobar un vídeo [3] seleccionat pel metge amb consells sobre el control de la pressió arterial. Aquests vídeos i els estats els podrem recuperar sempre que vulguem a l’apartat corresponent del menú.",
-		"15":"Estats pacient",
+		"15":"Història clínica del pacient",
 		"16":"Vídeos enviats pel metge",
 		"17":"En la secció de gràfics podreu trobar l’evolució del pacient. Hi podem trobar diferents modalitats de visualització en el menú inferior [3]. A Global veurem l’historial de totes les nostres pressions arterials i a Mati i Tarda dividits en aquestes franjes horàries. A llista hi tenim un llistat numèric de totes les nostres pressions.<br />En totes quatre pantalles podrem seleccionar les dates que volem visualitzar amb els selectors de 1, 3 i 6 mesos [1] o introduint directament el rang de dates a visualitzar amb els selectors de data [2].",
 		"18":"Llistat pressions.",
@@ -701,6 +706,7 @@ function selMain(){
 		"server_send_mis1": "No s´han pogut enviar les dades. Ho vol reintentar?" ,
 		"mf_esborrar_mis":"Segur que que vol esborrar tots els valors?",
 		"mf_guardar_mis":"Les seves dades s'han guardat correctament",
+		"mis_licence":"Ha llegit i acceptat l'acord de llicència",
 		
 			
 			

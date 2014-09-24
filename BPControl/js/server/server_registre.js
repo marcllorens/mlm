@@ -5,7 +5,7 @@ function tel(){
 	var prefix = $(document.getElementById("prefix")).val();
 	var telefon = $(document.getElementById("tel")).val();
 	
-	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateMobile/"+ prefix ;//+ telefon;  
+	arxiuValidacio = "http://app2.hesoftgroup.eu/hypertensionPatient/restValidateMobile/"+ prefix + telefon;  
 	
 	$.getJSON(arxiuValidacio);
 	$.mobile.changePage("#sms1");

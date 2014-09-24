@@ -15,18 +15,7 @@
 document.addEventListener("deviceready", inici, false);
 function inici() { 
 	
-	//evitar doble click
-	function dobleclick(event)
-	{
-  		if(event.handled !== false)
-  		{
-			server_send();
-   			event.handled = false;
-  		}
- 	 return false;
-	}
-
-	$('.btrS').click('event', dobleclick);
+	
 	 	
 	//eliminar 300ms wait
 	$(function() {
@@ -39,7 +28,7 @@ function inici() {
 	//COMPROVACIO TOKEN 
 	var ltoken = localStorage.getItem('token') || '<empty>'; 
 	
-   	if(ltoken=='<empty>' || null){
+	if(ltoken=='<empty>' || null){
 		crg(); //efecte loading
 		inicilang(); // establim idioma telèfon	
 		server_centres_all(); //carreguem centres sanitaris
@@ -475,7 +464,14 @@ function x4(){
 	
 	
 function pin(){
-		if(document.getElementById('licence').value =='no'){alert("licence");}
+		if(document.getElementById('licence').value =='no'){
+			navigator.notification.alert(
+                   document.getElementById('mis_licence').innerHTML,
+                    null,
+                    'BPControl',
+                    'Acceptar'
+                );
+			}
 		else{
 				sms();
 			}
@@ -569,7 +565,7 @@ function p8(){
 	
 function p9(){
 	panel();
-	$.mobile.changePage('#demop');
+	$.mobile.changePage('#demo1');//demop
 	}
 	
 function p10(){
@@ -580,23 +576,6 @@ function p11(){
 	panel();
 	tanca();
 	}
-
-//perfil
-
-function p15(){ //temporal  eliminar!!!!
-	panel_perfil();
-	$.mobile.changePage('#start');
-	}
-	
-function p66(){  //temporal    eliminar!!!!
-	panel_perfil();
-	$.mobile.changePage('#resultat');
-	}	
-	
-function p67(){  //temporal    eliminar!!!!
-	panel_perfil();
-	fi();
-	}	
 	
 //formulari
 
@@ -606,63 +585,16 @@ function p21(){
 	}
 
 //demo
-/*function p101(){
-	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-	var lng=parseInt(localStorage.getItem('lang'));		
-	if (ct>0){
-				ct=ct-1;
-				localStorage.setItem('ct', ct);
-				document.getElementById("ig").src= 'img/demo/p'+lng+'-'+ct+'.png';
-	}
 
-	}*/
-function p101(){
-	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-	var lng=parseInt(localStorage.getItem('lang'));		
-	if (ct>0){
-				ct=ct-1;
-				localStorage.setItem('ct', ct);
-				document.getElementById("ig").src= 'img/demo/p3-'+ct+'.png';
-				document.getElementById('inf_txt').innerHTML= document.getElementById(ct).innerHTML;
-	}
-
-	}
-	
-	
-function p102(){
-	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-	var lng=parseInt(localStorage.getItem('lang'));		
-	if (ct<20){
-				ct=ct+1;
-				localStorage.setItem('ct', ct);
-				ocument.getElementById("ig").src= 'img/demo/p3-'+ct+'.png';
-				document.getElementById('inf_txt').innerHTML= document.getElementById(ct).innerHTML;
-	}
-
-	}
-
-//demo pacient
 function p111(){
-	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-	var lng=parseInt(localStorage.getItem('lang'));
-	if (ct>0){
-				ct=ct-1;
-				localStorage.setItem('ct', ct);
-				document.getElementById("igp").src= 'img/demo/p3-'+ct+'.png';
-				document.getElementById('info_txt').innerHTML= document.getElementById(ct).innerHTML;
-	}
-	}
+	var ltoken = localStorage.getItem('token') || '<empty>'; 
+	if(ltoken=='<empty>' || null){	   		
+			$.mobile.changePage("#start");
+	}else {
+			 $.mobile.changePage("#perfil");
+		}
+}
 	
-function p112(){
-	var ct = parseInt(localStorage.getItem('ct')) || 0; 
-	var lng=parseInt(localStorage.getItem('lang'));		
-	if (ct<20){
-				ct=ct+1;
-				localStorage.setItem('ct', ct);
-				document.getElementById("igp").src= 'img/demo/p3-'+ct+'.png';
-				document.getElementById('info_txt').innerHTML= document.getElementById(ct).innerHTML;
-	}
-	}
 
 
 //grafica global
@@ -819,19 +751,15 @@ function al1(){
 
 function mis_css(){
 	$("#comentaris").animate({top:"-260px"});
-	//$("#comentaris").animate({top:window.heightDiff});
-	alert("mida "+ a);
-	//$.mobile.activePage.animate({top:"-260px"});
 }
  function mis_css1(){
 	 $("#comentaris").animate({top:"0"});
-	//$.mobile.activePage.animate({top:"0"});	
 }
 
 //videos
 
 function vid(){
-	var div='';//<hr/>
+	var div='';
 	var count = localStorage.getItem('count') || 0;
 	var i=1, a=0;
 	for(i=1; i<=count; i++){

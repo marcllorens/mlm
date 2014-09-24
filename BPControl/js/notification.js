@@ -45,11 +45,11 @@ if(pqst==1){ //setmanal
 	  	};
 	}else if(pqst==2 || pqst==3){//quinzenal
 		
-		t2=new Date.today().set({ day: 1, hour: 8, minute: 00 });
-		t21=new Date.today().set({ day: 1, hour: 21, minute: 00 });
+		t2=new Date.today().next().months().set({ day: 1, hour: 8, minute: 00 });		
+		t21=new Date.today().next().months().set({ day: 1, hour: 21, minute: 00 });
 		
-		t3=new Date.today().set({ day: 15, hour: 8, minute: 00 });
-		t31=new Date.today().set({ day: 15, hour: 21, minute: 00 });
+		t3=new Date.today().next().months().set({ day: 15, hour: 8, minute: 00 });
+		t31=new Date.today().next().months().set({ day: 15, hour: 21, minute: 00 });
 		quinzenal(t2,t21,t3,t31);
 	 
 	}
@@ -81,7 +81,6 @@ function setmanal(t2,t3){
 	};
 	
 function quinzenal(t2,t21,t3,t31){
-		
 		
 		window.plugin.notification.local.add({
 			 id:      1,
