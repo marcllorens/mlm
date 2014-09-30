@@ -350,7 +350,7 @@ function selMain(){
 		"bSMS":"Enter",
 		"smstxt":"Introduce the SMS code received",
 		"licence_header":"LICENCE",
-		"licence":"English Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
+		"licence":"English El usuario ha de cumplimentar adecuadamente el formulario de registro para gozar de los beneficios de ser usuario registrado.<br /> Al instalarse este programa el usuario acepta formar parte del seguimiento continuo de su estado mediante centro sanitario y usuario. El usuario acepta y reconoce que la acceptación de la licencia  tiene los mismos efectos que un contrato por escrito, negociado y firmado por usted. Si usted no está de acuerdo, no utilice este programa.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Profile",
@@ -510,7 +510,7 @@ function selMain(){
 		"bSMS":"Entrar",
 		"smstxt":"Introduzca el codigo recibido por SMS",
 		"licence_header":"LICÉNCIA",
-		"licence":"Castellano Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
+		"licence":"El usuario ha de cumplimentar adecuadamente el formulario de registro para gozar de los beneficios de ser usuario registrado.<br /> Al instalarse este programa el usuario acepta formar parte del seguimiento continuo de su estado mediante centro sanitario y usuario. El usuario acepta y reconoce que la acceptación de la licencia  tiene los mismos efectos que un contrato por escrito, negociado y firmado por usted. Si usted no está de acuerdo, no utilice este programa.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Perfil",
@@ -673,7 +673,7 @@ function selMain(){
 		"bSMS":"Entrar",
 		"smstxt":"Introdueixi el codi rebut per SMS",
 		"licence_header":"LLICÈNCIA",
-		"licence":"Català Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
+		"licence":"L'usuari ha de cumplimentar adecuadament el formulari de registre per tal de gaudir dels beneficis de ser usuari registrat.<br /> En instal·lar-se aquest programa l'usuari accepta formar part del seguiment continu del seu estat a través de centre sanitari i usuari. L'usuari accepta i reconeix que l'acceptació de la llicència té els mateixos efectes que un contracte per escrit, negociat i firmat per vostè. Si no hi està d'acord, no utilitzi el programa.",
 		//menu lateral esquerra
 		//"me_nom":"Register",
       	"me_perfil":"Perfil",
